@@ -206,9 +206,13 @@
     }
 
     #projects {
-      margin-bottom: 30px;
+      margin-bottom: 45px;
     }
-    
+
+    #learning {
+      margin-bottom: 45px;
+   }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       body { padding: 0 20px 30px; }
