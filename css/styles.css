@@ -188,6 +188,22 @@
       font-size: 0.95rem;
     }
 
+    /* SECTION LINKS */
+    .section-link { 
+       margin-top: 12px;
+  }
+
+    .section-link a {
+      color: #0056b3;
+      text-decoration: none;
+      font-weight: 600;
+     transition: color 0.2s ease;
+  }
+
+    .section-link a:hover {
+      color: #003366;
+     text-decoration: underline;
+  }
     /* RESPONSIVE */
     @media (max-width: 768px) {
       body { padding: 0 20px 30px; }
