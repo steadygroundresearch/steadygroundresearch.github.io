@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Data Structures — Learning Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+/* Backgrounds */
+--ink:#f4f7fa;          /* page background */
+--ink-2:#e8eef5;
+/* Cards */
+--card:#dfeaf7;         /* soft blue */
+--card-hover:#d2e2f3;   /* slightly darker blue on hover */
+/* Borders */
+--line:#bfd0e2;
+/* Text */
+--paper:#111827;         /* almost black */
+--paper-dim:#5b6472;     /* muted grey-blue for secondary text */
+
+/* Accent colours */
+--brass:#c9a227;
+--brass-dim:#8a712088;
+--teal:#2f7f8c;
+--teal-dim:#2f7f8c55;
+--radius:10px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+background:var(--ink);
+color:var(--paper);
+font-family:'Inter',sans-serif;
+line-height:1.5;
+-webkit-font-smoothing:antialiased;
+  }
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 120px;}
+
+/* ---------- HERO ---------- */
+.hero{
+padding:32px 0 64px;
+border-bottom:1px solid var(--line);
+position:relative;
+  }
+.eyebrow{
+font-family:'IBM Plex Mono',monospace;
+font-size:12.5px;
+letter-spacing:0.14em;
+text-transform:uppercase;
+color:var(--teal);
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:22px;
+  }
+.eyebrow::before{
+content:"";
+width:22px;height:1px;
+background:var(--teal);
+display:inline-block;
+  }
+h1{
+font-family:'Fraunces',serif;
+font-weight:600;
+font-size:clamp(2.4rem,5vw,4rem);
+line-height:1.04;
+margin:0 0 22px;
+color:var(--paper);
+max-width:16ch;
+  }
+.lede{
+font-size:1.08rem;
+color:var(--paper-dim);
+max-width:none;
+margin:0 0 40px;
+  }
+.lede strong{color:var(--paper);font-weight:600;}
+.combo-note{
+font-style:italic;
+border-left:3px solid var(--brass);
+background:var(--card);
+padding:16px 20px;
+margin:0 0 40px;
+border-radius:0 8px 8px 0;
+color:var(--paper-dim);
+position:relative;
+  }
+.combo-note strong{font-style:normal;}
+
+/* ---------- HERO TABLE (i x t grid) ---------- */
+.hero-grid-frame{
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+gap:8px;
+margin-top:32px;
+  }
+.grid-bridge{
+font-size:0.98rem;
+color:var(--paper-dim);
+max-width:60ch;
+margin:0 0 20px;
+  }
+.grid-bridge strong{color:var(--paper);}
+.ixt-caption{
+font-family:'IBM Plex Mono',monospace;
+font-size:11.5px;
+color:var(--paper-dim);
+letter-spacing:0.04em;
+  }
+.ixt-table{
+border-collapse:collapse;
+font-family:'IBM Plex Mono',monospace;
+  }
+.ixt-table th,
+.ixt-table td{
+padding:8px 14px;
+text-align:center;
+  }
+.ixt-table thead th{
+font-size:12px;
+font-weight:600;
+color:var(--paper-dim);
+letter-spacing:0.03em;
+  }
+.ixt-table tbody th{
+font-size:12px;
+font-weight:600;
+color:var(--paper-dim);
+text-align:left;
+padding-right:18px;
+  }
+.ixt-cell{
+display:inline-block;
+width:20px;
+height:20px;
+border-radius:4px;
+opacity:0;
+animation:cellIn .5s ease forwards;
+  }
+.ixt-cell.filled{background:var(--brass);}
+.ixt-cell.empty{background:transparent;border:2px solid var(--line);}
+@keyframes cellIn{to{opacity:1;}}
+/* stagger the fade-in left to right, row by row */
+.ixt-table tr:nth-child(1) .ixt-cell{animation-delay:.05s;}
+.ixt-table tr:nth-child(2) .ixt-cell{animation-delay:.15s;}
+.ixt-table tr:nth-child(3) .ixt-cell{animation-delay:.25s;}
+
+@media (prefers-reduced-motion: reduce){
+  .ixt-cell{animation:none;opacity:1;}
+}
+
+/* ---------- FILTER PILLS ---------- */
+.filters{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin:56px 0 40px;
+  }
+.pill{
+font-family:'IBM Plex Mono',monospace;
+font-size:12.5px;
+font-weight:500;
+letter-spacing:0.02em;
+padding:9px 16px;
+border-radius:999px;
+border:1px solid var(--line);
+background:transparent;
+color:var(--paper-dim);
+cursor:pointer;
+transition:all .18s ease;
+  }
+.pill:hover{border-color:var(--teal);color:var(--paper);}
+.pill.active{
+background:var(--brass);
+border-color:var(--brass);
+color:#ffffff;
+font-weight:700;
+  }
+.pill:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+
+
+/* ---------- ICON LEGEND ---------- */
+.icon-legend{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+align-items:center;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:14px 18px;
+margin:0 0 32px;
+font-family:'IBM Plex Mono',monospace;
+font-size:11.5px;
+color:var(--paper-dim);
+  }
+.icon-legend .lg-item{display:flex;align-items:center;gap:8px;}
+.icon-legend .lg-swatch{
+width:13px;height:13px;border-radius:2px;flex-shrink:0;
+  }
+.lg-swatch.lg-filled{background:var(--brass);}
+.lg-swatch.lg-empty{background:var(--line);}
+.lg-swatch.lg-alt{background:var(--teal);}
+
+/* micro-grid caption under each icon */
+.mg-caption{
+font-family:'IBM Plex Mono',monospace;
+font-size:10px;
+color:var(--paper-dim);
+text-align:center;
+width:56px;
+margin-top:6px;
+line-height:1.3;
+  }
+.icon-col{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+
+/* ---------- SECTION LABEL ---------- */
+.section-label{
+font-family:'IBM Plex Mono',monospace;
+font-size:12px;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:var(--paper-dim);
+margin:0 0 18px;
+  }
+
+/* ---------- CARDS ---------- */
+.grid-cards{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:16px;
+  }
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:22px 22px 8px;
+transition:border-color .18s ease, background .18s ease;
+  }
+.card:hover{border-color:var(--teal-dim);background:var(--card-hover);}
+.card-top{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:16px;
+margin-bottom:14px;
+  }
+.card h3{
+font-family:'Fraunces',serif;
+font-weight:600;
+font-size:1.22rem;
+margin:0 0 6px;
+color:var(--paper);
+  }
+.cat-tag{
+font-family:'IBM Plex Mono',monospace;
+font-size:10.5px;
+letter-spacing:0.08em;
+text-transform:uppercase;
+color:var(--teal);
+  }
+.oneline{
+color:var(--paper-dim);
+font-size:0.94rem;
+margin:0 0 14px;
+  }
+
+/* micro grid icon */
+.micro-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:3px;
+width:56px;
+height:56px;
+flex-shrink:0;
+  }
+.micro-grid span{
+border-radius:2px;
+background:var(--brass);
+  }
+.micro-grid.mg-unbalanced span:nth-child(3),
+.micro-grid.mg-unbalanced span:nth-child(6),
+.micro-grid.mg-unbalanced span:nth-child(9),
+.micro-grid.mg-unbalanced span:nth-child(14){background:var(--line);}
+
+.micro-grid.mg-short{grid-template-rows:repeat(2,1fr);}
+.micro-grid.mg-short span:nth-child(n+9){display:none;}
+
+.micro-grid.mg-long{grid-template-columns:repeat(8,1fr);}
+.micro-grid.mg-long span:nth-child(n+9){background:var(--brass);}
+.micro-grid.mg-long span{width:auto;}
+
+.micro-grid.mg-micro span{background:var(--teal);}
+.micro-grid.mg-micro span:nth-child(odd){opacity:0.55;}
+
+.micro-grid.mg-macro span:nth-child(-n+16){background:var(--line);}
+.micro-grid.mg-macro span:nth-child(1),
+.micro-grid.mg-macro span:nth-child(2),
+.micro-grid.mg-macro span:nth-child(5),
+.micro-grid.mg-macro span:nth-child(6){background:var(--teal);}
+
+.micro-grid.mg-true span:nth-child(4n+1){background:var(--brass);}
+.micro-grid.mg-true span:nth-child(4n+2){background:var(--teal);}
+.micro-grid.mg-true span:nth-child(4n+3){background:var(--brass-dim);}
+.micro-grid.mg-true span:nth-child(4n+4){background:var(--line);}
+
+.micro-grid.mg-pseudo span:nth-child(4n+1){background:var(--brass);}
+.micro-grid.mg-pseudo span:nth-child(4n+2){background:var(--teal);}
+.micro-grid.mg-pseudo span:nth-child(4n+3){background:var(--paper-dim);}
+.micro-grid.mg-pseudo span:nth-child(4n){background:var(--line);}
+
+.micro-grid.mg-rotating span{background:var(--line);}
+.micro-grid.mg-rotating span:nth-child(1),
+.micro-grid.mg-rotating span:nth-child(2),
+.micro-grid.mg-rotating span:nth-child(6),
+.micro-grid.mg-rotating span:nth-child(7),
+.micro-grid.mg-rotating span:nth-child(11),
+.micro-grid.mg-rotating span:nth-child(12),
+.micro-grid.mg-rotating span:nth-child(16){background:var(--brass);}
+
+.micro-grid.mg-2d span:nth-child(-n+4){background:var(--teal);}
+.micro-grid.mg-2d span:nth-child(4n+1){background:var(--brass);}
+
+.micro-grid.mg-3d{position:relative;}
+.micro-grid.mg-3d span{background:var(--line);}
+.micro-grid.mg-3d span:nth-child(-n+8){background:var(--brass);opacity:0.9;}
+.micro-grid.mg-3d span:nth-child(n+9){background:var(--teal);opacity:0.6;}
+
+/* expand/details */
+details{border-top:1px solid var(--line);margin-top:2px;}
+summary{
+list-style:none;
+cursor:pointer;
+padding:12px 0;
+font-family:'IBM Plex Mono',monospace;
+font-size:11.5px;
+letter-spacing:0.06em;
+text-transform:uppercase;
+color:var(--paper-dim);
+display:flex;
+align-items:center;
+gap:8px;
+  }
+summary::-webkit-details-marker{display:none;}
+summary::before{
+content:"+";
+color:var(--brass);
+font-family:'Fraunces',serif;
+font-size:15px;
+width:14px;
+  }
+details[open] summary::before{content:"–";}
+details[open] summary{color:var(--paper);}
+.details-body{
+padding:0 0 20px;
+color:var(--paper-dim);
+font-size:0.93rem;
+line-height:1.6;
+  }
+
+footer{
+margin-top:70px;
+padding-top:24px;
+border-top:1px solid var(--line);
+font-family:'IBM Plex Mono',monospace;
+font-size:11.5px;
+color:var(--paper-dim);
+  }
+
+@media (max-width:560px){
+.hero{padding:56px 0 44px;}
+.card-top{flex-direction:column-reverse;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="hero">
+
+<p class="lede">
+      Panel data tracks <strong>units (i)</strong> across <strong>time (t)</strong> -
+      but "panel" is not one shape. How units are sampled, how complete the grid is,
+      and what scale the units sit at, all change which structure you are working with.
+      Eleven structures, drawn from Baltagi, Wooldridge, Hsiao, and Arellano are outlined below.
+</p>
+
+<h4>Note:</h4>
+<blockquote class="combo-note">
+<strong>The structures are not mutually exclusive - a real dataset is always a combination of several at once.</strong>
+      A researcher rarely says just "panel data"; they say things like a
+<strong>"Short, Unbalanced, True Panel"</strong> or a <strong>"Long, Balanced, Macro Panel"</strong> -
+      stacking one label from Time Depth, one from Completeness, one from Sample Design, and so on.
+</blockquote>
+
+<p class="grid-bridge">
+  Example panel matrix representation: rows are units (i), columns are time periods (t).
+</p>
+
+<div class="hero-grid-frame">
+  <span class="ixt-caption">A small unbalanced panel — 3 units (i), 4 time periods (t)</span>
+  <table class="ixt-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>t1</th>
+        <th>t2</th>
+        <th>t3</th>
+        <th>t4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>i1</th>
+        <td><span class="ixt-cell filled"></span></td>
+        <td><span class="ixt-cell filled"></span></td>
+        <td><span class="ixt-cell filled"></span></td>
+        <td><span class="ixt-cell filled"></span></td>
+      </tr>
+      <tr>
+        <th>i2</th>
+        <td><span class="ixt-cell filled"></span></td>
+        <td><span class="ixt-cell filled"></span></td>
+        <td><span class="ixt-cell empty"></span></td>
+        <td><span class="ixt-cell filled"></span></td>
+      </tr>
+      <tr>
+        <th>i3</th>
+        <td><span class="ixt-cell filled"></span></td>
+        <td><span class="ixt-cell filled"></span></td>
+        <td><span class="ixt-cell filled"></span></td>
+        <td><span class="ixt-cell filled"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<div class="filters" id="filters">
+<button class="pill active" data-filter="all">All 11</button>
+<button class="pill" data-filter="completeness">Completeness</button>
+<button class="pill" data-filter="time">Time Depth</button>
+<button class="pill" data-filter="scale">Aggregation Level</button>
+<button class="pill" data-filter="sample">Sample Design</button>
+<button class="pill" data-filter="dim">Dimensionality</button>
+</div>
+
+<div class="icon-legend">
+<div class="lg-item"><span class="lg-swatch lg-filled"></span> Rows = units (i) · Columns = time periods (t)</div>
+<div class="lg-item"><span class="lg-swatch lg-filled"></span> Brass cells = observed unit-time combinations</div>
+<div class="lg-item"><span class="lg-swatch lg-empty"></span> Grey cells = missing observations</div>
+<div class="lg-item"><span class="lg-swatch lg-alt"></span> Teal cells = a different unit/sample group</div>
+</div>
+
+<p class="section-label" id="resultCount">Showing all 11 structures</p>
+
+<div class="grid-cards" id="cardGrid">
+
+<div class="card" data-cat="completeness">
+<div class="card-top">
+<div>
+<div class="cat-tag">Completeness</div>
+<h3>Balanced Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-balanced"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">no gaps — full grid</span></div>
+</div>
+<p class="oneline">Every unit is observed in every time period — a complete N×T rectangle.</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          There are no gaps: each of the N units has a full run of T observations. This is the simplest
+          case and the one most estimation theory is initially built around, since every unit contributes
+          equally to the sample at every point in time.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="completeness">
+<div class="card-top">
+<div>
+<div class="cat-tag">Completeness</div>
+<h3>Unbalanced Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-unbalanced"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">some cells missing</span></div>
+</div>
+<p class="oneline">Some units are missing observations in some periods.</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          Gaps appear due to survey non-response, firms entering or exiting a market, deaths, migration,
+          or discontinued data collection. This is the norm rather than the exception in real-world data —
+          which is why it's discussed so heavily in the literature.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="time">
+<div class="card-top">
+<div>
+<div class="cat-tag">Time Depth</div>
+<h3>Short Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-short"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">many units, few periods</span></div>
+</div>
+<p class="oneline">Large number of units (N), but only a few time periods (T).</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          Typically single digits to low double-digits of time periods. Most household and firm surveys
+          fall here — e.g., thousands of firms tracked for five years. The literature treats this as the
+          "default" panel case.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="time">
+<div class="card-top">
+<div>
+<div class="cat-tag">Time Depth</div>
+<h3>Long Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-long"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">few units, many periods</span></div>
+</div>
+<p class="oneline">Small-to-moderate number of units (N), but many time periods (T).</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          Often spans decades of data. Country-level macro series — GDP, trade, inflation across
+          countries — are the classic example of a long panel.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="scale">
+<div class="card-top">
+<div>
+<div class="cat-tag">Aggregation Level</div>
+<h3>Micro Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-micro"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">many individual units</span></div>
+</div>
+<p class="oneline">The unit of observation is an individual, household, or firm.</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          These panels usually have large N and dominate labor economics, household finance, and
+          industrial organization research — think PSID or NLSY.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="scale">
+<div class="card-top">
+<div>
+<div class="cat-tag">Aggregation Level</div>
+<h3>Macro Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-macro"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">few, larger units</span></div>
+</div>
+<p class="oneline">The unit of observation is an aggregate — country, state, region, or industry.</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          These panels tend to have smaller N and are common in growth economics, international finance,
+          and macro-development research — think Penn World Tables.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="sample">
+<div class="card-top">
+<div>
+<div class="cat-tag">Sample Design</div>
+<h3>True Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">same units, tracked</span></div>
+</div>
+<p class="oneline">The exact same units are re-observed at each time point.</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          Same households, same firms — individually identifiable across every wave. This is what
+          "panel data" means in the strictest sense.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="sample">
+<div class="card-top">
+<div>
+<div class="cat-tag">Sample Design</div>
+<h3>Pseudo-Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-pseudo"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">different sample each column</span></div>
+</div>
+<p class="oneline">A fresh random sample is drawn from the population each period.</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          Since individuals can't be tracked, researchers group observations into cohorts — e.g. birth
+          year — and follow cohort averages over time as a stand-in for a true panel. This approach
+          traces back to Deaton (1985) and is used when repeated cross-sectional surveys exist but a
+          genuine panel doesn't.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="sample">
+<div class="card-top">
+<div>
+<div class="cat-tag">Sample Design</div>
+<h3>Rotating Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-rotating"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">units shift in/out over time</span></div>
+</div>
+<p class="oneline">Units cycle in and out of the sample on a fixed schedule.</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          A household might stay in the sample for four consecutive quarters, then be replaced by a new
+          household. Common in official labor force surveys — e.g. the US Current Population Survey —
+          to reduce respondent burden while keeping some panel structure intact.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="dim">
+<div class="card-top">
+<div>
+<div class="cat-tag">Dimensionality</div>
+<h3>Two-Dimensional Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-2d"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">unit × time only</span></div>
+</div>
+<p class="oneline">The standard structure — just two indices, unit (i) and time (t).</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          This is what's implicitly assumed whenever "panel data" is mentioned without qualification —
+          a single unit index crossed with a single time index.
+</div>
+</details>
+</div>
+
+<div class="card" data-cat="dim">
+<div class="card-top">
+<div>
+<div class="cat-tag">Dimensionality</div>
+<h3>Three-Dimensional / Nested Panel</h3>
+</div>
+<div class="icon-col"><div class="micro-grid mg-3d"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">extra layer beyond unit × time</span></div>
+</div>
+<p class="oneline">An extra structural dimension sits alongside unit and time.</p>
+<details>
+<summary>Explain</summary>
+<div class="details-body">
+          Workers nested within firms nested within industries, observed over years; or students nested
+          within classrooms within schools over time. Sometimes labeled "hierarchical" or "multilevel"
+          panel data in the literature.
+</div>
+</details>
+</div>
+
+</div>
+
+<footer>Sources: Baltagi — Econometric Analysis of Panel Data · Wooldridge — Econometric Analysis of Cross Section and Panel Data · Hsiao — Analysis of Panel Data · Arellano — Panel Data Econometrics · Deaton (1985) on pseudo-panels</footer>
+
+</div>
+
+<script>
+// filter logic
+const pills = document.querySelectorAll('.pill');
+const cards = document.querySelectorAll('.card');
+const resultCount = document.getElementById('resultCount');
+const labels = {
+all:'Showing all 11 structures',
+completeness:'Completeness',
+time:'Time Depth',
+scale:'Aggregation Level',
+sample:'Sample Design',
+dim:'Dimensionality'
+};
+
+pills.forEach(pill=>{
+pill.addEventListener('click', ()=>{
+pills.forEach(p=>p.classList.remove('active'));
+pill.classList.add('active');
+const f = pill.dataset.filter;
+let shown = 0;
+cards.forEach(c=>{
+const match = f === 'all' || c.dataset.cat === f;
+c.style.display = match ? '' : 'none';
+if(match) shown++;
+      });
+resultCount.textContent = f === 'all'
+? labels.all
+: `${labels[f]} — ${shown} structure${shown===1?'':'s'}`;
+    });
+  });
+</script>
+</body>
+</html>
