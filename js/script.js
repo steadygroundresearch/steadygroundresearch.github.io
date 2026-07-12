@@ -141,6 +141,18 @@ const sections = document.querySelectorAll("section");
     class="modal-infographic"
     alt = "Why Panel Data Matters infographic">
     `
+  },
+
+  type: {
+  type: 'infographic',
+  title: 'Types of Panel Data Structures',
+  body: `
+    <iframe
+    src="resources/panel-data-methods/TypesofPanelDataStructures.html"
+    style="display:block; width:900px; max-width:100%; height:78vh; border:none; border-radius:8px; margin:0 auto;"
+    title = "Types of Panel Data Structures">
+    </iframe>
+    `
   }
 
 };
