@@ -209,6 +209,15 @@ const sections = document.querySelectorAll("section");
       modalBody.innerHTML = content.body;
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
+      
+      // show a loading placeholder until the iframe/image finishes loading
+    const media = modalBody.querySelector('iframe, img');
+       if (media) {
+       modalBody.classList.add('is-loading');
+       media.addEventListener('load', () => {
+       modalBody.classList.remove('is-loading');
+  }, { once: true });
+}
 }
 
    });
