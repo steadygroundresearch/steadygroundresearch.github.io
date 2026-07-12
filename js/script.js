@@ -136,10 +136,11 @@ const sections = document.querySelectorAll("section");
   type: 'infographic',
   title: 'Why Does Panel Data Matter?',
   body: `
-  <img
-    src="resources/panel-data-methods/PanelDataInfographic.svg"
-    class="modal-infographic"
-    alt = "Why Panel Data Matters infographic">
+  <iframe
+      src="resources/panel-data-methods/WhyPanelDataMatters.html"
+      style="width:100%; max-width:900px; height:78vh; border:none; border-radius:8px; display:block; margin:0 auto;"
+      title="Why Does Panel Data Matter?">
+    </iframe>
     `
   },
 
@@ -209,7 +210,7 @@ const sections = document.querySelectorAll("section");
       modalBody.innerHTML = content.body;
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      
+
       // show a loading placeholder until the iframe/image finishes loading
     const media = modalBody.querySelector('iframe, img');
        if (media) {
