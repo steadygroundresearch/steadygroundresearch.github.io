@@ -415,6 +415,11 @@
     margin-bottom: 8px;
 }
 
+.node-modal-content.infographic-modal {
+  width: min(95%, 1100px);
+  max-height: 90vh;
+}
+
 .node-modal-content p,
 .node-modal-content li {
   color: #374151;
@@ -480,6 +485,7 @@
     display: block;
     margin: 0 auto 8px;
 }
+
 
   .zoom-infographic{
     width:40%;
