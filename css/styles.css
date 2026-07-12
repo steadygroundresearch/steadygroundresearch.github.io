@@ -541,6 +541,25 @@
     user-select:none;
 }
 
+ #modal-body.is-loading {
+  min-height: 200px;
+  position: relative;
+}
+ #modal-body.is-loading::after {
+  content: "Loading…";
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+ #modal-body.is-loading iframe,
+ #modal-body.is-loading img {
+  visibility: hidden;
+}
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       body { padding: 0 20px 30px; }
