@@ -1,1 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Sector Stability — Learning Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--ink:#f4f7fa;
+--card:#dfeaf7;
+--card-hover:#d2e2f3;
+--line:#bfd0e2;
+--paper:#111827;
+--paper-dim:#5b6472;
+--brass:#c9a227;
+--teal:#2f7f8c;
+--radius:10px;
 
+--tier1:#2f7f8c;
+--tier2:#0056b3;
+--tier3:#003366;
+}
+*{box-sizing:border-box;}
+body{
+margin:0;
+background:var(--ink);
+color:var(--paper);
+font-family:'Inter',sans-serif;
+line-height:1.6;
+-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 16px 80px;}
+
+h1{
+font-family:'Fraunces',serif;
+font-weight:600;
+font-size:clamp(2rem,4.5vw,3rem);
+line-height:1.08;
+margin:0 0 18px;
+color:var(--paper);
+}
+.lede{
+font-size:1.05rem;
+color:var(--paper-dim);
+margin:0 0 24px;
+max-width:none;
+}
+.lede strong{color:var(--paper);}
+
+/* fun fact card — small, dismissible, non-blocking */
+.fun-fact{
+display:flex;
+align-items:flex-start;
+gap:12px;
+background:#fff9ec;
+border:1px solid #e8d9a8;
+border-radius:8px;
+padding:12px 16px;
+margin:0 0 28px;
+position:relative;
+}
+.fun-fact-icon{
+font-size:1.1rem;
+line-height:1.3;
+flex-shrink:0;
+}
+.fun-fact p{
+margin:0;
+font-size:0.9rem;
+color:var(--paper-dim);
+padding-right:20px;
+}
+.fun-fact p strong{color:var(--paper);}
+.fun-fact-close{
+position:absolute;
+top:8px;
+right:10px;
+background:none;
+border:none;
+font-size:1rem;
+color:var(--paper-dim);
+cursor:pointer;
+line-height:1;
+padding:2px;
+}
+.fun-fact-close:hover{color:var(--paper);}
+
+blockquote.connector{
+font-style:italic;
+border-left:3px solid var(--brass);
+background:var(--card);
+padding:16px 20px;
+margin:32px 0 0;
+border-radius:0 8px 8px 0;
+color:var(--paper-dim);
+}
+blockquote.connector .kicker{
+display:block;
+font-family:'IBM Plex Mono',monospace;
+font-style:normal;
+font-weight:600;
+font-size:11px;
+letter-spacing:0.1em;
+text-transform:uppercase;
+color:var(--brass);
+margin-bottom:8px;
+}
+
+/* ---------- PYRAMID ---------- */
+.pyramid{
+display:flex;
+flex-direction:column;
+gap:0;
+margin-bottom:8px;
+}
+.tier{
+border:1px solid var(--line);
+border-radius:var(--radius);
+margin-bottom:18px;
+overflow:hidden;
+background:var(--card);
+}
+.tier-head{
+display:flex;
+align-items:center;
+gap:14px;
+padding:16px 22px;
+color:#ffffff;
+}
+.tier1 .tier-head{background:var(--tier1);}
+.tier2 .tier-head{background:var(--tier2);}
+.tier3 .tier-head{background:var(--tier3);}
+
+.tier-num{
+font-family:'IBM Plex Mono',monospace;
+font-size:11px;
+letter-spacing:0.1em;
+text-transform:uppercase;
+background:rgba(255,255,255,0.18);
+padding:4px 10px;
+border-radius:999px;
+}
+.tier-title{
+font-family:'Fraunces',serif;
+font-weight:600;
+font-size:1.15rem;
+}
+.tier-sub{
+font-family:'IBM Plex Mono',monospace;
+font-size:11px;
+opacity:0.85;
+margin-left:auto;
+text-align:right;
+}
+
+.tier-body{
+padding:20px 22px 22px;
+}
+
+.concept-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:14px;
+}
+.concept{
+background:#ffffff;
+border:1px solid var(--line);
+border-radius:8px;
+padding:14px 16px;
+}
+.concept h4{
+margin:0 0 6px;
+font-family:'Fraunces',serif;
+font-weight:600;
+font-size:1rem;
+color:var(--paper);
+}
+.concept p{
+margin:0;
+font-size:0.9rem;
+color:var(--paper-dim);
+}
+.concept ul{
+margin:6px 0 0;
+padding-left:18px;
+font-size:0.88rem;
+color:var(--paper-dim);
+}
+.concept li{margin-bottom:4px;}
+
+/* resource toggle inside each concept card */
+.concept details{
+margin-top:10px;
+border-top:1px solid var(--line);
+padding-top:8px;
+}
+.concept summary{
+list-style:none;
+cursor:pointer;
+font-family:'IBM Plex Mono',monospace;
+font-size:10.5px;
+letter-spacing:0.05em;
+text-transform:uppercase;
+color:var(--teal);
+display:flex;
+align-items:center;
+gap:6px;
+}
+.concept summary::-webkit-details-marker{display:none;}
+.concept summary::before{
+content:"+";
+font-family:'Fraunces',serif;
+font-size:13px;
+color:var(--brass);
+}
+.concept details[open] summary::before{content:"–";}
+.resource-list{
+list-style:none;
+margin:8px 0 0;
+padding:0;
+}
+.resource-list li{
+margin-bottom:8px;
+padding-left:0;
+font-size:0.85rem;
+}
+.resource-list a{
+color:#0056b3;
+font-weight:600;
+text-decoration:none;
+}
+.resource-list a:hover{text-decoration:underline;}
+.res-tag{
+display:inline-block;
+font-family:'IBM Plex Mono',monospace;
+font-size:9.5px;
+letter-spacing:0.04em;
+text-transform:uppercase;
+color:var(--paper-dim);
+background:var(--ink);
+border:1px solid var(--line);
+padding:1px 6px;
+border-radius:999px;
+margin-left:6px;
+}
+
+/* ---------- CROSS-CUTTING TOPICS & RESOURCES ---------- */
+.xtopics-section{
+margin:8px 0 32px;
+}
+.xtopics-head h2{
+font-family:'Fraunces',serif;
+font-weight:600;
+font-size:1.4rem;
+margin:0 0 4px;
+color:var(--paper);
+}
+.xtopics-head p{
+margin:0 0 18px;
+font-size:0.92rem;
+color:var(--paper-dim);
+max-width:none;
+}
+.xfilters{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:18px;
+}
+.xpill{
+font-family:'IBM Plex Mono',monospace;
+font-size:11.5px;
+font-weight:500;
+letter-spacing:0.02em;
+padding:7px 14px;
+border-radius:999px;
+border:1px solid var(--line);
+background:#ffffff;
+color:var(--paper-dim);
+cursor:pointer;
+transition:all .18s ease;
+}
+.xpill:hover{border-color:var(--teal);color:var(--paper);}
+.xpill.active{
+background:var(--teal);
+border-color:var(--teal);
+color:#ffffff;
+font-weight:600;
+}
+.xresource-list{
+list-style:none;
+margin:0;
+padding:0;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+.xresource-item{
+background:#ffffff;
+border:1px solid var(--line);
+border-radius:8px;
+padding:14px 16px;
+}
+.xresource-item summary{
+list-style:none;
+cursor:pointer;
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+gap:9px;
+}
+.xresource-item summary::-webkit-details-marker{display:none;}
+.xresource-item summary::before{
+content:"+";
+font-family:'Fraunces',serif;
+font-size:15px;
+color:var(--brass);
+width:14px;
+}
+.xresource-item details[open] summary::before{content:"–";}
+.xresource-title{
+font-weight:600;
+color:var(--paper);
+font-size:0.96rem;
+}
+.xresource-body{
+margin-top:10px;
+padding-top:10px;
+border-top:1px solid var(--line);
+}
+.xresource-synopsis{
+margin:0 0 10px;
+font-size:0.9rem;
+color:var(--paper-dim);
+}
+.xresource-body a{
+color:#0056b3;
+font-weight:600;
+text-decoration:none;
+font-size:0.87rem;
+}
+.xresource-body a:hover{text-decoration:underline;}
+.xtag{
+font-family:'IBM Plex Mono',monospace;
+font-size:9.5px;
+letter-spacing:0.04em;
+text-transform:uppercase;
+color:var(--teal);
+border:1px solid var(--teal);
+padding:1px 7px;
+border-radius:999px;
+}
+.xconnect{
+font-family:'IBM Plex Mono',monospace;
+font-size:9.5px;
+letter-spacing:0.02em;
+color:var(--paper-dim);
+display:block;
+margin-bottom:8px;
+}
+.xempty-note{
+font-size:0.9rem;
+color:var(--paper-dim);
+font-style:italic;
+padding:10px 2px;
+}
+
+/* pointer card inside Tier 3, signposting down to the full resources section */
+.concept.pointer-card{
+border-style:dashed;
+border-color:var(--teal);
+background:#f7fbfc;
+}
+.concept.pointer-card a{
+color:#0056b3;
+text-decoration:none;
+font-weight:600;
+font-size:0.88rem;
+display:inline-block;
+margin-top:4px;
+}
+.concept.pointer-card a:hover{text-decoration:underline;}
+/* widen the tiers visually as they descend, to read as a pyramid */
+.tier1{margin-left:8%;margin-right:8%;}
+.tier2{margin-left:4%;margin-right:4%;}
+.tier3{margin-left:0;margin-right:0;}
+
+footer{
+margin-top:40px;
+padding-top:20px;
+border-top:1px solid var(--line);
+font-family:'IBM Plex Mono',monospace;
+font-size:11px;
+color:var(--paper-dim);
+line-height:1.7;
+}
+
+@media (max-width:640px){
+.tier1,.tier2,.tier3{margin-left:0;margin-right:0;}
+.tier-head{flex-wrap:wrap;}
+.tier-sub{margin-left:0;text-align:left;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<p class="lede">
+  Financial stability describes a state in which the financial system — banks, markets, and
+  infrastructure together — can absorb shocks and continue to allocate resources efficiently,
+  without major disruption to the real economy.
+</p>
+
+<div class="fun-fact" id="fun-fact-fs">
+  <span class="fun-fact-icon">💡</span>
+  <p><strong>Did You Know?</strong> At the time of its 2008 collapse, Lehman Brothers held over
+  $600 billion in assets — still the largest corporate bankruptcy in U.S. history, and a textbook
+  case of how contagion spreads through a highly interconnected financial system.</p>
+  <button class="fun-fact-close" onclick="document.getElementById('fun-fact-fs').style.display='none';" aria-label="Dismiss">&times;</button>
+</div>
+
+<div class="pyramid">
+
+  <div class="tier tier1">
+    <div class="tier-head">
+      <span class="tier-num">Tier 1</span>
+      <span class="tier-title">Foundations</span>
+      <span class="tier-sub">Start here</span>
+    </div>
+    <div class="tier-body">
+      <div class="concept-grid">
+        <div class="concept">
+          <h4>What is Financial Stability?</h4>
+          <p>A condition in which the financial system is resilient to shocks and continues to perform its core functions — channelling savings to productive investment, pricing risk, and enabling payments — without disruptive breakdown.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier tier2">
+    <div class="tier-head">
+      <span class="tier-num">Tier 2</span>
+      <span class="tier-title">Building Blocks</span>
+      <span class="tier-sub">What threatens it</span>
+    </div>
+    <div class="tier-body">
+      <div class="concept-grid">
+        <div class="concept">
+          <h4>Systemic Risk</h4>
+          <p>The risk that a shock to one part of the financial system triggers a broader breakdown, rather than staying contained to a single institution or market.</p>
+          <details>
+            <summary>Further Reading</summary>
+            <ul class="resource-list">
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Policy Brief</span></li>
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Blog</span></li>
+            </ul>
+          </details>
+
+        </div>
+        <div class="concept">
+          <h4>Contagion</h4>
+          <p>The process by which distress spreads from one institution or market to others — through direct exposures, shared funding sources, or panic-driven behaviour.</p>
+          <details>
+            <summary>Further Reading</summary>
+            <ul class="resource-list">
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Policy Brief</span></li>
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Blog</span></li>
+            </ul>
+          </details>
+
+        </div>
+        <div class="concept">
+          <h4>Procyclicality</h4>
+          <p>The tendency of financial behaviour to amplify the economic cycle — excessive risk-taking during booms, excessive caution and deleveraging during downturns.</p>
+          <details>
+            <summary>Further Reading</summary>
+            <ul class="resource-list">
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Policy Brief</span></li>
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Blog</span></li>
+            </ul>
+          </details>
+
+        </div>
+        <div class="concept">
+          <h4>Interconnectedness</h4>
+          <p>The web of financial linkages between institutions and markets that allows shocks to transmit — a key channel through which contagion and systemic risk spread.</p>
+          <details>
+            <summary>Further Reading</summary>
+            <ul class="resource-list">
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Policy Brief</span></li>
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Blog</span></li>
+            </ul>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier tier3">
+    <div class="tier-head">
+      <span class="tier-num">Tier 3</span>
+      <span class="tier-title">Applications — Assessing Stability</span>
+      <span class="tier-sub">Putting it into practice</span>
+    </div>
+    <div class="tier-body">
+      <div class="concept-grid">
+        <div class="concept">
+          <h4>Financial Stability Indicators</h4>
+          <p>Quantitative measures — such as capital ratios, leverage, and credit growth — used to monitor the build-up of vulnerabilities across the financial system.</p>
+          <details>
+            <summary>Further Reading</summary>
+            <ul class="resource-list">
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Policy Brief</span></li>
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Blog</span></li>
+            </ul>
+          </details>
+
+        </div>
+        <div class="concept">
+          <h4>Stress Testing</h4>
+          <p>Simulating the impact of adverse scenarios (e.g. a sharp recession or asset price collapse) on institutions or the system as a whole, to assess resilience before a real shock occurs.</p>
+          <details>
+            <summary>Further Reading</summary>
+            <ul class="resource-list">
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Policy Brief</span></li>
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Blog</span></li>
+            </ul>
+          </details>
+
+        </div>
+        <div class="concept">
+          <h4>Early Warning Systems</h4>
+          <p>Statistical models designed to flag emerging vulnerabilities — such as excessive credit growth or asset price bubbles — before they escalate into a crisis.</p>
+          <details>
+            <summary>Further Reading</summary>
+            <ul class="resource-list">
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Policy Brief</span></li>
+              <li><a href="#" target="_blank" rel="noopener">[Add resource title/link]</a><span class="res-tag">Blog</span></li>
+            </ul>
+          </details>
+
+        </div>
+
+        <div class="concept pointer-card">
+          <h4>Cross-Cutting Topics</h4>
+          <p>Developments in other fields that interact with and influence financial stability.</p>
+          <a href="#xtopics-section">See the full resource list ↓</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<blockquote class="connector">
+  <span class="kicker">Connection to Macroprudential Policy</span>
+  These risks — systemic risk, procyclicality, and interconnectedness — are precisely what
+  macroprudential policy is designed to contain. See the Macroprudential Policy section for
+  the tools used to address them.
+</blockquote>
+
+<div class="xtopics-section" id="xtopics-section">
+  <div class="xtopics-head">
+    <h2>Cross-Cutting Topics</h2>
+    <p>
+      Financial stability doesn't sit in isolation — developments in other fields interact with it
+      in ways that combine both benefit and risk. This is a growing collection of resources connecting
+      those topics back to financial stability and macroprudential policy, added as they're found
+      rather than written as standalone analysis.
+    </p>
+  </div>
+
+  <!-- Add a new filter pill here whenever a new topic is actually added below —
+       copy the "All" button's format, give it a label (e.g. "AI"), and set data-xfilter
+       to match the data-xtopic value used on that topic's resource <li> elements. -->
+  <div class="xfilters" id="xfilters-fs">
+    <button class="xpill active" data-xfilter="all">All</button>
+  </div>
+
+  <ul class="xresource-list" id="xresource-list-fs">
+
+    <!-- TEMPLATE — copy this <li> block to add a new resource.
+         Set data-xtopic to a short topic label of your choice (e.g. "ai", "cbdc", "climate") —
+         then add a matching filter pill above once you have at least one resource under that topic.
+         Fill in xresource-title, xconnect, xresource-synopsis, and the href/link text. -->
+    <li class="xresource-item" data-xtopic="">
+      <details>
+        <summary>
+          <span class="xresource-title">[Add resource title]</span>
+          <span class="xtag">[Topic]</span>
+        </summary>
+        <div class="xresource-body">
+          <span class="xconnect">Connects to: [Financial Stability / Macroprudential Policy]</span>
+          <p class="xresource-synopsis">[Write a short synopsis here on how this resource connects to financial stability or macroprudential policy.]</p>
+          <a href="#" target="_blank" rel="noopener">Read the resource →</a>
+        </div>
+      </details>
+    </li>
+
+  </ul>
+
+  <p class="xempty-note" id="xempty-note-fs" style="display:none;">No resources tagged yet for this topic.</p>
+</div>
+
+<footer>
+  Sources: IMF, BIS, and central bank publications on financial stability frameworks and assessment.
+</footer>
+
+</div>
+<script>
+(function(){
+  const pills = document.querySelectorAll('#xfilters-fs .xpill');
+  const items = document.querySelectorAll('#xresource-list-fs .xresource-item');
+  const emptyNote = document.getElementById('xempty-note-fs');
+
+  pills.forEach(pill=>{
+    pill.addEventListener('click', ()=>{
+      pills.forEach(p=>p.classList.remove('active'));
+      pill.classList.add('active');
+      const f = pill.dataset.xfilter;
+      let shown = 0;
+      items.forEach(item=>{
+        const match = f === 'all' || item.dataset.xtopic === f;
+        item.style.display = match ? '' : 'none';
+        if(match) shown++;
+      });
+      emptyNote.style.display = shown === 0 ? '' : 'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>
