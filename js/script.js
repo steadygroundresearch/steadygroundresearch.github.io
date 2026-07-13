@@ -154,7 +154,31 @@ const sections = document.querySelectorAll("section");
     title = "Types of Panel Data Structures">
     </iframe>
     `
-  }
+  },
+
+  macroprudential: {
+  type: 'infographic',
+  title: 'Macroprudential Policy',
+  body: `
+    <iframe
+      src="resources/macroprudential-policy/MacroprudentialPolicy.html"
+      style="width:100%; max-width:900px; height:78vh; border:none; border-radius:8px; display:block; margin:0 auto;"
+      title="Macroprudential Policy">
+    </iframe>
+  `
+},
+
+financialStability: {
+  type: 'infographic',
+  title: 'Financial Sector Stability',
+  body: `
+    <iframe
+      src="resources/financial-sector-stability/FinancialSectorStability.html"
+      style="width:100%; max-width:900px; height:78vh; border:none; border-radius:8px; display:block; margin:0 auto;"
+      title="Financial Sector Stability">
+    </iframe>
+  `
+}
 
 };
   const map = document.getElementById('panel-map');
@@ -191,42 +215,40 @@ const sections = document.querySelectorAll("section");
 
     });
 
-    node.addEventListener('click', () => {
-
-    const content = nodeContent[title];
-
-      if (content) {
-
-          const modalContent =
-          document.querySelector('.node-modal-content');
-
-         modalContent.classList.remove(
-            'text-modal',
-          'infographic-modal'
-    );
-
-      modalContent.classList.add(content.type + '-modal');
-      modalTitle.textContent = content.title;
-      modalBody.innerHTML = content.body;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-
-      // show a loading placeholder until the iframe/image finishes loading
-    const media = modalBody.querySelector('iframe, img');
-       if (media) {
-       modalBody.classList.add('is-loading');
-       media.addEventListener('load', () => {
-       modalBody.classList.remove('is-loading');
-  }, { once: true });
-}
-}
-
-   });
+   node.addEventListener('click', () => {
+      openContentModal(nodeContent[title]);
+    });
 
   });
 
 });
 
+function openContentModal(content) {
+  if (!content) return;
+
+  const modalContent = document.querySelector('.node-modal-content');
+  modalContent.classList.remove('text-modal', 'infographic-modal');
+  modalContent.classList.add(content.type + '-modal');
+  modalTitle.textContent = content.title;
+  modalBody.innerHTML = content.body;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  // show a loading placeholder until the iframe/image finishes loading
+  const media = modalBody.querySelector('iframe, img');
+  if (media) {
+    modalBody.classList.add('is-loading');
+    media.addEventListener('load', () => {
+      modalBody.classList.remove('is-loading');
+
+      // automatically focus the iframe so scroll gestures work immediately,
+      // without requiring the reader to click inside it first
+      if (media.tagName === 'IFRAME' && media.contentWindow) {
+        media.contentWindow.focus();
+      }
+    }, { once: true });
+  }
+}
 
 const modal = document.getElementById('node-modal');
 const modalTitle = document.getElementById('modal-title');
@@ -274,4 +296,12 @@ imageModal.addEventListener("click", function(e){
 
     }
 
+});
+
+document.querySelectorAll('.open-resource-modal').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const key = link.dataset.contentKey;
+    openContentModal(nodeContent[key]);
+  });
 });
