@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Waverley Paul | Economic Researcher</title>
+  <title>SteadyGround Research | Projects & Outputs</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +16,9 @@
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="index.html#about">About</a>
-  <a href="index.html#research">Research Areas</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="index.html#insights">Insights</a>
   <a href="projects.html">Projects & Outputs</a>
   <a href="learning.html">Learning Hub</a>
   <a href="index.html#contact">Contact</a>
@@ -27,78 +27,130 @@
 <div class="layout">
 
   <aside class="sidebar">
-    <img src="images/profile.jpg" class="profile-photo" alt="Waverley Paul">
+    <img src="images/logo.png" class="profile-photo" alt="SteadyGround Research">
 
-    <h1>Waverley Paul</h1>
+    <h1>SteadyGround Research</h1>
 
     <p class="subtitle">
-  Economic Researcher | Macroprudential Policy | Data Analytics (R Programming)
+  Turning Tracked Data Into Decision-Ready Insights
    </p>
 
    <p class="intro">
-  Independent economic researcher and consultant specialising in financial stability, macroprudential policy, and data-driven analysis.
+  An applied econometrics and data analytics practice, helping organisations uncover the hidden relationships already sitting inside their data.
    </p>
 
-    <a class="button"
-       href="https://www.linkedin.com/in/waverley-p-ab8663199/"
-       target="_blank">
-      LinkedIn Profile
-    </a>
+    <div class="sidebar-actions">
+      <a class="button" href="https://www.linkedin.com/in/waverley-p-ab8663199/" target="_blank">LinkedIn Profile</a>
+      <a class="button" href="index.html#contact">Start a Conversation</a>
+    </div>
   </aside>
 
   <main class="content">
 
   <section id="projects">
-  <h2>Projects & Outputs</h2>
+    <h2>Projects & Outputs</h2>
+    <h3>Working Papers, Policy Briefs, and Applied Research</h3>
 
-  <details class="resource-group">
-  <summary>Working Papers</summary>
-
-  <div class="resource-item">
-    <h4>Financial Stability in Small Open Economies (2026)</h4>
-
-    <p class="resource-summary">
-      Examines the transmission of macro-financial shocks in small open economies and evaluates policy options for strengthening financial resilience.
+    <p>
+      A running record of research outputs, drawn from applied econometrics, panel data
+      analysis, and financial stability work. Filter by type below, or browse everything at once.
     </p>
 
-    <p class="resource-tags">
-      Financial stability · Macroprudential policy · Small open economies
+    <p class="projects-bridge">
+      These outputs are, so far, drawn primarily from financial services — but they illustrate
+      the underlying econometric approach, which applies equally to tracked data in any sector.
     </p>
 
-    <p><em>Full paper coming soon.</em></p>
-  </div>
-</details>
+    <div class="project-filters" id="projectFilters">
+      <button class="project-pill active" data-filter="all">All</button>
+      <button class="project-pill" data-filter="working-papers">Working Papers</button>
+      <button class="project-pill" data-filter="policy-briefs">Policy Briefs</button>
+      <button class="project-pill" data-filter="research-papers">Research Papers</button>
+      <button class="project-pill" data-filter="data-viz">Data Visualisations</button>
+    </div>
 
-  <details class="resource-group">
-    <summary>Policy Briefs</summary>
+    <p class="section-label-note" id="projectCount">Showing all outputs</p>
 
-    <ul>
-      <li>Policy briefs will be added here.</li>
-    </ul>
-  </details>
+    <div class="work-grid" id="projectGrid">
 
-  <details class="resource-group">
-    <summary>Research Papers</summary>
+      <div class="work-card" data-category="working-papers">
+        <span class="work-tag">Working Paper</span>
+        <h4>Financial Stability in Small Open Economies (2026)</h4>
+        <p>
+          Examines the transmission of macro-financial shocks in small open economies and
+          evaluates policy options for strengthening financial resilience.
+        </p>
+        <p class="work-status">Full paper coming soon.</p>
+      </div>
 
-    <ul>
-      <li>Research papers will be added here.</li>
-    </ul>
-  </details>
+      <div class="work-card work-card-placeholder" data-category="policy-briefs">
+        <span class="work-tag">Policy Brief</span>
+        <h4>[Policy brief title]</h4>
+        <p>[Short description of the policy question addressed and the recommendation made.]</p>
+        <p class="work-status">Coming soon.</p>
+      </div>
 
-  <details class="resource-group">
-    <summary>Data Visualisations</summary>
+      <div class="work-card work-card-placeholder" data-category="research-papers">
+        <span class="work-tag">Research Paper</span>
+        <h4>[Research paper title]</h4>
+        <p>[Short description of the research question, method, and key finding.]</p>
+        <p class="work-status">Coming soon.</p>
+      </div>
 
-    <ul>
-      <li>Interactive dashboards and visualisations will be added here.</li>
-    </ul>
-  </details>
-</section>
+      <div class="work-card work-card-placeholder" data-category="data-viz">
+        <span class="work-tag">Data Visualisation</span>
+        <h4>[Dashboard or visualisation title]</h4>
+        <p>[Short description of the dataset, the tool used (e.g. R Shiny), and what it shows.]</p>
+        <p class="work-status">Coming soon.</p>
+      </div>
 
-</main>
+    </div>
+
+  </section>
+
+  </main>
 
 </div>
 
+<footer class="site-footer">
+  © 2026 SteadyGround Research. All rights reserved. ·
+  <a href="index.html#contact">Contact</a> ·
+  <a href="https://www.linkedin.com/in/waverley-p-ab8663199/" target="_blank">LinkedIn</a>
+</footer>
+
 <script src="js/script.js"></script>
+
+<script>
+(function(){
+  const pills = document.querySelectorAll('#projectFilters .project-pill');
+  const cards = document.querySelectorAll('#projectGrid .work-card');
+  const countLabel = document.getElementById('projectCount');
+  const labels = {
+    all: 'Showing all outputs',
+    'working-papers': 'Working Papers',
+    'policy-briefs': 'Policy Briefs',
+    'research-papers': 'Research Papers',
+    'data-viz': 'Data Visualisations'
+  };
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const f = pill.dataset.filter;
+      let shown = 0;
+      cards.forEach(card => {
+        const match = f === 'all' || card.dataset.category === f;
+        card.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      countLabel.textContent = f === 'all'
+        ? labels.all
+        : `${labels[f]} — ${shown} item${shown === 1 ? '' : 's'}`;
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
