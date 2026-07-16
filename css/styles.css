@@ -1,10 +1,10 @@
- * {
+* {
       box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f2f5f7;
+      background-color: #f0f9e8;
       color: #333;
       max-width: 1200px;
       margin: 0 auto;
@@ -17,7 +17,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: #003366;
+      background: #08589e;
       padding: 14px 18px;
       margin-bottom: 40px;
       border-radius: 0 0 10px 10px;
@@ -37,7 +37,7 @@
     }
 
     nav a.active {
-      border-bottom: 2px solid #ffd700;
+      border-bottom: 2px solid #4eb3d3;
     }
 
     /* LAYOUT */
@@ -59,31 +59,33 @@
 
     /* PROFILE */
     .profile-photo {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
       border-radius: 12px;
-      border: 4px solid #d9e2ec;
+      border: 4px solid #a8ddb5;
       margin-bottom: 20px;
-    }
+      padding: 18px;
+      background: linear-gradient(135deg, #f0f9e8, #7bccc4 45%, #2b8cbe 80%, #08589e);
+   }
      .subtitle {
       font-weight: 600;
       font-size: 1.05rem;
-      color: #003366;
+      color: #08589e;
       margin-top: 5px;
       margin-bottom: 12px;
      letter-spacing: 0.3px;
     }
     
      h1 {
-      color: #003366;
+      color: #08589e;
       font-size: 1.8rem;
       margin-bottom: 10px;
     }
 
     h2 {
-      color: #003366;
-      border-bottom: 2px solid #d9e2ec;
+      color: #08589e;
+      border-bottom: 2px solid #a8ddb5;
       padding-bottom: 10px;
       margin-bottom: 25px;
     }
@@ -92,10 +94,27 @@
       margin-bottom: 60px;
     }
 
+    section > h3{
+      display:block;
+      color:#2b8cbe;
+      font-size:0.8rem;
+      font-weight:700;
+      font-style:normal;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      margin:0 0 20px;
+      padding-bottom:0;
+      border-bottom:none;
+    }
+
+    section > h3 strong{
+      font-weight:700;
+    }
+
     /* BUTTON */
     .button {
       display: inline-block;
-      background: #0056b3;
+      background: #2b8cbe;
       color: white;
       padding: 12px 20px;
       border-radius: 6px;
@@ -104,7 +123,77 @@
     }
 
     .button:hover {
-      background: #003d80;
+      background: #08589e;
+    }
+
+    .sidebar-actions{
+     display:flex;
+     flex-wrap:wrap;
+     gap:10px;
+   }
+
+   .button-outline{
+     background:transparent;
+     color:#2b8cbe;
+     border:2px solid #2b8cbe;
+   }
+
+   .button-outline:hover{
+     background:#2b8cbe;
+    color:#ffffff;
+   }
+
+    /* CONTACT SECTION — dark contrasting block, using the site's own palette */
+    #contact{
+      background:#08589e;
+      color:#f0f9e8;
+      padding:56px 44px;
+      border-radius:16px;
+    }
+
+    #contact .section-eyebrow{
+      color:#ccebc5;
+      font-weight:700;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      font-size:0.8rem;
+      margin:0 0 14px;
+    }
+
+    #contact h2{
+      color:#ffffff;
+      border-bottom:none;
+      padding-bottom:0;
+      font-size:2.1rem;
+      margin:0 0 18px;
+    }
+
+    #contact .contact-copy{
+      color:#e3f2e0;
+      font-size:1.05rem;
+      max-width:640px;
+      margin:0 0 28px;
+      line-height:1.7;
+    }
+
+    #contact .button-pill{
+      background:#ffffff;
+      color:#08589e;
+      border-radius:999px;
+      padding:14px 28px;
+      font-weight:700;
+    }
+
+    #contact .button-pill:hover{
+      background:#f0f9e8;
+    }
+
+    /* safety net: any plain link inside Contact stays legible on the dark background */
+    #contact a:not(.button-pill){
+      color:#ccebc5;
+    }
+    #contact a:not(.button-pill):hover{
+      color:#ffffff;
     }
 
     /* RESEARCH CARDS */
@@ -120,7 +209,7 @@
      background: white;
      border-radius: 10px;
      padding: 18px;
-     border-left: 5px solid #003366;
+     border-left: 5px solid #08589e;
      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
      cursor: pointer;
      transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -134,7 +223,7 @@
 
     .research-card h3 {
       margin-top: 0;
-      color: #003366;
+      color: #08589e;
     }
 
     .research-card p { 
@@ -154,7 +243,7 @@
      width: 280px;
      padding: 14px;
 
-     background: #003366;
+     background: #08589e;
      color: white;
      border-radius: 8px;
 
@@ -170,7 +259,7 @@
   transform: translateX(-50%);
 
   border: 8px solid transparent;
-  border-top-color: #003366;
+  border-top-color: #08589e;
 }
 
 .research-card:hover .research-tooltip {
@@ -181,26 +270,32 @@
     .research-note {
       margin-top: 30px;
       padding: 20px;
-      background: #eef3f8;
-      border-left: 4px solid #003366;
+      background: #ccebc5;
+      border-left: 4px solid #08589e;
       border-radius: 8px;
       font-size: 0.95rem;
     }
 
+    /* keeps spacing after subheadings consistent, rather than relying on
+       default browser paragraph margins which don't match the heading's own gap */
+    section > h3 + p{
+      margin:0 0 20px;
+    }
+
     /* SECTION LINKS */
     .section-link {
-       margin-bottom: 0;
+       margin: 0;
     }
 
     .section-link a {
-      color: #0056b3;
+      color: #2b8cbe;
       text-decoration: none;
       font-weight: 700;
       transition: color 0.2s ease;
     }
 
     .section-link a:hover {
-      color: #003366;
+      color: #08589e;
       text-decoration: underline;
     }
 
@@ -227,7 +322,7 @@
 .resource-group summary {
   padding: 18px 20px;
   font-weight: 600;
-  color: #003366;
+  color: #08589e;
   cursor: pointer;
   list-style: none;
 }
@@ -256,7 +351,7 @@
 }
 
 .resource-group a {
-  color: #0056b3;
+  color: #2b8cbe;
   text-decoration: none;
 }
 
@@ -273,7 +368,7 @@
 
 .resource-item h4 {
   margin: 18px 0 10px;
-  color: #003366;
+  color: #08589e;
   font-size: 1rem;
 }
 
@@ -294,7 +389,7 @@
 }
 
 .resource-item a {
-  color: #0056b3;
+  color: #2b8cbe;
   font-weight: 600;
   text-decoration: none;
 }
@@ -307,9 +402,9 @@
   margin-left: 12px;
   margin-bottom: 8px;   /* reduced spacing */
   font-weight: 600;
-  color: #003366;
+  color: #08589e;
   font-size: 1.1rem;
-  border-left: 4px solid #0056b3;
+  border-left: 4px solid #2b8cbe;
   padding-left: 10px;
 }
 
@@ -367,7 +462,7 @@
   border: none;
   border-radius: 50%;
 
-  background: #eef3f8;
+  background: #ccebc5;
   color: #6b7280;
 
   font-size: 1.5rem;
@@ -377,12 +472,12 @@
 }
 
 .close-modal:hover {
-  background: #003366;
+  background: #08589e;
   color: white;
 }
 
 .node-modal-content h3 {
-  color: #003366;
+  color: #08589e;
   font-size: 1.6rem;
   font-weight: 700;
   text-align: left;
@@ -432,7 +527,7 @@
 
 .node-modal-content h4,
 .node-modal-content strong {
-  color: #003366;
+  color: #08589e;
   margin-top: 24px;
   margin-bottom: 10px;
 }
@@ -440,21 +535,21 @@
 .node-modal-content blockquote {
   margin: 20px 0;
   padding: 12px 18px;
-  border-left: 4px solid #0056b3;
+  border-left: 4px solid #2b8cbe;
   background: #f8fafc;
   font-style: italic;
 }
 
 .node-modal-content hr {
   border: none;
-  border-top: 1px solid #d9e2ec;
+  border-top: 1px solid #a8ddb5;
   margin: 30px 0;
 }
 
   #modal-body h4 {
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
-  color: #003366;
+  color: #08589e;
 }
 
 #modal-body p {
@@ -471,7 +566,7 @@
 }
 
 #modal-body blockquote {
-  border-left: 4px solid #0056b3;
+  border-left: 4px solid #2b8cbe;
   padding-left: 1rem;
   margin: 1rem 0;
   font-style: italic;
@@ -559,6 +654,579 @@
  #modal-body.is-loading img {
   visibility: hidden;
 }
+
+    .services-tier-label{
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #08589e;
+      margin: 8px 0 16px;
+    }
+
+    .services-tier-label-specialised{
+      color: #2b8cbe;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #a8ddb5;
+    }
+
+    .hub-bridge,
+    .projects-bridge{
+      background: #ccebc5;
+      border-left: 4px solid #08589e;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0 24px;
+      font-size: 0.94rem;
+      color: #1f2937;
+    }
+
+    /* SELECTED WORK */
+    .work-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .work-card{
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      border-left: 5px solid #08589e;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .work-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .work-tag{
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #2b8cbe;
+      margin-bottom: 10px;
+    }
+
+    .work-card h4{
+      margin: 0 0 10px;
+      color: #08589e;
+      font-size: 1.05rem;
+    }
+
+    .work-card p{
+      color: #555;
+      font-size: 0.92rem;
+      margin: 0;
+    }
+
+    /* INSIGHTS */
+    .insights-list{
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .insight-item{
+      background: white;
+      border-radius: 10px;
+      padding: 18px 22px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .insight-date{
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #7bccc4;
+      margin-bottom: 8px;
+    }
+
+    .insight-item h4{
+      margin: 0 0 8px;
+      color: #08589e;
+      font-size: 1.02rem;
+    }
+
+    .insight-item p{
+      color: #555;
+      font-size: 0.92rem;
+      margin: 0;
+    }
+
+    /* TESTIMONIAL */
+    #testimonial{
+      margin-bottom: 40px;
+    }
+
+    .testimonial-quote{
+      background: #ccebc5;
+      border-left: 4px solid #08589e;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 0;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: #1f2937;
+    }
+
+    .testimonial-quote cite{
+      display: block;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      font-style: normal;
+      font-weight: 700;
+      color: #2b8cbe;
+    }
+
+    /* PROJECTS PAGE — FILTERS & CARD STATES */
+    .project-filters{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 16px;
+    }
+
+    .project-pill{
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid #a8ddb5;
+      background: #ffffff;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .project-pill:hover{
+      border-color: #2b8cbe;
+      color: #08589e;
+    }
+
+    .project-pill.active{
+      background: #2b8cbe;
+      border-color: #2b8cbe;
+      color: #ffffff;
+    }
+
+    .section-label-note{
+      font-size: 0.85rem;
+      color: #6b7280;
+      font-style: italic;
+      margin: 0 0 20px;
+    }
+
+    .work-card-placeholder{
+      border-left-style: dashed;
+      background: #f7fbf5;
+    }
+
+    .work-status{
+      margin-top: 10px !important;
+      font-size: 0.82rem !important;
+      color: #7bccc4 !important;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    /* THE METHOD IN PRACTICE — grouping zone */
+    .practice-zone{
+      background: #ffffff;
+      border: 1px solid #a8ddb5;
+      border-radius: 16px;
+      padding: 40px 36px;
+      margin-bottom: 60px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    }
+
+    .zone-eyebrow{
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2b8cbe;
+      text-align: center;
+      margin: 0 0 10px;
+    }
+
+    .zone-note{
+      font-size: 0.92rem;
+      font-style: italic;
+      color: #6b7280;
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .zone-section{
+      margin-bottom: 40px;
+    }
+
+    .insight-related{
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #2b8cbe;
+      text-decoration: none;
+    }
+
+    .insight-related:hover{
+      color: #08589e;
+      text-decoration: underline;
+    }
+
+    .zone-teaser-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .zone-teaser-card{
+      background: #ccebc5;
+      border-left: 4px solid #08589e;
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+
+    .zone-teaser-card h3{
+      margin: 0 0 8px;
+      color: #08589e;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .zone-teaser-card p{
+      margin: 0 0 12px;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    .zone-teaser-card a{
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #2b8cbe;
+      text-decoration: none;
+    }
+
+    .zone-teaser-card a:hover{
+      color: #08589e;
+      text-decoration: underline;
+    }
+
+    .page-framing-note{
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #6b7280;
+      margin: 4px 0 20px;
+    }
+
+    .page-framing-note strong{
+      color: #2b8cbe;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .page-framing-note a{
+      color: #2b8cbe;
+      font-style: normal;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .page-framing-note a:hover{
+      text-decoration: underline;
+    }
+
+    /* ============================================================
+       NEW — Hero, Services (track cards), Knowledge Platform zone,
+       Contact options, footer (homepage v3)
+       ============================================================ */
+
+    .eyebrow-heading{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:0.8rem;
+      font-weight:700;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:#2b8cbe;
+      margin-bottom:16px;
+    }
+    .eyebrow-heading::before{
+      content:"";
+      width:24px;
+      height:1px;
+      background:#2b8cbe;
+    }
+
+    /* HERO */
+    .hero-headline{
+      font-family:'Fraunces', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color:#08589e;
+      line-height:1.2;
+      margin:0 0 18px;
+      max-width: 16ch;
+      border:none;
+      padding:0;
+    }
+    .hero-sub{
+      font-size:1.05rem;
+      color:#374151;
+      max-width:640px;
+      margin:0 0 24px;
+    }
+    .hero-about-blurb{
+      border-left: 3px solid #7bccc4;
+      padding-left: 18px;
+      margin: 0 0 8px;
+      max-width: 620px;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+    .hero-about-blurb a{
+      color:#2b8cbe;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .hero-about-blurb a:hover{ text-decoration:underline; }
+
+    /* SERVICES — track cards */
+    .services-intro{
+      color:#374151;
+      font-size:1rem;
+      max-width:680px;
+      margin:0 0 28px;
+    }
+    .track-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:24px;
+      align-items: stretch;
+    }
+    .track-col{ display:flex; flex-direction:column; }
+    .track-banner{
+      padding:12px 20px;
+      border-radius:10px 10px 0 0;
+      font-size:0.78rem;
+      font-weight:700;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      color:#ffffff;
+    }
+    .track-banner.business{ background:#7bccc4; }
+    .track-banner.financial{ background:#08589e; }
+    .track-card{ border-radius: 0 0 14px 14px; padding: 26px 26px 28px; flex:1; }
+    .track-card.light{ background:#ffffff; border:1px solid #a8ddb5; border-top:none; }
+    .track-card.dark{ background:#2b8cbe; color:#f0f9e8; }
+    .track-card h3{ margin:0 0 12px; font-size:1.3rem; }
+    .track-card.light h3{ color:#08589e; }
+    .track-card.dark h3{ color:#ffffff; }
+    .track-card p.track-desc{ font-size:0.93rem; margin:0 0 16px; }
+    .track-card.light p.track-desc{ color:#374151; }
+    .track-card.dark p.track-desc{ color:#dceee0; }
+    .track-card ul{ margin:0 0 20px; padding-left:20px; font-size:0.9rem; }
+    .track-card.light ul{ color:#374151; }
+    .track-card.dark ul{ color:#e3f2e0; }
+    .track-card li{ margin-bottom:6px; }
+    .track-card a.track-link{ font-weight:700; font-size:0.9rem; text-decoration:none; }
+    .track-card.light a.track-link{ color:#2b8cbe; }
+    .track-card.dark a.track-link{ color:#ccebc5; }
+    .track-card a.track-link:hover{ text-decoration:underline; }
+
+    /* THE KNOWLEDGE PLATFORM zone */
+    .zone-headline{
+      font-family:'Fraunces', serif;
+      color:#08589e;
+      font-size:1.9rem;
+      font-weight:600;
+      margin:0 0 14px;
+      line-height:1.2;
+      border:none;
+    }
+
+    /* Where Method Meets Application */
+    .application-label{
+      font-size:0.8rem;
+      font-weight:700;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      color:#2b8cbe;
+      margin: 0 0 18px;
+      text-align:center;
+    }
+    .app-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
+    .app-card{
+      background:#e8f8db;
+      border:1px solid #a8ddb5;
+      border-radius:12px;
+      padding:26px 24px;
+    }
+    .app-card .app-tag{
+      font-size:1.05rem;
+      font-weight:800;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      color:#08589e;
+      margin:0 0 12px;
+   }
+    .app-card h3{ color:#08589e; font-size:1.2rem; margin:0 0 10px; }
+    .app-card p{ color:#374151; font-size:0.93rem; margin:0 0 18px; }
+    .app-card a{
+      display:inline-block;
+      background:#2b8cbe;
+      color:#ffffff;
+      padding:10px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:0.87rem;
+    }
+    .app-card a:hover{ background:#08589e; }
+
+    /* CONTACT — multiple formats */
+    .contact-options{ display:flex; flex-wrap:wrap; gap:14px; }
+    .contact-options a{
+      background:#ffffff;
+      color:#08589e;
+      border-radius:999px;
+      padding:14px 24px;
+      font-weight:700;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .contact-options a:hover{ background:#f0f9e8; }
+    .contact-options a.outline{
+      background:transparent;
+      color:#ffffff;
+      border:2px solid #ffffff;
+    }
+    .contact-options a.outline:hover{ background:rgba(255,255,255,0.12); }
+
+    /* SITE FOOTER */
+    footer.site-footer{
+      margin-top: 50px;
+      padding-top: 24px;
+      border-top: 1px solid #a8ddb5;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+    footer.site-footer a{ color: #2b8cbe; text-decoration: none; }
+    footer.site-footer a:hover{ text-decoration: underline; }
+
+    /* ============================================================
+       NEW — About & Services 
+       ============================================================ */
+    .section-headline{
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #08589e;
+      margin:0 0 16px;
+      line-height:1.2;
+    }
+    .section-sub{
+      font-size: 1.05rem;
+      color: #374151;
+      max-width: 700px;
+      margin: 0 0 40px;
+    }
+
+    /* About page */
+    .about-body p{ color:#374151; font-size:1rem; margin:0 0 20px; max-width:720px; }
+    .mission-callout{
+      background:#ccebc5;
+      border-left:4px solid #08589e;
+      border-radius:8px;
+      padding:22px 26px;
+      margin:32px 0;
+      font-style:italic;
+      font-size:1.05rem;
+      color:#1f2937;
+    }
+    .mission-callout .kicker{
+      display:block;
+      font-family:'Inter',sans-serif;
+      font-style:normal;
+      font-weight:700;
+      font-size:0.75rem;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      color:#08589e;
+      margin-bottom:8px;
+    }
+
+    /* Services page */
+    .glance-group{ margin-bottom: 44px; }
+    .glance-banner{ border-radius:12px; padding:22px 26px; margin-bottom:22px; }
+    .glance-banner.business{ background:#3ac0b2; }
+    .glance-banner.financial{ background:#08589e; }
+    .banner-top{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+    .banner-track-tag{
+      font-size:0.72rem;
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,0.25);
+      color:#ffffff;
+      padding:4px 10px;
+      border-radius:999px;
+    }
+    .glance-banner h3{ margin:0; font-size:1.25rem; font-weight:700; color:#ffffff; }
+    .glance-banner p{ margin:0; color:#ffffff; opacity:0.92; font-size:0.93rem; max-width:640px; }
+    .glance-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; }
+    .glance-card{
+      background:#ffffff;
+      border:1px solid #a8ddb5;
+      border-radius: 10px;
+      padding: 20px 22px;
+      cursor:pointer;
+      transition: box-shadow 0.2s ease;
+    }
+    .glance-card:hover, .glance-card.open{ box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+    .glance-card h4{ margin: 0 0 8px; color:#08589e; font-size:1.05rem; }
+    .glance-card > p{ margin:0; color:#6b7280; font-size:0.88rem; }
+    .glance-expand-hint{
+      display:block; margin-top:8px; font-size:0.74rem; color:#a8ddb5; font-weight:700;
+    }
+    .glance-card.open .glance-expand-hint, .glance-card:hover .glance-expand-hint{ display:none; }
+    .glance-card-body{
+      max-height:0; overflow:hidden; opacity:0;
+      transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+    }
+    .glance-card:hover .glance-card-body,
+    .glance-card.open .glance-card-body,
+    .glance-card:focus .glance-card-body{
+      max-height:260px; opacity:1; margin-top:12px;
+    }
+    .glance-card-body p{
+      margin:0; padding-top:10px; border-top:1px solid #e5e7eb;
+      color:#6b7280; font-size:0.85rem; line-height:1.6;
+    }
+    .catalogue-note{ font-size:0.85rem; color:#6b7280; font-style:italic; margin-top: 8px; }
+
+    /* RESPONSIVE (extended) */
+    @media (max-width: 768px) {
+      .track-grid, .app-grid{ grid-template-columns: 1fr; }
+      .track-divider{ display:none; }
+    }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
