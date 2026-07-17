@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SteadyGround Research | Applied Research &amp; Analytics</title>
   <meta name="description" content="Applied research and analytics for businesses and financial institutions. Turn the data you already have into decisions you can defend.">
-
+   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Added for App -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#003366"> 
+  
 </head>
 
 <body>
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="about.html">About</a>
   <a href="services.html">Services</a>
   <a href="index.html#insights">Insights</a>
   <a href="projects.html">Projects & Outputs</a>
@@ -36,6 +38,8 @@
       Turning Tracked Data Into Decision-Ready Insights
     </p>
 
+
+
     <div class="sidebar-actions">
       <a class="button" href="https://www.linkedin.com/in/waverley-p-ab8663199/" target="_blank">LinkedIn Profile</a>
       <a class="button" href="index.html#contact">Start a Conversation</a>
@@ -47,14 +51,15 @@
     <!-- HERO — About folded in, no separate CTA button here -->
     <section>
       <p class="eyebrow-heading">Applied Research &amp; Analytics</p>
-      <h2 class="hero-headline">Your data already knows more than you're using.</h2>
+      <h2 class="hero-headline">What does your information tell you - and how can you use it to make better decisions?</h2>
       <p class="hero-sub">
-        SG Research is an applied research and analytics firm. We transform the data organisations
-        already collect into practical, evidence-based insights — without needing a full-time specialist.
+          Most organisations collect far more data than they have the capacity to fully explore. 
+          As a result, valuable relationships and insights often remain hidden due to limitations in time, tools, or specialised expertise. 
+          SG Research bridges that gap by applying rigourous econometric and advanced data analytic techniques to existing data to uncover patterns and relationships that inform better decisions and improve performance.
       </p>
       <p class="hero-about-blurb">
-        The approach is built on methods honed over an 18-year career in central banking, applying
-        the same rigor to any organisation that tracks data over time. <a href="about.html">Read more about SG Research →</a>
+        <span class="kicker">Mission</span>
+        To help organisations unlock the value of the data they already collect by turning it into practical, evidence-based insights. <a href="#" id="openAboutDrawer">Read more about SG Research →</a>
       </p>
     </section>
 
@@ -107,15 +112,22 @@
       </p>
 
       <section id="insights" class="zone-section">
-        <h2>Insights</h2>
+        <div class="insights-heading">
+       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 20h9"/>
+    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+       </svg>
+      <h2>Insights</h2>
+      </div>
         <h3>Notes on data, financial stability, and applied methods</h3>
         <div class="insights-list">
 
           <div class="insight-item">
-            <span class="insight-date">[Month Year]</span>
-            <h4>[Insight title — e.g. "Why Rate Cuts Complicate Macroprudential Timing"]</h4>
-            <p>[2-3 sentence short commentary on a current topic in financial stability, macroprudential policy, or panel data methods.]</p>
-            <a class="insight-related" href="learning.html">See related reading in the Learning Hub →</a>
+          <span class="insight-date">[Month Year]</span>
+          <span class="latest-badge">Latest</span>
+          <h4>[Insight title — e.g. "Why Rate Cuts Complicate Macroprudential Timing"]</h4>
+          <p>[2-3 sentence short commentary on a current topic in financial stability, macroprudential policy, or panel data methods.]</p>
+           <a class="insight-related" href="learning.html">See related reading in the Learning Hub →</a>
           </div>
 
           <div class="insight-item">
@@ -167,6 +179,112 @@
   <a href="index.html#contact">Contact</a> ·
   <a href="https://www.linkedin.com/in/waverley-p-ab8663199/" target="_blank">LinkedIn</a>
 </footer>
+
+<!-- ABOUT — off-canvas drawer -->
+<div class="about-drawer-overlay" id="aboutDrawerOverlay"></div>
+<div class="about-drawer" id="aboutDrawer">
+  <button class="about-drawer-close" id="aboutDrawerClose" aria-label="Close">&times;</button>
+
+  <h2>Applied research that earns its place in the decision.</h2>
+  <p class="drawer-intro">
+    SG Research helps organisations use data, research, and analytical methods to identify
+    opportunities, manage risks, and make informed decisions.
+  </p>
+
+  <p class="drawer-label">Mission</p>
+  <h3 class="drawer-subhead">What we exist to do</h3>
+  <p>
+    Most organisations collect far more data than they have the capacity to fully explore. As a
+    result, valuable relationships and insights often remain hidden due to limitations in time,
+    tools, or specialised expertise. SG Research bridges that gap by applying rigorous,
+    econometrically grounded methods to existing data, uncovering patterns and relationships that
+    inform better decisions and improve performance.
+  </p>
+  <p>
+    The approach is built on techniques honed over an 18-year career in central banking, where the
+    same methods were used to assess systemic financial risk at a national level. That rigor now
+    applies more broadly — to any organisation tracking the same entities (customers, stores,
+    products, employees, regions) repeatedly over time.
+  </p>
+
+  <p class="drawer-label">Value Proposition</p>
+  <h3 class="drawer-subhead">The question we answer</h3>
+  <div class="drawer-quote">
+    "What does our information tell us — and how can we use it to make better decisions?"
+  </div>
+  <p>
+    The firm provides analytical expertise without organisations needing to hire a full-time
+    specialist. The result is decision-ready evidence, not just dashboards.
+  </p>
+
+  <p class="drawer-label">Competitive Advantage</p>
+  <h3 class="drawer-subhead">What we combine</h3>
+  <div class="advantage-list">
+    <div class="advantage-item">
+      <h4>Applied Data Analysis</h4>
+      <p>Panel methods and econometrics on the data you already collect.</p>
+    </div>
+    <div class="advantage-item">
+      <h4>Economic Research</h4>
+      <p>Rigor from an academic and central-banking research background.</p>
+    </div>
+    <div class="advantage-item">
+      <h4>Financial Sector Knowledge</h4>
+      <p>Deep expertise in banking, credit, and systemic stability.</p>
+    </div>
+    <div class="advantage-item">
+      <h4>Practical Translation</h4>
+      <p>Turning complex analysis into recommendations decision-makers can act on.</p>
+    </div>
+  </div>
+
+  <p class="drawer-label">Long-Term Goal</p>
+  <h3 class="drawer-subhead">Where this is heading</h3>
+  <p>
+    To become a trusted provider of applied research and analytics services for businesses and
+    financial institutions — particularly in small economies, where organisations often need
+    specialised expertise but cannot justify maintaining it internally.
+  </p>
+
+  <div class="drawer-cta">
+    <p class="prompt">Have a question sitting inside your data?</p>
+    <p class="sub">The best next step is usually a short conversation.</p>
+    <a class="button" href="index.html#contact" id="drawerContactLink">Start a Conversation</a>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const drawer = document.getElementById('aboutDrawer');
+  const overlay = document.getElementById('aboutDrawerOverlay');
+  const openLink = document.getElementById('openAboutDrawer');
+  const closeBtn = document.getElementById('aboutDrawerClose');
+  const contactLink = document.getElementById('drawerContactLink');
+
+  function openDrawer(){
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  openLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    openDrawer();
+  });
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  contactLink.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+  });
+})();
+</script>
 
 <script src="js/script.js"></script>
 
