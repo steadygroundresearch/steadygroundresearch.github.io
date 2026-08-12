@@ -9,23 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-/* Backgrounds */
---ink:#f4f7fa;          /* page background */
---ink-2:#e8eef5;
-/* Cards */
---card:#dfeaf7;         /* soft blue */
---card-hover:#d2e2f3;   /* slightly darker blue on hover */
-/* Borders */
---line:#bfd0e2;
-/* Text */
---paper:#111827;         /* almost black */
---paper-dim:#5b6472;     /* muted grey-blue for secondary text */
-
-/* Accent colours */
---brass:#c9a227;
---brass-dim:#8a712088;
---teal:#2f7f8c;
---teal-dim:#2f7f8c55;
+--ink:#f0f9e8;
+--ink-2:#ccebc5;
+--card:#ffffff;
+--card-hover:#ccebc5;
+--line:#a8ddb5;
+--paper:#1f2937;
+--paper-dim:#4b5563;
+--brass:#2b8cbe;
+--brass-dim:#2b8cbe88;
+--teal:#4eb3d3;
+--teal-dim:#4eb3d355;
 --radius:10px;
 }
 
@@ -42,28 +36,10 @@ line-height:1.5;
 
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px 120px;}
 
-/* ---------- HERO ---------- */
 .hero{
 padding:32px 0 64px;
 border-bottom:1px solid var(--line);
 position:relative;
-  }
-.eyebrow{
-font-family:'IBM Plex Mono',monospace;
-font-size:12.5px;
-letter-spacing:0.14em;
-text-transform:uppercase;
-color:var(--teal);
-display:flex;
-align-items:center;
-gap:10px;
-margin-bottom:22px;
-  }
-.eyebrow::before{
-content:"";
-width:22px;height:1px;
-background:var(--teal);
-display:inline-block;
   }
 h1{
 font-family:'Fraunces',serif;
@@ -93,7 +69,6 @@ position:relative;
   }
 .combo-note strong{font-style:normal;}
 
-/* ---------- HERO TABLE (i x t grid) ---------- */
 .hero-grid-frame{
 display:flex;
 flex-direction:column;
@@ -147,7 +122,6 @@ animation:cellIn .5s ease forwards;
 .ixt-cell.filled{background:var(--brass);}
 .ixt-cell.empty{background:transparent;border:2px solid var(--line);}
 @keyframes cellIn{to{opacity:1;}}
-/* stagger the fade-in left to right, row by row */
 .ixt-table tr:nth-child(1) .ixt-cell{animation-delay:.05s;}
 .ixt-table tr:nth-child(2) .ixt-cell{animation-delay:.15s;}
 .ixt-table tr:nth-child(3) .ixt-cell{animation-delay:.25s;}
@@ -156,7 +130,6 @@ animation:cellIn .5s ease forwards;
   .ixt-cell{animation:none;opacity:1;}
 }
 
-/* ---------- FILTER PILLS ---------- */
 .filters{
 display:flex;
 flex-wrap:wrap;
@@ -185,8 +158,6 @@ font-weight:700;
   }
 .pill:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
 
-
-/* ---------- ICON LEGEND ---------- */
 .icon-legend{
 display:flex;
 flex-wrap:wrap;
@@ -209,7 +180,6 @@ width:13px;height:13px;border-radius:2px;flex-shrink:0;
 .lg-swatch.lg-empty{background:var(--line);}
 .lg-swatch.lg-alt{background:var(--teal);}
 
-/* micro-grid caption under each icon */
 .mg-caption{
 font-family:'IBM Plex Mono',monospace;
 font-size:10px;
@@ -221,7 +191,6 @@ line-height:1.3;
   }
 .icon-col{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
 
-/* ---------- SECTION LABEL ---------- */
 .section-label{
 font-family:'IBM Plex Mono',monospace;
 font-size:12px;
@@ -231,7 +200,6 @@ color:var(--paper-dim);
 margin:0 0 18px;
   }
 
-/* ---------- CARDS ---------- */
 .grid-cards{
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
@@ -272,7 +240,6 @@ font-size:0.94rem;
 margin:0 0 14px;
   }
 
-/* micro grid icon */
 .micro-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -333,7 +300,6 @@ background:var(--brass);
 .micro-grid.mg-3d span:nth-child(-n+8){background:var(--brass);opacity:0.9;}
 .micro-grid.mg-3d span:nth-child(n+9){background:var(--teal);opacity:0.6;}
 
-/* expand/details */
 details{border-top:1px solid var(--line);margin-top:2px;}
 summary{
 list-style:none;
@@ -405,7 +371,7 @@ color:var(--paper-dim);
 </p>
 
 <div class="hero-grid-frame">
-  <span class="ixt-caption">A small unbalanced panel — 3 units (i), 4 time periods (t)</span>
+  <span class="ixt-caption">A small unbalanced panel - 3 units (i), 4 time periods (t)</span>
   <table class="ixt-table">
     <thead>
       <tr>
@@ -471,7 +437,7 @@ color:var(--paper-dim);
 </div>
 <div class="icon-col"><div class="micro-grid mg-balanced"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">no gaps — full grid</span></div>
 </div>
-<p class="oneline">Every unit is observed in every time period — a complete N×T rectangle.</p>
+<p class="oneline">Every unit is observed in every time period - a complete N×T rectangle.</p>
 <details>
 <summary>Explain</summary>
 <div class="details-body">
@@ -495,7 +461,7 @@ color:var(--paper-dim);
 <summary>Explain</summary>
 <div class="details-body">
           Gaps appear due to survey non-response, firms entering or exiting a market, deaths, migration,
-          or discontinued data collection. This is the norm rather than the exception in real-world data —
+          or discontinued data collection. This is the norm rather than the exception in real-world data, 
           which is why it's discussed so heavily in the literature.
 </div>
 </details>
@@ -514,7 +480,7 @@ color:var(--paper-dim);
 <summary>Explain</summary>
 <div class="details-body">
           Typically single digits to low double-digits of time periods. Most household and firm surveys
-          fall here — e.g., thousands of firms tracked for five years. The literature treats this as the
+          fall here - e.g., thousands of firms tracked for five years. The literature treats this as the
           "default" panel case.
 </div>
 </details>
@@ -532,8 +498,8 @@ color:var(--paper-dim);
 <details>
 <summary>Explain</summary>
 <div class="details-body">
-          Often spans decades of data. Country-level macro series — GDP, trade, inflation across
-          countries — are the classic example of a long panel.
+          Often spans decades of data. Country-level macro series - GDP, trade, inflation across
+          countries - are the classic example of a long panel.
 </div>
 </details>
 </div>
@@ -551,7 +517,7 @@ color:var(--paper-dim);
 <summary>Explain</summary>
 <div class="details-body">
           These panels usually have large N and dominate labor economics, household finance, and
-          industrial organization research — think PSID or NLSY.
+          industrial organization research - think PSID or NLSY.
 </div>
 </details>
 </div>
@@ -564,12 +530,12 @@ color:var(--paper-dim);
 </div>
 <div class="icon-col"><div class="micro-grid mg-macro"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">few, larger units</span></div>
 </div>
-<p class="oneline">The unit of observation is an aggregate — country, state, region, or industry.</p>
+<p class="oneline">The unit of observation is an aggregate - country, state, region, or industry.</p>
 <details>
 <summary>Explain</summary>
 <div class="details-body">
           These panels tend to have smaller N and are common in growth economics, international finance,
-          and macro-development research — think Penn World Tables.
+          and macro-development research - think Penn World Tables.
 </div>
 </details>
 </div>
@@ -586,7 +552,7 @@ color:var(--paper-dim);
 <details>
 <summary>Explain</summary>
 <div class="details-body">
-          Same households, same firms — individually identifiable across every wave. This is what
+          Same households, same firms - individually identifiable across every wave. This is what
           "panel data" means in the strictest sense.
 </div>
 </details>
@@ -604,8 +570,8 @@ color:var(--paper-dim);
 <details>
 <summary>Explain</summary>
 <div class="details-body">
-          Since individuals can't be tracked, researchers group observations into cohorts — e.g. birth
-          year — and follow cohort averages over time as a stand-in for a true panel. This approach
+          Since individuals can't be tracked, researchers group observations into cohorts - e.g. birth
+          year - and follow cohort averages over time as a stand-in for a true panel. This approach
           traces back to Deaton (1985) and is used when repeated cross-sectional surveys exist but a
           genuine panel doesn't.
 </div>
@@ -625,7 +591,7 @@ color:var(--paper-dim);
 <summary>Explain</summary>
 <div class="details-body">
           A household might stay in the sample for four consecutive quarters, then be replaced by a new
-          household. Common in official labor force surveys — e.g. the US Current Population Survey —
+          household. Common in official labor force surveys - e.g. the US Current Population Survey -
           to reduce respondent burden while keeping some panel structure intact.
 </div>
 </details>
@@ -639,11 +605,11 @@ color:var(--paper-dim);
 </div>
 <div class="icon-col"><div class="micro-grid mg-2d"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="mg-caption">unit × time only</span></div>
 </div>
-<p class="oneline">The standard structure — just two indices, unit (i) and time (t).</p>
+<p class="oneline">The standard structure - just two indices, unit (i) and time (t).</p>
 <details>
 <summary>Explain</summary>
 <div class="details-body">
-          This is what's implicitly assumed whenever "panel data" is mentioned without qualification —
+          This is what's implicitly assumed whenever "panel data" is mentioned without qualification -
           a single unit index crossed with a single time index.
 </div>
 </details>
@@ -675,7 +641,6 @@ color:var(--paper-dim);
 </div>
 
 <script>
-// filter logic
 const pills = document.querySelectorAll('.pill');
 const cards = document.querySelectorAll('.card');
 const resultCount = document.getElementById('resultCount');
