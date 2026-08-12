@@ -156,7 +156,7 @@ const INSIGHTS = [
   {
     id: "AI-adoption-risks-2026-07",
     date: "July 2026",
-    dateSort: "2026-07",
+    dateSort: "2026-07-01",
     title: "AI and Financial Stability: Balancing Innovation with Resilience",
     summary: "<p>AI is moving into everyday financial decision-making faster than the oversight built to manage it, and that gap is where the real risk sits. Institutions that build governance in from the start, rather than bolting it on after something goes wrong, are the ones best placed to benefit from AI without taking on risk they haven't priced in.</p><p>The IMF's broader message: oversight, not the technology itself, is what will determine whether AI strengthens or undermines financial resilience over time.</p>",
     category: "financialStability",
@@ -176,7 +176,7 @@ const INSIGHTS = [
   {
     id: "mythos-ai-cyber-risk-2026-07",
     date: "July 2026",
-    dateSort: "2026-07",
+    dateSort: "2026-07-10",
     title: "Can AI become systemic cyber risk?",
     summary: "<p>The concern with AI in finance isn't just what happens if one firm's model fails, it's what happens when many institutions lean on the same handful of AI providers, models, or infrastructure at once. A BIS Bulletin looks at how that kind of shared reliance could turn an isolated AI problem into a system-wide one.</p><p>Even firms that manage their own AI responsibly can still be exposed if the wider market becomes dependent on the same small set of tools, since a single outage or flaw could then ripple across many institutions at the same time.</p>",
     category: "macroprudential",
@@ -194,7 +194,7 @@ const INSIGHTS = [
   {
     id: "IMF-CBDC-Note-2026-07",
     date: "July 2026",
-    dateSort: "2026-07",
+    dateSort: "2026-07-15",
     title: "CBDC Implementation: The Benefits Are In The Details",
     summary: "<p>Retail central bank digital currencies (CBDCs) are often pitched as a safer and more efficient form of digital money. Nevertheless, introducing a CBDC is not simply a matter of replacing cash with a digital alternative. The real question is whether it can improve the way payments and the financial system work without creating new risks. An IMF Note \"<em>Evaluating the Implications of CBDC for Financial Stability</em>\" explains that the answer depends on the details. <p>The way a CBDC is designed, how widely it is adopted, and the structure of a country's financial system all influence whether it strengthens payment systems, supports financial inclusion, and preserves financial stability.</p>",
     category: "financialStability",
@@ -218,7 +218,7 @@ const INSIGHTS = [
 {
     id: "IMF-tokenizedfinance-Note-2026-03",
     date: "July 2026",
-    dateSort: "2026-07",
+    dateSort: "2026-07-30",
     title: "Tokenised Finance: Potentially Transformative But Can It Really Deliver?",
     summary: "<p>Turning assets like deposits and securities into digital tokens promises faster, cheaper transactions, but whether tokenisation actually delivers on that promise depends on how well the new risks it introduces are managed. An IMF Note \"<em>Tokenized Finance</em>\" examines what policymakers need to consider for tokenisation to deliver greater efficiency without introducing risks that could undermine financial stability.</p><p>The policy choices made along the way, not just the technology itself, are what will determine whether tokenised deposits, securities, and smart contracts end up making finance more efficient or simply more complex.</p>",
     category: "financialStability",
@@ -235,7 +235,7 @@ const INSIGHTS = [
     hubPreview: "Cross-border payments remain slower, more expensive, and more complex than many businesses would like. Tokenisation has the potential to make international transactions faster and more efficient, but it must overcome legal, regulatory, and operational barriers before those benefits can be realised. This insight explores where tokenisation could make a real difference, and where expectations may be ahead of reality.",
     kitFormUid: "29ff756091", // this is the form/sequence they'll actually get by signing up here
     gateLabel: "Enter your email and we'll send you the full piece.",
-    sourceUrl: "https://www.imf.org/-/media/files/publications/ftn063/2025/english/ftnea2025008.pdf"
+    sourceUrl: "https://www.imf.org/-/media/files/publications/imf-notes/2026/english/insea2026001.pdf"
   }
 
 
