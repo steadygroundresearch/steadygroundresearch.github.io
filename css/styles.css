@@ -218,16 +218,9 @@
      gap:10px;
    }
 
-   .button-outline{
-     background:transparent;
-     color:#2b8cbe;
-     border:2px solid #2b8cbe;
-   }
+   
 
-   .button-outline:hover{
-     background:#2b8cbe;
-    color:#ffffff;
-   }
+   
 
     /* CONTACT SECTION — dark contrasting block, using the site's own palette */
     #contact{
@@ -282,85 +275,20 @@
       color:#ffffff;
     }
 
-    /* RESEARCH CARDS */
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      overflow: visible;
-    }
+    
 
-    .research-card {
-     position: relative; /* Required for tooltip positioning */
-     background: white;
-     border-radius: 10px;
-     padding: 18px;
-     border-left: 5px solid #08589e;
-     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-     cursor: pointer;
-     transition: transform 0.2s ease, box-shadow 0.2s ease;
-     overflow: visible; /* Prevent tooltip clipping */
-   }
+    
 
-    .research-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
+    
 
-    .research-card h3 {
-      margin-top: 0;
-      color: #08589e;
-    }
+    
 
-    .research-card p { 
-      color: #555;
-      font-size: 0.95rem;
-    }
+    
 
-    /* TOOLTIP */
+    
 
-    .research-tooltip {
-      display: none;
-      position: absolute;
-      bottom: calc(100% + 10px);
-      left: 50%;
-      transform: translateX(-50%);
 
-     width: 280px;
-     padding: 14px;
-
-     background: #08589e;
-     color: white;
-     border-radius: 8px;
-
-     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-     z-index: 9999;
-   }
-
-.research-tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  border: 8px solid transparent;
-  border-top-color: #08589e;
-}
-
-.research-card:hover .research-tooltip {
-  display: block;
-}
-
-    /* NOTE BOX */
-    .research-note {
-      margin-top: 30px;
-      padding: 20px;
-      background: #ccebc5;
-      border-left: 4px solid #08589e;
-      border-radius: 8px;
-      font-size: 0.95rem;
-    }
+    
 
     /* keeps spacing after subheadings consistent, rather than relying on
        default browser paragraph margins which don't match the heading's own gap */
@@ -368,121 +296,21 @@
       margin:0 0 20px;
     }
 
-    /* SECTION LINKS */
-    .section-link {
-       margin: 0;
-    }
+    
 
-    .section-link a {
-      color: #2b8cbe;
-      text-decoration: none;
-      font-weight: 700;
-      transition: color 0.2s ease;
-    }
+    
 
-    .section-link a:hover {
-      color: #08589e;
-      text-decoration: underline;
-    }
+    
 
-    #projects {
-      margin-bottom: 55px;
-    }
+    
 
     #learning {
       margin-bottom: 55px;
    }
 
 
-   /* EXPANDABLE RESOURCE SECTIONS */
+   
 
-.resource-group {
-  background: white;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  padding: 0;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-  overflow: hidden;
-}
-
-.resource-group summary {
-  padding: 18px 20px;
-  font-weight: 600;
-  color: #08589e;
-  cursor: pointer;
-  list-style: none;
-}
-
-.resource-group summary::-webkit-details-marker {
-  display: none;
-}
-
-.resource-group summary::before {
-  content: "▶";
-  margin-right: 10px;
-  font-size: 0.8rem;
-}
-
-.resource-group[open] summary::before {
-  content: "▼";
-}
-
-.resource-group ul {
-  margin: 0;
-  padding: 0 20px 20px 45px;
-}
-
-.resource-group li {
-  margin-bottom: 10px;
-}
-
-.resource-group a {
-  color: #2b8cbe;
-  text-decoration: none;
-}
-
-.resource-group a:hover {
-  text-decoration: underline;
-}
-
-/* PROJECTS AND LEARNING HUB RESOURCES */
-
-.resource-item {
-  padding: 0 20px 20px 20px;
-  border-top: 1px solid #e5e7eb;
-}
-
-.resource-item h4 {
-  margin: 18px 0 10px;
-  color: #08589e;
-  font-size: 1rem;
-}
-
-.resource-summary {
-  margin: 10px auto 20px auto;
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.6;
-  text-align: left;   /* ensures clean alignment */
-  max-width: 900px;   /* prevents stretching */
-}
-
-.resource-tags {
-  margin-bottom: 12px;
-  font-size: 0.9rem;
-  color: #6b7280;
-  font-style: italic;
-}
-
-.resource-item a {
-  color: #2b8cbe;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.resource-item a:hover {
-  text-decoration: underline;
-}
 
 .concept-intro {
   margin-left: 12px;
@@ -509,135 +337,40 @@
   border-radius: 12px;
 }
 
-  /* NODE MODAL */
-
-.node-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: rgba(15, 23, 42, 0.65);
+/* Compact concept maps — same object/SVG pattern as .panel-map above, but
+   sized for the much smaller Building Blocks / Applications maps used
+   inside Financial Sector Stability, Macroprudential Policy, and
+   Data-Driven Decision-Making. Centered with a fixed max-width rather than
+   stretched full-width, since these maps are only 2–3 nodes wide and look
+   sparse/oversized if stretched to match the wider panel content. */
+.mini-map-container{
+  width: 100%;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 30px;
+  margin: 0 0 28px;
 }
+
+.mini-concept-map{
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: 230px;
+  border: none;
+  background: transparent;
+}
+
+  
 
 .node-modal.active {
   display: flex;
 }
 
-.node-modal-content {
-  position: relative;
-  width: min(100%, 800px);
-  max-height: 85vh;
-  overflow-y: auto;
-  background: white;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-}
 
-.close-modal {
-  position: sticky;
-  top: 0;
-  float: right;
+ 
 
-  width: 42px;
-  height: 42px;
-
-  border: none;
-  border-radius: 50%;
-
-  background: #ccebc5;
-  color: #6b7280;
-
-  font-size: 1.5rem;
-  cursor: pointer;
-
-  transition: all 0.2s ease;
-}
-
-.close-modal:hover {
-  background: #08589e;
-  color: white;
-}
-
-.node-modal-content h3 {
-  color: #08589e;
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-align: left;
-}
-
- /* ---------- TEXT MODALS ---------- */
-
-.node-modal-content.text-modal h3,
-.node-modal-content.text-modal #modal-body {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.node-modal-content.text-modal h3{
-    margin-top:0;
-    margin-bottom:20px;
-}
-
-/* ---------- INFOGRAPHIC MODALS ---------- */
-
-.node-modal-content.infographic-modal h3 {
-    max-width: 900px;
-    margin: 0 auto 12px;
-    padding-left: 16px;   /* adjust this value */
-    line-height: 1.2;
-}
-
-.node-modal-content.infographic-modal .modal-infographic{
-    margin-bottom: 8px;
-}
-
-.node-modal-content.infographic-modal {
-  width: min(95%, 1100px);
-  max-height: 90vh;
-}
-
-.node-modal-content p,
-.node-modal-content li {
-  color: #374151;
-  line-height: 1.8;
-}
-
-.node-modal-content ul {
-  padding-left: 22px;
-}
-
-.node-modal-content h4,
-.node-modal-content strong {
-  color: #08589e;
-  margin-top: 24px;
-  margin-bottom: 10px;
-}
-
-.node-modal-content blockquote {
-  margin: 20px 0;
-  padding: 12px 18px;
-  border-left: 4px solid #2b8cbe;
-  background: #f8fafc;
-  font-style: italic;
-}
-
-.node-modal-content hr {
-  border: none;
-  border-top: 1px solid #a8ddb5;
-  margin: 30px 0;
-}
 
 /* EMERGING DEVELOPMENTS — appended below iframe in Learning Hub topic modals */
-.emerging-developments{
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 1px solid #a8ddb5;
-}
+
 
 .ed-eyebrow{
   font-size: 0.9rem;
@@ -648,33 +381,6 @@
   margin: 0 0 10px;
 }
 
-.ed-intro{
-  font-size: 0.94rem;
-  color: #6b7280;
-  font-style: italic;
-  margin: 0 0 24px;
-}
-
-.ed-subtopic{
-  margin-bottom: 26px;
-}
-.ed-subtopic:last-child{
-  margin-bottom: 0;
-}
-
-.ed-subtopic-title{
-  font-family: 'Fraunces', serif;
-  color: #08589e;
-  font-size: 1.08rem;
-  font-weight: 600;
-  margin: 0 0 10px;
-}
-
-.ed-subtopic-body{
-  color: #374151;
-  font-size: 0.94rem;
-  margin: 0 0 16px;
-}
 
 .ed-insight-date{
   font-size: 0.78rem;
@@ -682,41 +388,8 @@
   color: #2b8cbe;
 }
 
-/* Modals */
-  #modal-body h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-  color: #08589e;
-}
 
-#modal-body p {
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-#modal-body ul {
-  padding-left: 1.5rem;
-}
-
-#modal-body li {
-  margin-bottom: 0.7rem;
-}
-
-#modal-body blockquote {
-  border-left: 4px solid #2b8cbe;
-  padding-left: 1rem;
-  margin: 1rem 0;
-  font-style: italic;
-  color: #4b5563;
-  background: #f8fafc;
-}
-
-  .modal-infographic {
-    width: 100%;
-    max-width: 900px;
-    display: block;
-    margin: 0 auto 8px;
-}
+  
 
 
   .zoom-infographic{
@@ -792,86 +465,325 @@
   visibility: hidden;
 }
 
-    .services-tier-label{
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #08589e;
-      margin: 8px 0 16px;
-    }
+    
 
-    .services-tier-label-specialised{
-      color: #2b8cbe;
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid #a8ddb5;
-    }
+    
 
-    .hub-bridge,
-    .projects-bridge{
-      background: #ccebc5;
-      border-left: 4px solid #08589e;
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 20px 0 24px;
-      font-size: 0.94rem;
-      color: #1f2937;
-    }
+    
 
-    .hub-lead-quote{
-      background: #ccebc5;
-      border-left: 4px solid #08589e;
-      border-radius: 8px;
-      padding: 20px 26px;
-      margin: 0 0 28px;
-      font-style: italic;
-      font-size: 1.02rem;
-      color: #1f2937;
-    }
+    
 
-    /* SELECTED WORK */
-    .work-grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
+    
 
-    .work-card{
-      background: white;
+    
+
+    
+
+    
+
+    
+
+    
+
+    /* RESEARCH OUTPUTS — same slim single-column list as the Insights
+       archive above, for a consistent light design across both sections. */
+    .outputs-accordion{
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #a8ddb5;
       border-radius: 10px;
-      padding: 20px;
-      border-left: 5px solid #08589e;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      overflow: hidden;
+      background: #ffffff;
     }
 
-    .work-card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    .output-item{
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 20px;
+      transition: background 0.15s ease;
     }
+    .output-item:last-child{ border-bottom: none; }
+    .output-item:hover{ background: #f7fbf5; }
+    .output-item[open]{ background: #f7fbf5; }
 
-    .work-tag{
-      display: inline-block;
-      font-size: 0.78rem;
+    /* Placeholder rows keep a permanent soft tint (even collapsed) so they
+       read as "not yet published" at a glance. */
+    .output-item.output-item-placeholder{ background: #f7fbf5; }
+    .output-item.output-item-placeholder:hover,
+    .output-item.output-item-placeholder[open]{ background: #eef6e7; }
+
+    .output-item summary{
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .output-item summary::-webkit-details-marker{ display: none; }
+    .output-item summary::before{
+      content: "+";
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #2b8cbe;
+      flex-shrink: 0;
+      width: 16px;
+      text-align: center;
+    }
+    .output-item[open] summary::before{ content: "–"; }
+
+    .output-tag{
+      font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: #2b8cbe;
-      margin-bottom: 10px;
+      flex-shrink: 0;
+      min-width: 108px;
     }
 
-    .work-card h4{
-      margin: 0 0 10px;
+    .output-title{
+      flex: 1 1 auto;
+      min-width: 0;
+      font-weight: 700;
       color: #08589e;
-      font-size: 1.05rem;
+      font-size: 0.96rem;
+      line-height: 1.4;
+    }
+    .output-item:not([open]) .output-title{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .work-card p{
+    @media (max-width: 480px){
+      .output-item summary{ flex-wrap: wrap; row-gap: 6px; }
+      .output-title{ flex-basis: 100%; }
+    }
+
+    .output-body{
+      margin-top: 14px;
+      padding-top: 14px;
+      padding-left: 30px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .output-body p{
       color: #555;
       font-size: 0.92rem;
+      margin: 0 0 8px;
+    }
+    .output-body p:last-child{ margin-bottom: 0; }
+
+    /* Divider between a page's top intro block (eyebrow + headline + supporting
+       line) and the first content section below it — gives the intro room to
+       breathe rather than running straight into the next eyebrow/headline pair. */
+    .page-intro-divider{
+      margin: 20px 0 18px;
+      border-top: 1px solid #a8ddb5;
+    }
+
+    /* Insights archive meta-bar — sits where the old framing-note blockquote
+       used to. Retired the blockquote treatment because this content isn't
+       a quote: it's two different things (a plain descriptive caption, and
+       two real navigation shortcuts) that a blockquote's "notable quote"
+       framing papered over. Now they're visually distinct: a small italic
+       caption on the left (same register as .section-label-note elsewhere
+       on this page), and the two shortcuts as small pill buttons on the
+       right, reusing the same mono/pill language as the .xpill filters
+       just below — so they read immediately as clickable quick actions,
+       not sentence fragments. */
+    .insights-meta-bar{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 4px 0 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #a8ddb5;
+    }
+    .insights-meta-text{
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #6b7280;
       margin: 0;
+    }
+    .insights-meta-links{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .insights-meta-link{
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #08589e;
+      background: #ffffff;
+      border: 1px solid #a8ddb5;
+      border-radius: 999px;
+      padding: 7px 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+    .insights-meta-link:hover{
+      background: #2b8cbe;
+      border-color: #2b8cbe;
+      color: #ffffff;
+    }
+
+    /* Summary clamp — [data-clamped="true"] limits the summary to a few
+       lines; toggled off via JS (initReadMoreToggles) once the reader asks
+       to see more. Short summaries never overflow the clamp, so they never
+       get a button — the toggle only appears when there's actually more
+       text hidden. */
+    .insight-summary[data-clamped="true"]{
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .insight-read-more-btn{
+      display: block;
+      margin-top: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #2b8cbe;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .insight-read-more-btn:hover{
+      color: #08589e;
+      text-decoration: underline;
+    }
+
+    /* INSIGHTS ARCHIVE — a slim, single-column list rather than boxed cards.
+       Collapsed rows are a single thin line (icon + date + pill + title),
+       divided by hairlines rather than separate bordered/shadowed boxes, so
+       the list reads as one light, cohesive block even as more Insights are
+       added — not a stack of visually heavy cards. */
+    #insights-archive{
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #a8ddb5;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .insight-accordion-item{
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 20px;
+      transition: background 0.15s ease;
+    }
+    .insight-accordion-item:last-child{ border-bottom: none; }
+    .insight-accordion-item:hover{ background: #f7fbf5; }
+    .insight-accordion-item[open]{ background: #f7fbf5; }
+
+    .insight-accordion-item summary{
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .insight-accordion-item summary::-webkit-details-marker{ display: none; }
+    .insight-accordion-item summary::before{
+      content: "+";
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #2b8cbe;
+      flex-shrink: 0;
+      width: 16px;
+      text-align: center;
+    }
+    .insight-accordion-item[open] summary::before{ content: "–"; }
+
+    .insight-accordion-date{
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #7bccc4;
+      flex-shrink: 0;
+      min-width: 68px;
+    }
+
+    /* Overrides the generic .insight-category-badge's block-level margins
+       (built for stacking above a card's <h4>) so the badge sits cleanly
+       inline within this row instead. */
+    .insight-accordion-item .insight-category-badge{
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    /* Collapsed: a single truncated line, so every row is the same slim
+       height regardless of title length. Opened: unwraps to show the full
+       title, however long it is. */
+    .insight-accordion-title{
+      flex: 1 1 auto;
+      min-width: 0;
+      font-weight: 700;
+      color: #08589e;
+      font-size: 0.96rem;
+      line-height: 1.4;
+    }
+    .insight-accordion-item:not([open]) .insight-accordion-title{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* On narrow screens, let the title drop to its own full-width line
+       below the date/pill/icon rather than truncating aggressively. */
+    @media (max-width: 480px){
+      .insight-accordion-item summary{ flex-wrap: wrap; row-gap: 6px; }
+      .insight-accordion-title{ flex-basis: 100%; }
+    }
+
+    .insight-accordion-body{
+      margin-top: 14px;
+      padding-top: 14px;
+      padding-left: 30px; /* aligns under the title, past the icon column */
+      border-top: 1px solid #a8ddb5;
+    }
+    .insight-accordion-body .insight-summary{
+      color: #555;
+      font-size: 0.92rem;
+      margin: 0 0 4px;
+    }
+    .insight-accordion-body .insight-summary p{ margin: 0 0 12px; }
+    .insight-accordion-body .insight-summary p:last-child{ margin-bottom: 0; }
+
+    .insights-show-more-row{
+      text-align: center;
+      margin-top: 22px;
+    }
+
+    .insights-show-more-btn{
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #08589e;
+      background: #e8f8db;
+      border: 1px solid #a8ddb5;
+      border-radius: 999px;
+      padding: 10px 26px;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .insights-show-more-btn:hover{
+      background: #ccebc5;
+      border-color: #7bccc4;
     }
 
     /* INSIGHTS */
@@ -886,6 +798,16 @@
       border-radius: 10px;
       padding: 18px 22px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Homepage-only treatment — the practice-zone box around this section is
+       white, so a plain white card sitting inside it disappears into the
+       background. Scoped to #insights-latest specifically so the Insights
+       archive page (#insights-archive) keeps its own white-card grid. */
+    #insights-latest .insight-item{
+      background: #f7fbf5;
+      border-radius: 10px;
+      box-shadow: none;
     }
 
     .insight-date{
@@ -904,36 +826,27 @@
       font-size: 1.02rem;
     }
 
-    .insight-item p{
+    .insight-item p,
+    .insight-item .insight-summary{
       color: #555;
       font-size: 0.92rem;
       margin: 0;
     }
 
-    /* TESTIMONIAL */
-    #testimonial{
-      margin-bottom: 40px;
+    /* If a summary contains its own <p> tags (for multi-paragraph text),
+       give each one breathing room, with no trailing gap after the last. */
+    .insight-item .insight-summary p{
+      margin: 0 0 12px;
+    }
+    .insight-item .insight-summary p:last-child{
+      margin-bottom: 0;
     }
 
-    .testimonial-quote{
-      background: #ccebc5;
-      border-left: 4px solid #08589e;
-      border-radius: 8px;
-      padding: 24px 28px;
-      margin: 0;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: #1f2937;
-    }
+    
 
-    .testimonial-quote cite{
-      display: block;
-      margin-top: 14px;
-      font-size: 0.88rem;
-      font-style: normal;
-      font-weight: 700;
-      color: #2b8cbe;
-    }
+    
+
+    
 
     /* PROJECTS PAGE — FILTERS & CARD STATES */
     .project-filters{
@@ -974,10 +887,7 @@
       margin: 0 0 20px;
     }
 
-    .work-card-placeholder{
-      border-left-style: dashed;
-      background: #f7fbf5;
-    }
+    
 
     .work-status{
       margin-top: 10px !important;
@@ -997,25 +907,9 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.04);
     }
 
-    .zone-eyebrow{
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #2b8cbe;
-      text-align: center;
-      margin: 0 0 10px;
-    }
+    
 
-    .zone-note{
-      font-size: 0.92rem;
-      font-style: italic;
-      color: #6b7280;
-      text-align: center;
-      max-width: 620px;
-      margin: 0 auto 36px;
-      line-height: 1.6;
-    }
+    
 
     .zone-section{
       margin-bottom: 40px;
@@ -1147,43 +1041,17 @@
       .sector-divider{ display:none; }
     }
 
-    .zone-teaser-grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
+    
 
-    .zone-teaser-card{
-      background: #ccebc5;
-      border-left: 4px solid #08589e;
-      border-radius: 10px;
-      padding: 20px 22px;
-    }
+    
 
-    .zone-teaser-card h3{
-      margin: 0 0 8px;
-      color: #08589e;
-      font-size: 1.05rem;
-      font-weight: 700;
-    }
+    
 
-    .zone-teaser-card p{
-      margin: 0 0 12px;
-      font-size: 0.9rem;
-      color: #374151;
-    }
+    
 
-    .zone-teaser-card a{
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #2b8cbe;
-      text-decoration: none;
-    }
+    
 
-    .zone-teaser-card a:hover{
-      color: #08589e;
-      text-decoration: underline;
-    }
+    
 
     .page-framing-note{
       font-size: 0.85rem;
@@ -1290,12 +1158,22 @@
       margin-bottom: 10px;
    }
 
-    /* SERVICES — track cards */
-    .services-intro{
-      color:#374151;
-      font-size:1rem;
-      margin:0 0 28px;
-      
+    
+
+    /* Supporting tagline under a page's hero headline — same accent-border,
+       serif pattern as .value-statement, just italic and sized down since
+       it's a subtitle rather than a full callout. */
+    .page-tagline{
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: #08589e;
+      border-left: 3px solid #2b8cbe;
+      padding-left: 18px;
+      margin: 14px 0 0;
+      max-width: 620px;
     }
 
     .value-statement{
@@ -1417,9 +1295,12 @@
 
     .hub-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin: 24px 0;
+  }
+  @media (max-width: 600px){
+    .hub-grid{ grid-template-columns: 1fr; }
   }
 
 .hub-card{
@@ -1550,24 +1431,10 @@
       border: none;
       padding: 0;
     }
-    .section-sub{
-      font-size: 1.05rem;
-      color: #374151;
-      margin: 0 0 40px;
-    }
+    
 
-    /* About page */
-    .about-body p{ color:#374151; font-size:1rem; margin:0 0 20px;}
-    .mission-callout{
-      background:#ccebc5;
-      border-left:4px solid #08589e;
-      border-radius:8px;
-      padding:22px 26px;
-      margin:32px 0;
-      font-style:italic;
-      font-size:1.05rem;
-      color:#1f2937;
-    }
+    
+    
     .mission-callout .kicker{
       display:block;
       font-family:'Inter',sans-serif;
@@ -1586,16 +1453,7 @@
     .glance-banner.business{ background:#3ac0b2; }
     .glance-banner.financial{ background:#08589e; }
     .banner-top{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
-    .banner-track-tag{
-      font-size:0.72rem;
-      font-weight:700;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      background:rgba(255,255,255,0.25);
-      color:#ffffff;
-      padding:4px 10px;
-      border-radius:999px;
-    }
+    
 
     .pillar-block{ margin-bottom: 32px; }
     .pillar-block:last-child{ margin-bottom: 0; }
@@ -1637,6 +1495,7 @@
     .glance-banner p{ margin:0; color:#ffffff; opacity:0.92; font-size:0.93rem;}
     .glance-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; }
     .glance-card{
+      position: relative;
       background:#ffffff;
       border:1px solid #a8ddb5;
       border-radius: 10px;
@@ -1651,16 +1510,44 @@
       display:block; margin-top:8px; font-size:0.74rem; color:#a8ddb5; font-weight:700;
     }
     .glance-card.open .glance-expand-hint, .glance-card:hover .glance-expand-hint{ display:none; }
-    
-    .glance-card-body{
-      max-height:0; overflow:hidden; opacity:0;
-      transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
-    }
 
-    .glance-card:hover .glance-card-body,
-    .glance-card.open .glance-card-body,
-    .glance-card:focus .glance-card-body{
-      max-height:420px; opacity:1; margin-top:12px;
+    /* Detail panel floats over the page instead of growing the card in place
+       — position:absolute removes it from document flow entirely, so opening
+       it never changes the grid's row height, never pushes rows below down,
+       and never causes the sticky sidebar to shift. Hovering the panel itself
+       still counts as hovering .glance-card (it's a DOM descendant), so it
+       stays open while the cursor is over the revealed text.
+       DESKTOP ONLY: on mobile the grid is single-column, so a floating panel
+       would sit on top of the next card below rather than empty space. Below
+       769px this reverts to the simpler in-flow push-down expansion instead
+       — see the mobile override further down. */
+    @media (min-width: 769px){
+      .glance-card-body{
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        z-index: 30;
+        background: #ffffff;
+        border: 1px solid #a8ddb5;
+        border-radius: 10px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+        padding: 16px 18px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-6px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+        pointer-events: none;
+      }
+
+      .glance-card:hover .glance-card-body,
+      .glance-card.open .glance-card-body,
+      .glance-card:focus .glance-card-body{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
     }
 
     .glance-card-body p{
@@ -1683,7 +1570,40 @@
     /* RESPONSIVE (extended) */
     @media (max-width: 768px) {
       .track-grid, .app-grid{ grid-template-columns: 1fr; }
-      .track-divider{ display:none; }
+      
+
+      /* Mobile fallback for .glance-card-body: single-column grid means the
+         desktop floating overlay would sit on top of the next card below
+         rather than empty space, so mobile keeps the original in-flow
+         expansion instead — a standard, expected accordion pattern with no
+         overlap risk. Collapsed via max-height:0/overflow:hidden rather than
+         display:none so the height transition can still animate. Driven by
+         .open (tap-toggled in services.html's script) rather than :hover,
+         since hover isn't a reliable signal on touch devices. */
+      .glance-card-body{
+        position: static;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        padding: 0 18px;
+        margin-top: 0;
+        border: none;
+        box-shadow: none;
+        pointer-events: none;
+        transition: max-height 0.25s ease, padding 0.25s ease, margin-top 0.25s ease;
+      }
+
+      .glance-card.open .glance-card-body,
+      .glance-card:focus .glance-card-body{
+        max-height: 400px;
+        padding: 16px 18px;
+        margin-top: 10px;
+        border: 1px solid #a8ddb5;
+        border-radius: 10px;
+        pointer-events: auto;
+      }
     }
 
     /* ============================================================
@@ -1789,10 +1709,7 @@
   width:38px; height:38px; border-radius:8px; background:#e6f0ff;
   display:flex; align-items:center; justify-content:center; margin-bottom:14px;
 }
-.hub-tag{
-  font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-  color:#2b8cbe; margin:0 0 8px;
-}
+
 
 .topic-lede{ font-size:1.05rem; color:#374151; margin:0 0 20px; }
 .topic-lede strong{ color:#08589e; }
@@ -1804,6 +1721,18 @@
 .connector-quote .kicker{
   display:block; font-family:'IBM Plex Mono', monospace; font-style:normal; font-weight:600;
   font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#2b8cbe; margin-bottom:8px;
+}
+
+/* Extra breathing room specifically where a Read more/Read less toggle
+   sits directly above a fact carousel (the three Overview sections) or the
+   "Broader Perspectives" label (every Key Topic's Why-it-matters text) —
+   the button's own small margin-top wasn't enough separation from either
+   of those. Scoped to these two adjacencies so it doesn't change spacing
+   anywhere else .insight-read-more-btn is used (homepage/archive Insight
+   cards). */
+.read-more-toggle-btn + .fact-carousel,
+.read-more-toggle-btn + .ed-readings-label{
+  margin-top: 22px;
 }
 
 .fact-carousel{ background:#ccebc5; border:1px solid #7bccc4; border-radius:8px; padding:14px 18px; margin:0 0 28px; position:relative; }
@@ -1821,6 +1750,7 @@
 .fact-slide.active{ opacity:1; visibility:visible; pointer-events:auto; }
 .fact-slide p{ margin:0; font-size:0.9rem; color:#4b5563; }
 .fact-slide p strong{ color:#1f2937; }
+.fact-slide p .fact-emphasis{ font-style:italic; font-weight:600; color:#08589e; }
 .fact-icon{ font-size:1.1rem; line-height:1.3; flex-shrink:0; }
 .fact-nav{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:10px; }
 .fact-arrow{ background:none; border:1px solid #a8ddb5; border-radius:50%; width:26px; height:26px; font-size:1rem; color:#6b7280; cursor:pointer; display:flex; align-items:center; justify-content:center; }
@@ -1832,16 +1762,47 @@
 .tier1 .tier-head{ background:#7bccc4; }
 .tier2 .tier-head{ background:#4eb3d3; }
 .tier3 .tier-head{ background:#08589e; }
-.tier1{ margin-left:8%; margin-right:8%; }
-.tier2{ margin-left:4%; margin-right:4%; }
+.tier1{ margin-left:0; margin-right:0; }
+.tier2{ margin-left:0; margin-right:0; }
 .tier3{ margin-left:0; margin-right:0; }
 .tier-num{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; background:rgba(255,255,255,0.22); padding:4px 10px; border-radius:999px; }
 .tier-title{ font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; }
+
+/* Close button for a tier that was revealed by clicking a concept-map node
+   (Building Blocks / Applications / Foundations) — sits at the far right
+   of the tier's own coloured header via margin-left:auto, so a reader can
+   retract a section without needing to click a different map node first.
+   Solid white pill with a label (not just a faint circular icon) so it
+   reads clearly against any of the three tier-head colours and isn't
+   missed the way a low-contrast transparent icon would be. */
+.tier-close-btn{
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #08589e;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: background 0.18s ease, transform 0.15s ease;
+}
+.tier-close-btn:hover{
+  background: #f0f9e8;
+  transform: translateY(-1px);
+}
 .tier-body{ padding:20px 22px 22px; }
 
 .concept-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:14px; }
 .concept{ background:#f7fbf5; border:1px solid #a8ddb5; border-radius:8px; padding:14px 16px; }
-.concept h4{ margin:0 0 6px; font-family:'Fraunces', serif; font-weight:600; font-size:1rem; color:#08589e; }
+.concept h4{ margin:0 0 6px; font-family:'Fraunces', serif; font-weight:600; font-size:1.12rem; color:#08589e; }
+.concept .concept-tagline{ font-family:'Fraunces', serif; font-style:italic; font-weight:600; font-size:0.92rem; color:#2b8cbe; margin:0 0 8px; line-height:1.4; }
 .concept p{ margin:0; font-size:0.9rem; color:#4b5563; }
 .concept ul{ margin:6px 0 0; padding-left:18px; font-size:0.88rem; color:#4b5563; }
 .concept li{ margin-bottom:4px; }
@@ -1855,45 +1816,32 @@
 .resource-list a{ color:#2b8cbe; font-weight:600; text-decoration:none; }
 .resource-list a:hover{ text-decoration:underline; }
 .res-tag{ display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:9.5px; letter-spacing:0.04em; text-transform:uppercase; color:#6b7280; background:#f0f9e8; border:1px solid #a8ddb5; padding:1px 6px; border-radius:999px; margin-left:6px; }
+.res-tag.res-tag-own{ color:#ffffff; background:#08589e; border-color:#08589e; }
 .res-note{ margin:4px 0 0; font-size:0.83rem; color:#6b7280; line-height:1.5; }
 .concept.pointer-card{ border-style:dashed; border-color:#4eb3d3; background:#e8f8db; }
 .concept.pointer-card a{ color:#2b8cbe; text-decoration:none; font-weight:600; font-size:0.88rem; display:inline-block; margin-top:4px; }
 .concept.pointer-card a:hover{ text-decoration:underline; }
 
-.xtopics-section{ margin:8px 0 0; }
-.xtopics-head h4{ font-family:'Fraunces', serif; font-weight:600; font-size:1.25rem; margin:0 0 4px; color:#08589e; }
-.xtopics-head p{ margin:0 0 18px; font-size:0.92rem; color:#6b7280; }
+
 .xfilters{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
 .xpill{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; font-weight:500; padding:7px 14px; border-radius:999px; border:1px solid #a8ddb5; background:#ffffff; color:#6b7280; cursor:pointer; transition:all .18s ease; }
 .xpill:hover{ border-color:#4eb3d3; color:#08589e; }
 .xpill.active{ background:#4eb3d3; border-color:#4eb3d3; color:#ffffff; font-weight:600; }
-.xresource-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
-.xresource-item{ background:#f7fbf5; border:1px solid #a8ddb5; border-radius:8px; padding:14px 16px; }
-.xresource-item summary{ list-style:none; cursor:pointer; display:flex; align-items:center; flex-wrap:wrap; gap:9px; }
-.xresource-item summary::-webkit-details-marker{ display:none; }
-.xresource-item summary::before{ content:"+"; font-family:'Fraunces', serif; font-size:15px; color:#2b8cbe; width:14px; }
-.xresource-item details[open] summary::before{ content:"–"; }
-.xresource-title{ font-weight:600; color:#08589e; font-size:0.96rem; }
-.xresource-body{ margin-top:10px; padding-top:10px; border-top:1px solid #a8ddb5; }
-.xresource-synopsis{ margin:0 0 10px; font-size:0.9rem; color:#4b5563; }
-.xresource-body a{ color:#2b8cbe; font-weight:600; text-decoration:none; font-size:0.87rem; }
-.xresource-body a:hover{ text-decoration:underline; }
-.xtag{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; letter-spacing:0.04em; text-transform:uppercase; color:#4eb3d3; border:1px solid #4eb3d3; padding:1px 7px; border-radius:999px; }
-.xconnect{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; color:#6b7280; display:block; margin-bottom:8px; }
-.xempty-note{ font-size:0.9rem; color:#6b7280; font-style:italic; padding:10px 2px; }
+
+
+.xempty-note{ font-size:0.9rem; color:#6b7280; font-style:italic; padding:18px 22px; }
 
 .topic-footer{ margin-top:32px; padding-top:18px; border-top:1px solid #a8ddb5; font-family:'IBM Plex Mono', monospace; font-size:11px; color:#6b7280; }
 
 /* Emerging Developments — cluster grouping + empty-state, layered onto the
    existing .emerging-developments / .ed-subtopic system already in this file */
-.ed-cluster{ margin-bottom:28px; }
-.ed-cluster:last-child{ margin-bottom:0; }
-.ed-cluster-title{
-  font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600; color:#08589e; margin:0 0 14px;
-}
+
+
 .ed-insight-empty{
   font-size:0.88rem; font-style:italic; color:#a8ddb5; margin:0;
 }
+
+.concept p.concept-examples-label{ margin:10px 0 8px; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2b8cbe; }
 
 /* WHY PANEL DATA MATTERS */
 .reason-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:20px 0 28px; }
@@ -1976,8 +1924,43 @@
   font-family:'Fraunces', serif; color:#08589e; font-size:1.3rem; font-weight:600; margin:0 0 16px;
 }
 
+/* Header row wrapping the node title + its Close button, used only for
+   node content injected by openNodeContent() (Panel Data Methods map).
+   The plain .node-inline-title rule above still applies elsewhere (e.g.
+   the "Overview" headings), where margin:0 0 16px is exactly what's
+   wanted — here the row itself carries that spacing instead, so the
+   title's own margin is zeroed out. */
+.node-inline-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 16px;
+}
+.node-inline-header .node-inline-title{
+  margin: 0;
+}
+.node-inline-close{
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #08589e;
+  background: #e8f8db;
+  border: 1px solid #a8ddb5;
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+.node-inline-close:hover{
+  background: #ccebc5;
+  border-color: #7bccc4;
+}
+
 @media (max-width:640px){
-  .tier1, .tier2, .tier3{ margin-left:0; margin-right:0; }
   .tier-head{ flex-wrap:wrap; }
 }
 
@@ -2006,11 +1989,15 @@
    deliberately BELOW .ed-intro-lead (1.55rem) so the section headline stays
    the visual anchor and the Theme reads as one level down, not competing
    with it. Set off with an underline accent rather than a filled banner or
-   a small pill (both tried and rejected as too heavy / too light). */
+   a small pill (both tried and rejected as too heavy / too light). Headline
+   font-size set higher than the kicker's own 1.28rem because IBM Plex Mono
+   reads visually larger than Fraunces at the same rem value — this brings
+   the two into visual (not just numeric) parity. Only the plain text node
+   picks this up; the kicker keeps its own explicit font-size below. */
 .ed-theme-heading{
   font-family: 'Fraunces', serif;
   font-weight: 600;
-  font-size: 1.28rem;
+  font-size: 1.48rem;
   color: #08589e;
   line-height: 1.35;
   margin: 0 0 22px;
@@ -2027,34 +2014,42 @@
   margin-right: 12px;
 }
 
-/* Theme framing — intro paragraph(s) beneath the Theme heading */
+/* Theme framing — now lives inside .ed-focus-body, shown above the Key
+   Topics once a Focus Area is expanded. Bottom margin on the wrapper (not
+   just its last paragraph) gives clear breathing room before the divider
+   that the following .ed-topic's own border-top provides — no separate
+   divider element needed since it's no longer :first-child here. */
+.ed-theme-intro{
+  margin: 0 0 18px;
+}
 .ed-theme-intro p{
   color: #374151;
-  font-size: 0.92rem;
+  font-size: 1rem;
   line-height: 1.65;
   margin: 0 0 14px;
 }
 .ed-theme-intro p:last-child{ margin-bottom: 0; }
 
 /* Focus Area grouping — sits between a Theme and its Key Topics */
-.ed-focus-area{
-  margin-top: 26px;
-  padding-top: 20px;
-  border-top: 1px dashed #a8ddb5;
-}
-.ed-focus-area:first-of-type{ margin-top: 22px; }
-.ed-focus-label{
+
+/* KEY TOPICS — divider + label marking where a Focus Area's framing text
+   ends and its list of Key Topics begins. Mono/uppercase like the other
+   small structural labels on this page (.ed-why-matters, .ed-readings-label),
+   but sized a step up (0.8rem vs 0.7rem) since it sits one level higher in
+   the hierarchy — labelling a whole group of topics, not a single field
+   within one. The divider bar above it is the same teal previously used as
+   a border-top hack on the first .ed-topic; pulling it into this label
+   keeps the "framing text has ended" cue explicit rather than implied. */
+.ed-key-topics-label{
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #2b8cbe;
-  background: #e8f8db;
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 999px;
+  color: #08589e;
   margin: 0 0 16px;
+  padding-top: 18px;
+  border-top: 3px solid #7bccc4;
 }
 
 /* "Why it matters" label above each Key Topic's explanatory paragraph */
@@ -2069,10 +2064,7 @@
 }
 
 /* Bracketed placeholder copy — same convention as [Add resource title/link] */
-.ed-placeholder{
-  color: #9ca3af;
-  font-style: italic;
-}
+
 
 /* Focus Area — clickable card, expands to reveal its Key Topics */
 .ed-focusblock{
@@ -2089,38 +2081,63 @@
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  background: #ccebc5;
+  background: #ffffff;
   border: none;
+  border-left: 4px solid #2b8cbe;
   padding: 16px 20px;
   cursor: pointer;
   text-align: left;
   font-family: inherit;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, border-left-color 0.15s ease;
 }
-.ed-focus-toggle:hover{ background: #a8ddb5; }
+.ed-focus-toggle:hover{ background: #f7fbf5; }
+.ed-focus-toggle[aria-expanded="true"]{
+  background: #f7fbf5;
+  border-left-color: #08589e;
+  border-bottom: 1px solid #e5e7eb;
+}
 .ed-focus-title{
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #08589e;
 }
 .ed-focus-arrow{
-  font-size: 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #08589e;
   transition: transform 0.2s ease;
   flex-shrink: 0;
 }
 .ed-focus-toggle[aria-expanded="true"] .ed-focus-arrow{ transform: rotate(90deg); }
 .ed-focus-body{
-  padding: 8px 20px 4px;
+  padding: 18px 20px 4px;
 }
 
-/* Key Topic — nested clickable row inside a Focus Area, expands to reveal
-   its "Why it matters" text and any related Insight */
-.ed-topic{ border-top: 1px solid #e5e7eb; }
-.ed-topic:first-child{ border-top: none; }
+/* Key Topic — nested clickable card inside a Focus Area, expands to reveal
+   its "Why it matters" text and any related Insight.
+   Styled as a distinct tinted, bordered block (not a plain text row divided
+   by hairlines) specifically so that when a reader has one topic expanded
+   and scrolls down through its body copy, the next topic's header reads
+   immediately as a new section, not a continuation of the paragraph above
+   it. The left accent bar darkens and the fill tints in on the open topic,
+   driven by the "ed-topic-open" class (see script.js) rather than :has(),
+   for broader browser support. */
+.ed-topic{
+  background: #f7fbf5;
+  border: 1px solid #a8ddb5;
+  border-left: 4px solid #7bccc4;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 12px;
+  transition: border-left-color 0.15s ease, background 0.15s ease;
+}
+.ed-topic:last-child{ margin-bottom: 0; }
+.ed-topic.ed-topic-open{
+  border-left-color: #08589e;
+  background: #eef6e7;
+}
 .ed-topic-toggle{
   width: 100%;
   display: flex;
@@ -2129,32 +2146,41 @@
   gap: 12px;
   background: none;
   border: none;
-  padding: 16px 2px;
+  padding: 16px 18px;
   cursor: pointer;
   text-align: left;
   font-family: inherit;
   transition: opacity 0.15s ease;
 }
-.ed-topic-toggle:hover{ opacity: 0.72; }
+.ed-topic-toggle:hover{ opacity: 0.78; }
+/* Sized and weighted a clear step up from the body copy inside it (0.92rem
+   Inter) and from .ed-why-matters (0.7rem mono) so it can't be mistaken for
+   either while scrolling — this is the header a reader should recognise at
+   a glance as "a new topic starts here." */
 .ed-topic-title{
   font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 1.02rem;
+  font-weight: 700;
+  font-size: 1.16rem;
   color: #08589e;
 }
 .ed-topic-arrow{
   font-family: 'Fraunces', serif;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight: 700;
   line-height: 1;
   color: #2b8cbe;
   flex-shrink: 0;
-  width: 16px;
+  width: 18px;
   text-align: center;
 }
 .ed-topic-arrow::before{ content: "+"; }
 .ed-topic-toggle[aria-expanded="true"] .ed-topic-arrow::before{ content: "–"; }
 .ed-topic-body{
-  padding: 0 2px 20px;
+  padding: 0 18px 20px 22px;
+}
+.ed-topic-body p{
+  font-size: 0.92rem;
+  line-height: 1.65;
 }
 
 /* Small alignment patch: learning.html uses .emerging-dev (not .emerging-developments)
@@ -2165,23 +2191,14 @@
   padding-top: 28px;
   border-top: 1px solid #a8ddb5;
 }
-.ed-subtopic h5{
-  font-family:'Fraunces', serif;
-  color:#08589e;
-  font-size:1.05rem;
-  font-weight:600;
-  margin:0 0 8px;
-}
-.ed-subtopic > p{
-  color:#374151;
-  font-size:0.92rem;
-  margin:0 0 14px;
-  line-height:1.6;
-}
+
+
 .ed-insight-stack{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+  display: block;
+  border: 1px solid #a8ddb5;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
 }
 
 /* EMERGING DEVELOPMENTS — click-to-expand cluster accordion */
@@ -2195,11 +2212,9 @@
 .ed-cluster-toggle .ed-cluster-title{
   font-family:'Fraunces', serif; font-size:1.05rem; font-weight:600; color:#08589e; margin:0;
 }
-.ed-cluster-arrow{
-  font-size:1rem; color:#2b8cbe; transition: transform 0.2s ease; flex-shrink:0; margin-left:12px;
-}
+
 .ed-cluster-toggle[aria-expanded="true"] .ed-cluster-arrow{ transform: rotate(90deg); }
-.ed-subtopics{ padding:18px 4px 4px; }
+
 
 /* Insights data-render additions — the box for a subtopic's related Insight
    is now an expandable <details> element: collapsed shows just date + title,
@@ -2212,24 +2227,38 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6b7280;
+  color: #08589e;
   margin: 4px 0 10px;
+}
+
+/* Small directive line under an entry's Preview text, only shown when a
+   Kit email gate actually follows it — tells the reader up front that the
+   full piece requires entering an email, before they scroll down to the
+   locked box itself. Bold + brand blue (rather than the original small
+   muted italic) so it reads as a clear call-to-action, not a quiet aside
+   easy to skim past. */
+.ed-unlock-note{
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #08589e;
+  font-style: italic;
 }
 
 .ed-insight-box{
   display: block;
-  background: #ccebc5;
-  border-left: 4px solid #08589e;
-  border-radius: 8px;
-  padding: 14px 18px;
-  margin-bottom: 10px;
-  transition: background 0.15s ease;
-}
-.ed-insight-box:last-child{ margin-bottom: 0; }
-.ed-insight-box[open]{
   background: #ffffff;
-  border: 1px solid #a8ddb5;
-  border-left: 4px solid #08589e;
+  border-left: 3px solid #7bccc4;
+  border-bottom: 2px solid #a8ddb5;
+  padding: 14px 18px;
+  margin-bottom: 0;
+  transition: background 0.15s ease, border-left-color 0.15s ease;
+}
+.ed-insight-box:last-child{ border-bottom: none; }
+.ed-insight-box:hover{ background: #f7fbf5; }
+.ed-insight-box[open]{
+  background: #f7fbf5;
+  border-left-color: #08589e;
 }
 
 .ed-insight-box summary{
@@ -2247,6 +2276,7 @@
   margin-left: auto;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10.5px;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #2b8cbe;
@@ -2274,19 +2304,105 @@
   margin: 0 0 10px;
 }
 
+/* Same reasoning as .insight-summary above — support hubPreview text that
+   contains its own <p> tags for multiple paragraphs. */
+.ed-insight-summary p{
+  margin: 0 0 10px;
+}
+.ed-insight-summary p:last-child{
+  margin-bottom: 0;
+}
+
 .ed-insight-key-label{
   color: #08589e;
   font-weight: 700;
 }
 
-.ed-insight-source-link{
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #2b8cbe;
-  text-decoration: none;
+/* EMAIL-GATED DELIVERY — sits below the free Preview text inside a Learning
+   Hub box. .ed-gate-locked is our own framing (icon + prompt copy);
+   .ed-gate-kit-embed is an empty container that Kit's own script (loaded
+   per-entry from insights-render.js) fills with its real inline form. Kit
+   owns the form, submission, and confirmation from there — none of that is
+   built or styled by us. */
+.ed-gate{
+  margin-top: 14px;
 }
-.ed-insight-source-link:hover{ color: #08589e; text-decoration: underline; }
+
+.ed-gate-locked{
+  background: #f7fbf5;
+  border: 1px dashed #a8ddb5;
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: center;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.ed-gate-icon{
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.ed-gate-copy{
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  color: #4b5563;
+}
+
+.ed-gate-locked.ed-gate-kit-active .ed-gate-icon,
+.ed-gate-locked.ed-gate-kit-active .ed-gate-copy{
+  display: none;
+}
+
+.ed-gate-kit-embed{
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+/* GATED EXCERPT TEASER — a sentence or two of the actual gated piece,
+   sitting directly beneath the email signup box but blurred into an
+   unreadable texture. Purely a "there's real content back here" visual
+   cue: heavily blurred, faded, and fading out toward the bottom edge so
+   it reads as trailing off rather than being abruptly cut. Deliberately
+   NOT selectable/copyable, and hidden from screen readers (aria-hidden on
+   the wrapper) since it isn't meant to convey anything — the Preview text
+   above the gate is the only text in this box that's actually meant to be
+   read.
+   Built as two layers rather than one element with both "filter" and
+   "mask-image" set — some Safari versions silently drop the filter
+   entirely when both are present on the same element. The wrapper clips
+   height and holds a plain background-colour gradient (matching
+   .ed-gate-locked's own #f7fbf5 fill) for the fade-out; the blur lives
+   only on the text itself. */
+.ed-gate-teaser-wrap{
+  position: relative;
+  margin: 14px 0 0;
+  max-height: 64px;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.ed-gate-teaser-excerpt{
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #374151;
+  text-align: left;
+  opacity: 0.55;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+}
+.ed-gate-teaser-wrap::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 30px;
+  background: linear-gradient(to bottom, rgba(247,251,245,0), #f7fbf5 85%);
+}
 
 .ed-insight-more{
   margin:10px 0 0;
@@ -2302,15 +2418,18 @@
 
 .insight-category-badge{
   display:inline-block;
+  align-self:flex-start;
   font-family:'IBM Plex Mono', monospace;
   font-size:9.5px;
-  letter-spacing:0.06em;
+  line-height:1.4;
+  letter-spacing:0.02em;
   text-transform:uppercase;
   color:#2b8cbe;
   border:1px solid #2b8cbe;
-  padding:2px 8px;
+  padding:2px 6px;
   border-radius:999px;
   margin-left:8px;
+  margin-bottom:10px;
 }
 .insight-source{
   display:inline-block;
