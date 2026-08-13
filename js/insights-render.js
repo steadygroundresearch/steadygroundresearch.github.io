@@ -375,7 +375,16 @@ function renderEmergingDevInsights() {
         ? `<div class="ed-gate-teaser-wrap" aria-hidden="true"><p class="ed-gate-teaser-excerpt">${item.gatedExcerpt}</p></div>`
         : '';
 
-      const gateBlock = item.kitFormUid ? `
+      // fullArticlePdf and fullArticleFile both take precedence over the
+      // Kit gate whenever set — this is the deliberate on/off switch for
+      // gating. fullArticlePdf wins if both are somehow set on the same
+      // entry, since it's the simpler/more robust of the two (a plain
+      // link, no fetch, no separate image files to keep track of).
+      const showFullArticlePdf = !!item.fullArticlePdf;
+      const showFullArticleFile = !showFullArticlePdf && !!item.fullArticleFile;
+      const showFullArticle = showFullArticlePdf || showFullArticleFile;
+
+      const gateBlock = (item.kitFormUid && !showFullArticle) ? `
         <div class="ed-gate">
           <div class="ed-gate-locked">
             <span class="ed-gate-icon">✉️</span>
@@ -386,15 +395,37 @@ function renderEmergingDevInsights() {
         </div>
       ` : '';
 
-      // Only shown alongside an actual gate (kitFormUid set) — tells the
-      // reader up front, right under the free Preview text, that the rest
-      // of the piece is unlocked by email rather than by clicking anything.
-      const unlockNote = item.kitFormUid
+      // Only shown alongside an actual gate (kitFormUid set, and not
+      // overridden by fullArticle) — tells the reader up front, right
+      // under the free Preview text, that the rest of the piece is
+      // unlocked by email rather than by clicking anything.
+      const unlockNote = (item.kitFormUid && !showFullArticle)
         ? `<p class="ed-unlock-note">Enter your email below to unlock and receive the full piece.</p>`
         : '';
 
+      // UNGATED FULL ARTICLE — same "Preview text stays, click for more"
+      // shape as the gate it replaces. Two flavours:
+      //   (a) fullArticlePdf — a plain link that opens the PDF in a new
+      //       tab. No fetch, no separate image files, nothing that can
+      //       silently break on a path mismatch — just a link to a file
+      //       that either exists at that path or doesn't.
+      //   (b) fullArticleFile — the article's HTML is fetched on first
+      //       click and revealed inline (see initFullArticleToggles).
+      const fullArticlePdfBlock = showFullArticlePdf ? `
+        <div class="ed-full-article">
+          <a class="ed-full-article-pdf-link" href="${item.fullArticlePdf}" target="_blank" rel="noopener">Read the full article (PDF) →</a>
+        </div>
+      ` : '';
+
+      const fullArticleFileBlock = showFullArticleFile ? `
+        <div class="ed-full-article">
+          <button type="button" class="ed-full-article-toggle" aria-expanded="false" data-article-src="${item.fullArticleFile}">Read the full article →</button>
+          <div class="ed-full-article-body" hidden></div>
+        </div>
+      ` : '';
+
       return `
-        <details class="ed-insight-box">
+        <details class="ed-insight-box" id="ed-insight-item-${item.id}">
           <summary>
             <span class="ed-insight-date">${item.date}</span>
             <span class="ed-insight-title">${hubHeadline}</span>
@@ -403,10 +434,14 @@ function renderEmergingDevInsights() {
             <div class="ed-insight-summary"><strong class="ed-insight-key-label">Preview:</strong> ${preview}</div>
             ${unlockNote}
             ${gateBlock}
+            ${fullArticlePdfBlock}
+            ${fullArticleFileBlock}
           </div>
         </details>
       `;
     }).join('');
+
+    initFullArticleToggles(stack);
 
     if (remaining > 0) {
       stack.insertAdjacentHTML('afterend',
@@ -416,12 +451,67 @@ function renderEmergingDevInsights() {
   });
 }
 
+// Click-to-expand for an ungated .ed-full-article block — mirrors
+// initReadMoreToggles above but toggles a whole article body rather than
+// clamped summary text.
+//
+// UNLIKE the old inline "fullArticle" field (full HTML pasted directly
+// into insights-data.js), the article's HTML now lives in its own small
+// file (see fullArticleFile in insights-data.js) and is only fetched the
+// FIRST time someone actually clicks to expand it — nothing is downloaded
+// just from the piece appearing in the list. dataset.loaded marks a body
+// that's already been fetched, so re-toggling closed/open afterwards is
+// instant and never re-fetches.
+function initFullArticleToggles(scope){
+  scope.querySelectorAll('.ed-full-article-toggle').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const body = btn.nextElementSibling;
+      if (!body) return;
+
+      if (body.dataset.loaded !== 'true') {
+        const src = btn.dataset.articleSrc;
+        btn.disabled = true;
+        btn.textContent = 'Loading…';
+        try {
+          const res = await fetch(src);
+          if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+          body.innerHTML = await res.text();
+          body.dataset.loaded = 'true';
+        } catch (err) {
+          body.innerHTML = '<p class="xempty-note">Sorry — this article couldn\'t be loaded right now. Please try again shortly.</p>';
+          console.warn(`[insights-render] failed to fetch fullArticleFile "${src}":`, err);
+        } finally {
+          btn.disabled = false;
+        }
+      }
+
+      const isOpen = !body.hidden;
+      body.hidden = isOpen;
+      btn.textContent = isOpen ? 'Read the full article →' : 'Show less ↑';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      if (!isOpen) body.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+}
+
 // ---------------------------------------------------------------
-// DEEP LINKING — if arriving at learning.html#ed-insight-fs-digitalAssets,
-// open that panel and any collapsed accordion levels above it, then scroll
-// to it. Written generically so it works whether a panel uses the older
-// single-toggle-per-theme pattern (.ed-subtopics) or the newer nested
-// Focus Area / Key Topic pattern (.ed-focus-body / .ed-topic-body).
+// DEEP LINKING — two flavours of #ed-insight-... hash, both handled the
+// same way below:
+//   #ed-insight-fs-cbdc              (topic-level — points at a whole
+//                                      subtopic stack; used by the
+//                                      "Click for a broader perspective"
+//                                      links from the homepage/archive)
+//   #ed-insight-item-IMF-CBDC-Note-2026-07  (entry-level — points at one
+//                                      specific piece's own accordion box,
+//                                      using that entry's "id" field; this
+//                                      is the one to share externally,
+//                                      e.g. on LinkedIn, so a reader lands
+//                                      directly on that piece rather than
+//                                      the general topic area)
+// Either way: open that panel and any collapsed accordion levels above it,
+// then scroll to it. Written generically so it works whether a panel uses
+// the older single-toggle-per-theme pattern (.ed-subtopics) or the newer
+// nested Focus Area / Key Topic pattern (.ed-focus-body / .ed-topic-body).
 // ---------------------------------------------------------------
 function openDeepLinkedInsight() {
   const hash = window.location.hash;
@@ -451,6 +541,23 @@ function openDeepLinkedInsight() {
     }
     node = node.parentElement;
   }
+
+  // Entry-level links (#ed-insight-item-...) point directly at a <details>
+  // accordion box — open it so the reader sees the Preview text and the
+  // "Read the full article" link/button immediately, without an extra
+  // click just to reveal the box itself. (They still have to click "Read
+  // the full article" themselves to actually leave for the PDF/article —
+  // this only handles getting them TO that button.) Topic-level links
+  // (#ed-insight-fs-cbdc) point at the whole stack instead, which isn't a
+  // <details> itself, so this simply doesn't apply to those.
+  if (target.tagName === 'DETAILS') target.open = true;
+
+  // If the entry reached this way happens to be gated (kitFormUid, no
+  // fullArticlePdf/fullArticleFile override), its Kit embed still needs to
+  // load — normally that only happens on a manual click-through via the
+  // ed-topic-toggle/ed-focus-toggle handlers in script.js, which a deep
+  // link bypasses entirely. Harmless no-op for an ungated entry.
+  if (panel && typeof loadKitForms === 'function') loadKitForms(panel);
 
   setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
 }
