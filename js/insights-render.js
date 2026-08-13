@@ -501,7 +501,7 @@ function initFullArticleToggles(scope){
 //                                      subtopic stack; used by the
 //                                      "Click for a broader perspective"
 //                                      links from the homepage/archive)
-//   #ed-insight-item-IMF-CBDC-Note-2026-07  (entry-level — points at one
+//   #ed-insight-item-CBDC-Note-2026-07  (entry-level — points at one
 //                                      specific piece's own accordion box,
 //                                      using that entry's "id" field; this
 //                                      is the one to share externally,

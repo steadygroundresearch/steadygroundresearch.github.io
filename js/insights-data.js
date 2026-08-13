@@ -253,7 +253,7 @@ const INSIGHTS = [
   },
 
   {
-    id: "IMF-CBDC-Note-2026-07",
+    id: "CBDC-Note-2026-07",
     date: "July 2026",
     dateSort: "2026-07-15",
     title: "CBDC Implementation: The Benefits Are In The Details",
