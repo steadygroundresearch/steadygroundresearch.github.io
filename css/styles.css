@@ -2404,6 +2404,55 @@
   background: linear-gradient(to bottom, rgba(247,251,245,0), #f7fbf5 85%);
 }
 
+/* UNGATED FULL ARTICLE — replaces the email gate on a per-entry basis
+   (see fullArticle in insights-data.js). Same "expand for more" shape as
+   the read-more toggles used elsewhere on this page, just applied to a
+   full piece rather than a paragraph. */
+.ed-full-article{
+  margin-top: 14px;
+}
+.ed-full-article-pdf-link{
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #2b8cbe;
+  text-decoration: none;
+}
+.ed-full-article-pdf-link:hover{
+  color: #08589e;
+  text-decoration: underline;
+}
+
+.ed-full-article-toggle{
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #2b8cbe;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.ed-full-article-toggle:hover{
+  color: #08589e;
+  text-decoration: underline;
+}
+.ed-full-article-body{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #a8ddb5;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+.ed-full-article-body p{
+  margin: 0 0 16px;
+}
+.ed-full-article-body p:last-child{
+  margin-bottom: 0;
+}
+
 .ed-insight-more{
   margin:10px 0 0;
   text-align:right;
