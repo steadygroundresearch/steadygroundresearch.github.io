@@ -270,7 +270,7 @@ const INSIGHTS = [
     // EXAMPLE — this is what actually shows in the Learning Hub box, under
     // the bold "Preview:" label. Tease your original piece here; cite the
     // source paper inline if relevant (plain <a> tag works fine).
-    hubPreview: "The public conversation around Central Bank Digital Currencies (CBDCs) has increasingly focused on their potential implications for consumers, particularly with respect to privacy, government surveillance, programmability, and the future role of cash. Central banks, meanwhile, have emphasised potential benefits including faster and more efficient payments, greater financial inclusion, and improved cross-border transactions.",
+    hubPreview: "Central Bank Digital Currencies (CBDCs) are often discussed in terms of how they could change the way people make payments, use cash, and interact with money. But the more consequential transformation may be happening elsewhere. While retail CBDCs have attracted much of the public attention, central banks are also exploring how digital forms of central bank money could reshape the infrastructure through which financial institutions transfer money and settle transactions. Could the biggest impact of CBDCs occur not in the money people use every day, but in the financial infrastructure operating behind it?",
     // UNGATED FOR NOW — see fullArticlePdf field docs above. Delete this
     // field later (leaving kitFormUid as-is below) to switch this entry
     // back to the email-gated flow once there's a subscriber base worth
@@ -282,7 +282,7 @@ const INSIGHTS = [
   },
 
   {
-    id: "IMF-tokenizedfinance-Note-2026-03",
+    id: "tokenizedfinance",
     date: "July 2026",
     dateSort: "2026-07-30",
     title: "Tokenised Finance: Potentially Transformative But Can It Really Deliver?",
@@ -299,7 +299,8 @@ const INSIGHTS = [
     // EXAMPLE — this is what actually shows in the Learning Hub box, under
     // the bold "Preview:" label. Tease your original piece here; cite the
     // source paper inline if relevant (plain <a> tag works fine).
-    hubPreview: "Cross-border payments remain slower, more expensive, and more complex than many businesses would like. Tokenisation has the potential to make international transactions faster and more efficient, but it must overcome legal, regulatory, and operational barriers before those benefits can be realised. This insight explores where tokenisation could make a real difference, and where expectations may be ahead of reality.",
+    fullArticlePdf: "resources/insights/pdfs/tokenizedfinance.pdf",
+    hubPreview: "As financial assets become increasingly digital, tokenisation could reshape how assets are issued, transferred, settled, and managed across jurisdictions. Yet the technology may be only part of the story. The bigger question is whether the institutions and rules surrounding financial markets can evolve with it. \"<em><strong>Beyond the Hype: Can Tokenisation Transform Cross-Border Finance?</strong></em>\" explores what tokenisation could really change - and what may stand in its way.",
     kitFormUid: "29ff756091", // this is the form/sequence they'll actually get by signing up here
     gateLabel: "Enter your email and we'll send you the full piece."
   }
