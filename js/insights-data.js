@@ -300,7 +300,7 @@ const INSIGHTS = [
     // the bold "Preview:" label. Tease your original piece here; cite the
     // source paper inline if relevant (plain <a> tag works fine).
     fullArticlePdf: "resources/insights/pdfs/tokenizedfinance.pdf",
-    hubPreview: "As financial assets become increasingly digital, tokenisation could reshape how assets are issued, transferred, settled, and managed across jurisdictions. Yet the technology may be only part of the story. The bigger question is whether the institutions and rules surrounding financial markets can evolve with it. \"<em><strong>Beyond the Hype: Can Tokenisation Transform Cross-Border Finance?</strong></em>\" explores what tokenisation could really change - and what may stand in its way.",
+    hubPreview: "As financial markets and payment systems become increasingly digital, tokenisation could reshape how assets are issued, transferred, settled, and managed, as well as change how money moves across borders. Yet the technology may be only part of the story. The bigger question is whether the institutions and rules surrounding cross-border finance can evolve with it. \"<em><strong>Beyond the Hype: Can Tokenisation Transform Cross-Border Finance?</strong></em>\" explores what tokenisation could really change - and what may stand in its way.",
     kitFormUid: "29ff756091", // this is the form/sequence they'll actually get by signing up here
     gateLabel: "Enter your email and we'll send you the full piece."
   }
