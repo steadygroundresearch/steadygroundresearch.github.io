@@ -314,11 +314,6 @@ const INSIGHTS = [
     category: "financialStability",
     hubTeaser: "Why does cash continue to persist, and what role should it play in an increasingly digital payment system?",
     sourceUrl: "https://www.ecb.europa.eu/press/economic-bulletin/articles/2025/html/ecb.ebart202505_03~d74cb56069.en.html",
-    learningHubOnly: false,
-    subtopic: "cash",
-    // OPTIONAL — headline shown in the Further Insights box, if it should
-    // differ from the "title" hook above. Delete this line to just reuse
-    // "title" instead.
     
   }
 
