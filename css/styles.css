@@ -1106,6 +1106,13 @@
     }
 
     /* HERO */
+    /* .hero-section wraps ONLY the homepage's top hero block (see
+       index.html) — deliberately not applied to the bare <section> tag
+       used throughout the rest of the site, so this scoping can't leak
+       into any other section's layout. position:relative + z-index:0
+       creates a local stacking context so the accent SVG's negative
+       z-index keeps it behind the hero text without also sinking behind
+       the page background. */
     .hero-headline{
       font-family:'Fraunces', serif;
       font-size: 2.4rem;
