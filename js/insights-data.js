@@ -210,7 +210,7 @@
                — plain text is simplest here.
 
   VALID category + subtopic PAIRS (must match Learning Hub subtopic ids):
-    financialStability : cbdc | digitalAssets
+    financialStability : cbdc | digitalAssets | cash
     macroprudential     : nbfi | systemicInterconnectedness
     panelData           : modelSelection | interpretingResults
     dataDecisions       : performanceMeasurement | decisionAnalytics
@@ -303,7 +303,25 @@ const INSIGHTS = [
     hubPreview: "As financial markets and payment systems become increasingly digital, tokenisation could reshape how assets are issued, transferred, settled, and managed, as well as change how money moves across borders. Yet the technology may be only part of the story. The bigger question is whether the institutions and rules surrounding cross-border finance can evolve with it. \"<em><strong>Beyond the Hype: Can Tokenisation Transform Cross-Border Finance?</strong></em>\" explores what tokenisation could really change - and what may stand in its way.",
     kitFormUid: "29ff756091", // this is the form/sequence they'll actually get by signing up here
     gateLabel: "Enter your email and we'll send you the full piece."
+  },
+
+  {
+    id: "cash-in-use",
+    date: "August 2026",
+    dateSort: "2026-08-21",
+    title: "Can We Really Become Cashless?",
+    summary: "<p>For years, the rise of digital payments has fuelled predictions that cash would eventually disappear. But what if the transition to a cashless society is not as inevitable as we once thought?</p><p>A 2025 European Central Bank study offers an interesting challenge to the conventional narrative. By separating age, period and cohort effects, the study suggests that younger generations are not necessarily abandoning cash simply because they are younger. Cash continues to play a role across generations, suggesting that its future may be more persistent than the traditional “cashless society” narrative implies.</p>",
+    category: "financialStability",
+    hubTeaser: "Why does cash continue to persist, and what role should it play in an increasingly digital payment system?",
+    sourceUrl: "https://www.ecb.europa.eu/press/economic-bulletin/articles/2025/html/ecb.ebart202505_03~d74cb56069.en.html",
+    learningHubOnly: false,
+    subtopic: "cash",
+    // OPTIONAL — headline shown in the Further Insights box, if it should
+    // differ from the "title" hook above. Delete this line to just reuse
+    // "title" instead.
+    
   }
+
 ];
 
 // Category display labels — used by the insights.html filter pills

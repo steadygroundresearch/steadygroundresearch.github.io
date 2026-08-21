@@ -20,7 +20,7 @@ const CATEGORY_PREFIX = { financialStability: 'fs', macroprudential: 'mp', panel
 // doesn't match. Runs once at load, before anything is rendered.
 // ---------------------------------------------------------------
 const VALID_SUBTOPICS_BY_CATEGORY = {
-  financialStability: ['cbdc', 'digitalAssets'],
+  financialStability: ['cbdc', 'digitalAssets', 'cash'],
   macroprudential: ['nbfi', 'systemicInterconnectedness'],
   panelData: ['modelSelection', 'interpretingResults'],
   dataDecisions: ['performanceMeasurement', 'decisionAnalytics']
