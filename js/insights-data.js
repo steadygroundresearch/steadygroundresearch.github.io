@@ -11,16 +11,75 @@
   of ORIGINAL material you create (a blog note, a chart, an infographic)
   that the paper merely inspired.
 
+  ============================================================
+  QUICK REFERENCE — four scenarios, and exactly where to stop
+  ============================================================
+  Every entry starts with the same six fields, always:
+    id → date → dateSort → title → summary → category
+  What you add AFTER category determines which of the four scenarios below
+  you're in. Find your scenario, add exactly those fields, and stop —
+  anything past that point belongs to a different scenario.
+
+  ── SCENARIO 1 — Insight-only. Never touches the Learning Hub. ──────────
+    Add:      sourceUrl
+    Stop.     Do NOT add hubTeaser or subtopic — their mere presence is
+              what pulls a piece toward the Learning Hub below.
+    Example:  "AI-adoption-risks-2026-07" further down this file.
+
+  ── SCENARIO 2 — On the homepage now; Learning Hub piece PLANNED but ────
+  ── not written yet. Teaser text shows, but no clickable link yet.  ────
+    Add:      sourceUrl, hubTeaser (recommended — this is what shows on
+              the homepage card even before the link is ready), subtopic
+              (routes it to the right Learning Hub stack once it's ready),
+              hubLinkReady: false
+    Stop.     Do NOT add hubTitle, hubPreview, fullArticlePdf,
+              fullArticleFile, or kitFormUid yet — those all get added in
+              one batch, together, when you move this piece to Scenario 3.
+              hubLinkReady: false hides ONLY the "Click for a broader
+              perspective" link — the hubTeaser paragraph above it still
+              shows as normal, since that's homepage-only content and is
+              fine to display even before the Learning Hub side is ready.
+    Example:  "cash-in-use" further down this file.
+
+  ── SCENARIO 3 — On the homepage AND fully linked to a ready ────────────
+  ── Learning Hub piece.                                      ────────────
+    Add:      sourceUrl, hubTeaser, subtopic, hubTitle (optional),
+              hubPreview (optional — falls back to summary),
+              THEN pick exactly ONE delivery mechanism:
+                fullArticlePdf   (recommended default — plain PDF link)
+                fullArticleFile  (only if you want native styled HTML)
+                kitFormUid       (email-gated; add gateLabel/gatedExcerpt
+                                  only if using this option)
+    Note:     If this piece was previously in Scenario 2, this is also the
+              moment to DELETE its hubLinkReady: false line — leaving it in
+              place keeps hiding the link even once everything else here
+              is ready.
+    Example:  "CBDC-Note-2026-07" further down this file.
+
+  ── SCENARIO 4 — Learning-Hub-only. No homepage/archive presence ────────
+  ── at all (a piece that only makes sense inside one Learning Hub topic).
+    Add:      learningHubOnly: true, subtopic (required — without it the
+              piece would show nowhere at all), hubTitle (optional),
+              hubPreview (optional — falls back to summary), then one
+              delivery mechanism as in Scenario 3.
+    Skip:     hubTeaser and hubLinkReady — neither does anything once
+              learningHubOnly is true, since the homepage/archive card
+              they'd attach to never renders in the first place.
+              sourceUrl is still fine to include if there's a real external
+              paper worth citing — it just won't be shown anywhere, since
+              there's no homepage card to put a "Read the full paper" link
+              on.
+
   FIELD ORDER — matches the order below, deliberately:
     id → date → dateSort → title → summary → category → hubTeaser → sourceUrl
     is everything you need for a piece that only appears on the homepage and
     Insights archive (no Learning Hub connection). If that's all a new piece
     needs, fill in through sourceUrl and stop — skip hubTeaser too if there's
     no Learning Hub tie-in at all.
-    Everything AFTER sourceUrl (learningHubOnly, subtopic, hubTitle,
-    hubPreview, fullArticlePdf, fullArticleFile, kitFormUid, gateLabel,
-    gatedExcerpt) only matters once you set "subtopic" — that's what pushes
-    a piece into the Learning Hub as well.
+    Everything AFTER sourceUrl (learningHubOnly, subtopic, hubLinkReady,
+    hubTitle, hubPreview, fullArticlePdf, fullArticleFile, kitFormUid,
+    gateLabel, gatedExcerpt) only matters once you set "subtopic" — that's
+    what pushes a piece into the Learning Hub as well.
 
   FIELDS
   - id:        unique slug, lowercase-hyphenated, never reused
@@ -67,6 +126,10 @@
                is what the reader sees on the HOMEPAGE/archive, before
                deciding to click through to the Learning Hub — make it
                specific to this piece, not generic.
+               Fine to write this in advance during Scenario 2 (subtopic
+               set, hubLinkReady: false) — it shows right away in that
+               case; only the clickable link stays hidden until
+               hubLinkReady is removed.
   - sourceUrl: link to the external paper. Used ONLY on the homepage/Insights
                archive as the "Read the full paper →" link — no longer
                auto-linked anywhere in the Learning Hub box.
@@ -89,6 +152,27 @@
                won't be pushed into any Learning Hub subtopic, and shows no
                Learning Hub link at all).
                When included, it must match one of the keys listed below.
+  - hubLinkReady: OPTIONAL, boolean, default true (so every existing entry
+               keeps working exactly as before without needing this field
+               at all). Set to "false" while "subtopic" is already assigned
+               but the actual Learning Hub piece (hubTitle/hubPreview/
+               delivery mechanism) hasn't been written yet — this is
+               SCENARIO 2 above. With it set to false, the homepage/archive
+               card hides ONLY the "Click for a broader perspective" link —
+               the hubTeaser paragraph still shows as normal, since that
+               text is homepage-only content and is fine to display even
+               before the Learning Hub side is ready. This is what lets
+               visitors know a piece connects to a broader topic without
+               sending them to a Learning Hub stack item that isn't
+               actually ready yet. The piece still correctly slots into its
+               Learning Hub subtopic's stack in the meantime (showing just
+               the free Preview text, same as any entry with a subtopic but
+               no delivery mechanism set) — this flag only ever affects the
+               link on the HOMEPAGE/archive side.
+               Once the Learning Hub piece is genuinely ready, DELETE this
+               line entirely (simplest) or set it to "true" — either way,
+               the link reappears on the homepage/archive with no other
+               change needed.
   - hubTitle:  OPTIONAL. The headline shown in the Learning Hub's "Further
                Insights" box, in place of "title". Use this when the
                original piece deserves its own headline distinct from the
@@ -309,12 +393,13 @@ const INSIGHTS = [
     id: "cash-in-use",
     date: "August 2026",
     dateSort: "2026-08-21",
-    title: "Can We Really Become Cashless?",
+    title: "Will We Really Become Cashless?",
     summary: "<p>For years, the rise of digital payments has fuelled predictions that cash would eventually disappear. But what if the transition to a cashless society is not as inevitable as we once thought?</p><p>A 2025 European Central Bank study offers an interesting challenge to the conventional narrative. By separating age, period and cohort effects, the study suggests that younger generations are not necessarily abandoning cash simply because they are younger. Cash continues to play a role across generations, suggesting that its future may be more persistent than the traditional “cashless society” narrative implies.</p>",
     category: "financialStability",
     hubTeaser: "Why does cash continue to persist, and what role should it play in an increasingly digital payment system?",
     sourceUrl: "https://www.ecb.europa.eu/press/economic-bulletin/articles/2025/html/ecb.ebart202505_03~d74cb56069.en.html",
-    
+    subtopic: "cash",
+    hubLinkReady: false // Learning Hub piece not written yet — see Scenario 2 in the header docs. Delete this line once it's ready.
   }
 
 ];
