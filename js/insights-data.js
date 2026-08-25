@@ -394,9 +394,9 @@ const INSIGHTS = [
     date: "August 2026",
     dateSort: "2026-08-21",
     title: "Will We Really Become Cashless?",
-    summary: "<p>For years, the rise of digital payments has fuelled predictions that cash would eventually disappear. But what if the transition to a cashless society is not as inevitable as we once thought?</p><p>A 2025 European Central Bank study offers an interesting challenge to the conventional narrative. By separating age, period and cohort effects, the study suggests that younger generations are not necessarily abandoning cash simply because they are younger. Cash continues to play a role across generations, suggesting that its future may be more persistent than the traditional “cashless society” narrative implies.</p>",
+    summary: "<p>For years, the rise of digital payments has fuelled predictions that cash would eventually disappear. But what if the transition to a cashless society is not as inevitable as we once thought?</p><p>A 2025 European Central Bank study offers an interesting challenge to the conventional narrative. The study finds that while use in everyday transactions has continued to decline, cash continues to be used across generations, suggesting that its future may be more persistent than the traditional “cashless society” narrative implies.</p>",
     category: "financialStability",
-    hubTeaser: "Why does cash continue to persist, and what role should it play in an increasingly digital payment system?",
+    hubTeaser: "Why does cash continue to persist, and what role will it play in an increasingly digital payment system?",
     sourceUrl: "https://www.ecb.europa.eu/press/economic-bulletin/articles/2025/html/ecb.ebart202505_03~d74cb56069.en.html",
     subtopic: "cash",
     hubLinkReady: false // Learning Hub piece not written yet — see Scenario 2 in the header docs. Delete this line once it's ready.
