@@ -218,10 +218,6 @@
      gap:10px;
    }
 
-   
-
-   
-
     /* CONTACT SECTION — dark contrasting block, using the site's own palette */
     #contact{
       background:#08589e;
@@ -273,22 +269,7 @@
     }
     #contact a:not(.button-pill):hover{
       color:#ffffff;
-    }
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    
+    } 
 
     /* keeps spacing after subheadings consistent, rather than relying on
        default browser paragraph margins which don't match the heading's own gap */
@@ -296,21 +277,9 @@
       margin:0 0 20px;
     }
 
-    
-
-    
-
-    
-
-    
-
     #learning {
       margin-bottom: 55px;
    }
-
-
-   
-
 
 .concept-intro {
   margin-left: 12px;
@@ -359,18 +328,11 @@
   background: transparent;
 }
 
-  
-
 .node-modal.active {
   display: flex;
 }
 
-
- 
-
-
 /* EMERGING DEVELOPMENTS — appended below iframe in Learning Hub topic modals */
-
 
 .ed-eyebrow{
   font-size: 0.9rem;
@@ -387,11 +349,6 @@
   font-weight: 700;
   color: #2b8cbe;
 }
-
-
-  
-
-
   .zoom-infographic{
     width:40%;
     max-width:600px;
@@ -463,27 +420,7 @@
  #modal-body.is-loading iframe,
  #modal-body.is-loading img {
   visibility: hidden;
-}
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+}  
 
     /* RESEARCH OUTPUTS — same slim single-column list as the Insights
        archive above, for a consistent light design across both sections. */
@@ -862,12 +799,6 @@
       margin-bottom: 0;
     }
 
-    
-
-    
-
-    
-
     /* PROJECTS PAGE — FILTERS & CARD STATES */
     .project-filters{
       display: flex;
@@ -907,8 +838,6 @@
       margin: 0 0 20px;
     }
 
-    
-
     .work-status{
       margin-top: 10px !important;
       font-size: 0.82rem !important;
@@ -926,10 +855,6 @@
       margin-bottom: 60px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.04);
     }
-
-    
-
-    
 
     .zone-section{
       margin-bottom: 40px;
@@ -1061,18 +986,6 @@
       .sector-divider{ display:none; }
     }
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     .page-framing-note{
       font-size: 0.85rem;
       font-style: italic;
@@ -1185,8 +1098,6 @@
       margin-bottom: 10px;
    }
 
-    
-
     /* Supporting tagline under a page's hero headline — same accent-border,
        serif pattern as .value-statement, just italic and sized down since
        it's a subtitle rather than a full callout. */
@@ -1233,7 +1144,13 @@
       letter-spacing:0.06em;
       text-transform:uppercase;
       color:#ffffff;
+      position:relative;
+      overflow:hidden;
     }
+    /* Wraps the banner's label text so it can sit above the diagonal-line
+       accent (position:absolute, z-index:1) — the label itself is otherwise
+       a plain text node with no stacking context of its own. */
+    .track-banner-text{ position:relative; z-index:2; }
 
     
     .track-banner.business{ background:#3ac0b2; }
@@ -1459,9 +1376,6 @@
       padding: 0;
     }
     
-
-    
-    
     .mission-callout .kicker{
       display:block;
       font-family:'Inter',sans-serif;
@@ -1476,10 +1390,10 @@
 
     /* Services page */
     .glance-group{ margin-bottom: 44px; }
-    .glance-banner{ border-radius:12px; padding:22px 26px; margin-bottom:22px; }
+    .glance-banner{ border-radius:12px; padding:22px 26px; margin-bottom:22px; position:relative; overflow:hidden; }
     .glance-banner.business{ background:#3ac0b2; }
     .glance-banner.financial{ background:#08589e; }
-    .banner-top{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+    .banner-top{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px; position:relative; z-index:2; }
     
 
     .pillar-block{ margin-bottom: 32px; }
@@ -1519,7 +1433,54 @@
     }
     
     .glance-banner h3{ margin:0; font-size:1.25rem; font-weight:700; color:#ffffff; }
-    .glance-banner p{ margin:0; color:#ffffff; opacity:0.92; font-size:0.93rem;}
+    .glance-banner p{ margin:0; color:#ffffff; opacity:0.92; font-size:0.93rem; position:relative; z-index:2; }
+
+    /* ============================================================
+       SITE-WIDE ACCENT MOTIF — two variants, applied consistently
+       across every colored banner/header on the site rather than as
+       a one-off decoration. Split by context, not by page:
+         Option C (diagonal lines) → marketing-facing banners
+           (Services glance-banner, Homepage track-banner)
+         Option A (grid cells)     → Learning Hub tier headers
+           (Building Blocks / Applications / Foundations) — placed
+           here since these sit right alongside the Panel Data
+           Methods page's own balanced/unbalanced grid illustrations,
+           which is where this motif is drawn from.
+       Both are deliberately low-opacity so they read as background
+       texture, never competing with the white heading text sitting
+       above them (z-index:2 on every text element in these bars).
+       ============================================================ */
+
+    /* Option C — three thin diagonal lines, top-right corner.
+       preserveAspectRatio="none" stretches the same 3-line viewBox to
+       fit whatever width/height the containing banner actually has,
+       so one snippet works across banners of different sizes without
+       per-instance tuning. */
+    .accent-lines{
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.16;
+      pointer-events: none;
+    }
+
+    /* Option A — a small filled/outline square cluster, echoing the
+       balanced/unbalanced panel grid on the Panel Data Methods page. */
+    .accent-grid{
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      transform: translateY(-50%);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      z-index: 1;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+    .accent-grid span{ border-radius: 2px; background: #ffffff; }
+    .accent-grid span.outline{ background: transparent; border: 1.2px solid #ffffff; }
+    .accent-grid.sm{ width: 34px; height: 34px; gap: 2px; }
+    .accent-grid.lg{ width: 64px; height: 64px; gap: 3px; }
     .glance-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; }
     .glance-card{
       position: relative;
@@ -1785,15 +1746,24 @@
 .fact-counter{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:#6b7280; min-width:44px; text-align:center; }
 
 .tier{ border:1px solid #a8ddb5; border-radius:10px; margin-bottom:18px; overflow:hidden; background:#ffffff; }
-.tier-head{ display:flex; align-items:center; gap:14px; padding:16px 22px; color:#ffffff; flex-wrap:wrap; }
+.tier-head{ display:flex; align-items:center; gap:14px; padding:16px 22px; color:#ffffff; flex-wrap:wrap; position:relative; overflow:hidden; }
 .tier1 .tier-head{ background:#7bccc4; }
 .tier2 .tier-head{ background:#4eb3d3; }
 .tier3 .tier-head{ background:#08589e; }
 .tier1{ margin-left:0; margin-right:0; }
 .tier2{ margin-left:0; margin-right:0; }
 .tier3{ margin-left:0; margin-right:0; }
-.tier-num{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; background:rgba(255,255,255,0.22); padding:4px 10px; border-radius:999px; }
-.tier-title{ font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; }
+.tier-num{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; background:rgba(255,255,255,0.22); padding:4px 10px; border-radius:999px; position:relative; z-index:2; }
+.tier-title{ font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; position:relative; z-index:2; }
+
+/* The grid accent's default right:18px (see .accent-grid above) would sit
+   directly under the "✕ Close" button, which is pushed to the bar's far
+   right edge via margin-left:auto. Shifted left here, specifically within
+   tier-head, to clear that button instead of overlapping it. The button
+   itself (a plain, non-positioned element) already paints above the
+   accent by default stacking order, so this is purely about keeping the
+   pattern from visually crowding it. */
+.tier-head .accent-grid{ right: 128px; }
 
 /* Close button for a tier that was revealed by clicking a concept-map node
    (Building Blocks / Applications / Foundations) — sits at the far right
