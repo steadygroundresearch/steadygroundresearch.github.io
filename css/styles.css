@@ -1157,22 +1157,22 @@
     .track-banner.financial{ background:#1a97d5; }
     .track-card{ border-radius: 0 0 14px 14px; padding: 26px 26px 28px; flex:1; }
     .track-card.light{ background:#e8f8db; border:1px solid #a8ddb5; border-top:none; }
-    .track-card.dark{ background:#1a72ae; color:#f0f9e8; }
+    .track-card.dark{ background:#ccebc5; border:1px solid #7bccc4; border-top:none; color:#1f2937; }
     .track-card h3{ margin:0 0 12px; font-size:1.3rem; }
     .track-card.light h3{ color:#08589e; }
-    .track-card.dark h3{ color:#ffffff; }
+    .track-card.dark h3{ color:#08589e; }
     .track-card p.track-desc{ font-size:0.93rem; margin:0 0 16px; }
     .track-card.light p.track-desc{ color:#374151; }
-    .track-card.dark p.track-desc{ color:#e3f2e0; }
+    .track-card.dark p.track-desc{ color:#1f2937; }
     .track-card ul{ margin:0 0 20px; padding-left:20px; font-size:0.9rem; }
     .track-card.light ul{ color:#374151; }
-    .track-card.dark ul{ color:#e3f2e0; }
+    .track-card.dark ul{ color:#1f2937; }
     .track-card li{ margin-bottom:6px; }
     .track-card a.track-link{ font-weight:700; font-size:0.9rem; text-decoration:none; }
     .track-card.light a.track-link{ color:#2b8cbe; }
-    .track-card.dark a.track-link{ color:#ccebc5; }
+    .track-card.dark a.track-link{ color:#08589e; }
     .track-card.light a.track-link:hover{ color:#08589e; text-decoration:underline; }
-    .track-card.dark a.track-link:hover{ color:#ffffff; text-decoration:underline; }
+    .track-card.dark a.track-link:hover{ color:#2b8cbe; text-decoration:underline; }
 
     /* THE KNOWLEDGE PLATFORM zone */
     .zone-headline{
@@ -1392,7 +1392,7 @@
     .glance-group{ margin-bottom: 44px; }
     .glance-banner{ border-radius:12px; padding:22px 26px; margin-bottom:22px; position:relative; overflow:hidden; }
     .glance-banner.business{ background:#3ac0b2; }
-    .glance-banner.financial{ background:#08589e; }
+    .glance-banner.financial{ background:#1a97d5; }
     .banner-top{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px; position:relative; z-index:2; }
     
 
