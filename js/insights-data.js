@@ -338,8 +338,8 @@ const INSIGHTS = [
 
   {
     id: "CBDC-Note-2026-07",
-    date: "July 2026",
-    dateSort: "2026-07-15",
+    date: "August 2026",
+    dateSort: "2026-08-12",
     title: "CBDC Implementation: The Benefits Are In The Details",
     summary: "<p>Retail central bank digital currencies (CBDCs) are often pitched as a safer and more efficient form of digital money. Nevertheless, introducing a CBDC is not simply a matter of replacing cash with a digital alternative. The real question is whether it can improve the way payments and the financial system work without creating new risks. An IMF Note \"<em>Evaluating the Implications of CBDC for Financial Stability</em>\" explains that the answer depends on the details. <p>The way a CBDC is designed, how widely it is adopted, and the structure of a country's financial system all influence whether it strengthens payment systems, supports financial inclusion, and preserves financial stability.</p>",
     category: "financialStability",
