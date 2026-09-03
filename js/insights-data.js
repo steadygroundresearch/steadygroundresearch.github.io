@@ -45,6 +45,10 @@
   ── Learning Hub piece.                                      ────────────
     Add:      sourceUrl, hubTeaser, subtopic, hubTitle (optional),
               hubPreview (optional — falls back to summary),
+              hubDate + hubDateSort (optional pair — only needed if the
+              Learning Hub piece was finished/posted on a different date
+              than the homepage Insight; otherwise skip, and "date" is
+              used for both),
               THEN pick exactly ONE delivery mechanism:
                 fullArticlePdf   (recommended default — plain PDF link)
                 fullArticleFile  (only if you want native styled HTML)
@@ -195,6 +199,28 @@
                within this text (e.g. "...building on a recent BIS Bulletin
                on AI-driven cyber risk, we mapped...") — you can embed a raw
                <a href="..."> tag directly, since this field renders as HTML.
+  - hubDate:   OPTIONAL. Display text for the date shown in the Learning Hub
+               box (e.g. "September 2026"), separate from "date" above.
+               Use this whenever the Learning Hub piece is finished and
+               posted on a different date than the homepage/archive Insight
+               that pointed to it — which is common, since the homepage
+               Insight is usually quick to write, while the Learning Hub
+               piece is the longer original article and often takes longer
+               to finish. If omitted, "date" is reused here as a fallback
+               (the old behaviour, for every entry that doesn't need this
+               distinction).
+  - hubDateSort: OPTIONAL. Same relationship to hubDate as dateSort has to
+               date — "YYYY-MM-DD", used only for sorting entries WITHIN a
+               Learning Hub subtopic's stack (newest-first, latest 2 shown).
+               Set this alongside hubDate whenever you set hubDate, so the
+               Learning Hub stack sorts by the date the ARTICLE actually
+               went up, not the date the homepage Insight did — otherwise a
+               piece could be sorted incorrectly relative to other Learning
+               Hub pieces despite showing the right date text. If omitted,
+               dateSort is reused here as a fallback.
+               Note this only affects ordering inside the Learning Hub
+               subtopic stack — the homepage and Insights archive always
+               sort by plain dateSort, regardless of hubDateSort.
   - fullArticlePdf: OPTIONAL. Path to a PDF (relative to the site root, e.g.
                "resources/insights/pdfs/cbdc-2026-07.pdf") — usually just
                the original document you already have, as-is. RECOMMENDED
@@ -359,7 +385,7 @@ const INSIGHTS = [
     // field later (leaving kitFormUid as-is below) to switch this entry
     // back to the email-gated flow once there's a subscriber base worth
     // building. This is also the exact URL to paste into a LinkedIn post.
-    fullArticlePdf: "resources/insights/pdfs/cbdc-2026-07.pdf",
+    fullArticlePdf: "resources/insights/pdfs/pdfs-2026/cbdc-2026-07.pdf",
     kitFormUid: "29ff756091", // this is the form/sequence they'll actually get by signing up here — stays here, unused, until fullArticlePdf above is removed
     gateLabel: "Enter your email and we will send you the full piece.",
     gatedExcerpt: "<p>Yet, beyond these considerations another important development is taking place behind the scenes. Central banks alongside other financial institutions are exploring how digital forms of central bank money could reshape the financial system, particularly, how money is transferred and financial transactions are settled.</p>"
@@ -383,7 +409,7 @@ const INSIGHTS = [
     // EXAMPLE — this is what actually shows in the Learning Hub box, under
     // the bold "Preview:" label. Tease your original piece here; cite the
     // source paper inline if relevant (plain <a> tag works fine).
-    fullArticlePdf: "resources/insights/pdfs/tokenizedfinance.pdf",
+    fullArticlePdf: "resources/insights/pdfs/pdfs-2026/tokenizedfinance.pdf",
     hubPreview: "As financial markets and payment systems become increasingly digital, tokenisation could reshape how assets are issued, transferred, settled, and managed, as well as change how money moves across borders. Yet the technology may be only part of the story. The bigger question is whether the institutions and rules surrounding cross-border finance can evolve with it. \"<em><strong>Beyond the Hype: Can Tokenisation Transform Cross-Border Finance?</strong></em>\" explores what tokenisation could really change - and what may stand in its way.",
     kitFormUid: "29ff756091", // this is the form/sequence they'll actually get by signing up here
     gateLabel: "Enter your email and we'll send you the full piece."
@@ -399,7 +425,16 @@ const INSIGHTS = [
     hubTeaser: "Why does cash continue to persist, and what role will it play in an increasingly digital payment system?",
     sourceUrl: "https://www.ecb.europa.eu/press/economic-bulletin/articles/2025/html/ecb.ebart202505_03~d74cb56069.en.html",
     subtopic: "cash",
-    hubLinkReady: false // Learning Hub piece not written yet — see Scenario 2 in the header docs. Delete this line once it's ready.
+    learningHubOnly: false,
+    hubTitle: "Will We Really Become Cashless? A Global Perspective on the Future of Cash",
+    fullArticlePdf: "resources/insights/pdfs/pdfs-2026/cash-in-use.pdf",
+    hubPreview: "For years, the rise of digital payments has fuelled predictions that cash would eventually disappear.</p><p>In many economies, this transition is already well advanced. Recent evidence suggests that cash is accounting for a declining share of everyday transactions, while the use of digital payment methods continues to expand.</p><p>But is declining transactional use of cash equivalent to the disappearance of cash? This article examines this question by looking at the role of cash across the euro area, the United States, Sweden, India and South Africa, economics that differ in their payment systems, levels of financial inclusion and patterns of cash use.</p>",
+    // The Learning Hub article is finished later than the homepage Insight
+    // above (which was posted in August) — hubDate/hubDateSort give the
+    // Learning Hub box its own, later posting date without touching
+    // date/dateSort, which still correctly describe the August Insight.
+    hubDate: "September 2026",
+    hubDateSort: "2026-09-03"
   }
 
 ];

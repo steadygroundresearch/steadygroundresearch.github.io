@@ -120,6 +120,28 @@ function sortedInsights(list) {
     .map(x => x.item);
 }
 
+// Same newest-first/array-position-tiebreak logic as sortedInsights above,
+// but keyed on hubDateSort (falling back to dateSort when an entry doesn't
+// set one) — used ONLY when ordering a Learning Hub subtopic's own stack.
+// A piece's Learning Hub article is frequently finished and posted later
+// than the homepage Insight that first announced it (the homepage note is
+// usually quick to write; the Learning Hub piece is the longer original
+// article), so the Learning Hub stack needs to sort by when the ARTICLE
+// actually went up, not by when the homepage Insight did — otherwise a
+// newer article could be displayed with a September date but still sort
+// behind an August entry it should now come before.
+function hubSortedInsights(list) {
+  return list
+    .map((item, i) => ({ item, i }))
+    .sort((a, b) => {
+      const aKey = a.item.hubDateSort || a.item.dateSort;
+      const bKey = b.item.hubDateSort || b.item.dateSort;
+      const cmp = bKey.localeCompare(aKey);
+      return cmp !== 0 ? cmp : b.i - a.i;
+    })
+    .map(x => x.item);
+}
+
 // ---------------------------------------------------------------
 // SHARED LINK-ROW LOGIC — used by both insightItemHTML (homepage) and
 // insightAccordionHTML (archive), so the two treatments can never drift
@@ -359,7 +381,7 @@ function renderEmergingDevInsights() {
 
   stacks.forEach(stack => {
     const key = stack.id.replace('ed-insight-', '');
-    const items = sortedInsights(grouped[key] || []);
+    const items = hubSortedInsights(grouped[key] || []);
     if (!items.length) return; // leave the existing empty-state placeholder as-is
 
     const shown = items.slice(0, 2);
@@ -435,7 +457,7 @@ function renderEmergingDevInsights() {
       return `
         <details class="ed-insight-box" id="ed-insight-item-${item.id}">
           <summary>
-            <span class="ed-insight-date">${item.date}</span>
+            <span class="ed-insight-date">${item.hubDate || item.date}</span>
             <span class="ed-insight-title">${hubHeadline}</span>
           </summary>
           <div class="ed-insight-expanded">
