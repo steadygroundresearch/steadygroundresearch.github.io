@@ -3,7 +3,7 @@
   "short_name": "SG Research",
   "description": "Applied Research and Analytics",
   "start_url": "/",
-  "display": "standalone",
+  "display": "minimal-ui",
   "background_color": "#ffffff",
   "theme_color": "#003366",
   "orientation": "portrait-primary",
