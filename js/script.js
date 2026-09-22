@@ -858,7 +858,7 @@ if ('serviceWorker' in navigator) {
   const closeBtn = document.getElementById('pdf-modal-close');
 
   function openPdfModal(src, title){
-    frame.src = src + '#view=FitH';
+    frame.src = src ;
     titleEl.textContent = title || '';
     modal.classList.add('active');
   }
