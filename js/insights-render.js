@@ -443,7 +443,7 @@ function renderEmergingDevInsights() {
       //       click and revealed inline (see initFullArticleToggles).
       const fullArticlePdfBlock = showFullArticlePdf ? `
         <div class="ed-full-article">
-          <a class="ed-full-article-pdf-link" href="${item.fullArticlePdf}" target="_blank" rel="noopener">Read the full article (PDF) →</a>
+        <a class="ed-full-article-pdf-link" href="${item.fullArticlePdf}" target="_blank" rel="noopener" data-pdf-title="${hubHeadline}">Read the full article (PDF) →</a>
         </div>
       ` : '';
 

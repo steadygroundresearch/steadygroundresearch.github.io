@@ -821,3 +821,59 @@ if ('serviceWorker' in navigator) {
     });
 }
 */
+
+// ---------------------------------------------------------------
+// PDF MODAL — fixes the iOS installed-app PDF trap (see project notes).
+// Installed iOS home-screen apps strip all browser chrome, so a PDF
+// opened via target="_blank" has no back/close control at all. This
+// block ONLY runs when window.navigator.standalone is true, which is
+// exclusively the case for an installed iOS home-screen app. On every
+// other device or browser, this entire block exits on the first line
+// and nothing about the page changes — .ed-full-article-pdf-link stays
+// a normal <a target="_blank"> link, same as it's always been.
+// ---------------------------------------------------------------
+(function(){
+  if (!(window.navigator && window.navigator.standalone)) return;
+
+  const pdfLinks = document.querySelectorAll('.ed-full-article-pdf-link');
+  if (!pdfLinks.length) return;
+
+  const modal = document.createElement('div');
+  modal.className = 'pdf-modal';
+  modal.innerHTML = `
+    <div class="pdf-modal-inner">
+      <div class="pdf-modal-header">
+        <span class="pdf-modal-title" id="pdf-modal-title"></span>
+        <button type="button" class="pdf-modal-close" id="pdf-modal-close">✕ Close</button>
+      </div>
+      <div class="pdf-modal-body">
+        <iframe id="pdf-modal-frame" title="Article PDF"></iframe>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const frame = document.getElementById('pdf-modal-frame');
+  const titleEl = document.getElementById('pdf-modal-title');
+  const closeBtn = document.getElementById('pdf-modal-close');
+
+  function openPdfModal(src, title){
+    frame.src = src;
+    titleEl.textContent = title || '';
+    modal.classList.add('active');
+  }
+  function closePdfModal(){
+    modal.classList.remove('active');
+    frame.src = ''; // stop the PDF once closed
+  }
+
+  pdfLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPdfModal(link.getAttribute('href'), link.dataset.pdfTitle);
+    });
+  });
+
+  closeBtn.addEventListener('click', closePdfModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closePdfModal(); });
+})();
