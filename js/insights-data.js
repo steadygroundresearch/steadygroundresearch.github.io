@@ -451,15 +451,13 @@ const INSIGHTS = [
     learningHubOnly: false,
     hubTitle: "Beyond the Hausman Test: Choosing the Right Panel Data Model",
     fullArticlePdf: "resources/insights/pdfs/pdfs-2026/Hausman-test.pdf",
-    hubPreview: "A range of quantitative approaches can be used to analyse panel data, with fixed-effects (FE) and random-effects (RE) models among the most common. Choosing between these models is important because they make different assumptions about the relationship between unobserved unit-specific characteristics and the explanatory variables or, in other words, the factors being used to explain an outcome. This means that, the choice of model has important implications for the validity and efficiency of conclusion drawn from the analysis.</p><p>The Hausman test, introduced by Hausman (1978), is commonly used to inform the choice.</p><p>But Should the choice of a panel-data model depend primarily on the outcome of a statistical test?</p><p>This article explores that question by examining the Hausman test, including why it was developed, its purpose, strengths and limitations. It then considers the broader factors that should be considered when deciding on the right panel data model.</p>",
+    hubPreview: "A range of quantitative approaches can be used to analyse panel data, with fixed-effects (FE) and random-effects (RE) models among the most common. Choosing between these models is important because they make different assumptions about the relationship between unobserved unit-specific characteristics and the explanatory variables or, in other words, the factors being used to explain an outcome. This means that, the choice of model has important implications for the validity and efficiency of conclusion drawn from the analysis.</p><p>The Hausman test, introduced by Hausman (1978), is commonly used to inform the choice.But, should the choice of a panel-data model depend primarily on the outcome of a statistical test?</p><p>This article explores that question by examining the Hausman test, including why it was developed, its purpose, strengths and limitations. It then considers the broader factors that should be considered when deciding on the right panel data model.</p>",
     // The Learning Hub article is finished later than the homepage Insight
     // above (which was posted in August) — hubDate/hubDateSort give the
     // Learning Hub box its own, later posting date without touching
     // date/dateSort, which still correctly describe the August Insight.
     hubDate: "September 2026",
     hubDateSort: "2026-09-30"
-
-
 
   }
 
