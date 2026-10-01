@@ -461,7 +461,7 @@ const INSIGHTS = [
 
   },
 
-   {
+  {
     id: "consumer-segmentation",
     date: "October 2026",
     dateSort: "2026-10-01",
@@ -474,15 +474,6 @@ const INSIGHTS = [
     
 
   }
-
-
-
-
-
-
-
-
-
 
 
 ];
