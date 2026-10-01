@@ -465,10 +465,10 @@ const INSIGHTS = [
     id: "consumer-segmentation",
     date: "October 2026",
     dateSort: "2026-10-01",
-    title: "Consumer Online Shopping Behaviour",
-    summary: "<p>Online shopping behaviour provides valuable insights into changing consumer preferences and expectations.</p><p>The DHL 2026 E-Commerce Trends Report draws on the views of 29,000 online shoppers across 29 countries and 5,800 e-commerce businesses across 28 countries. By looking at both sides of the e-commerce market, the report highlights where shopper expectations and business practices align, and where gaps remain.</p>",
+    title: "B2C E-Commerce: What Do Consumers Want and What Do Businesses Deliver?",
+    summary: "<p>E-commerce has reshaped how consumers shop and how businesses operate. The DHL 2026 E-Commerce Trends Report examines global e-commerce from both sides of the market, drawing on the views of 29,000 online shoppers across 29 countries and 5,800 e-commerce businesses across 28 countries. It explores changing shopping behaviour and expectations across areas including cross-border commerce, delivery and returns, payments, social commerce, AI and sustainability.</p><p>The report provides insights into what consumers expect from online shopping and how businesses are responding through their e-commerce practices, highlighting areas where shopper expectations and business practices align and where gaps remain.</p>",
     category: "dataDecisions",
-    hubTeaser: "Online shopping behaviour provides important insights into how consumers are engaging with e-commerce and what they expect from businesses. These insights can help businesses and policymakers better understand changing consumer preferences, market trends and the evolving e-commerce landscape.",
+    hubTeaser: "Online shopping behaviour provides valuable insights into how consumers are engaging with e-commerce and what they expect from businesses. These insights can help businesses and policymakers better understand changing consumer preferences, market trends and the evolving e-commerce landscape.",
     sourceUrl: "https://www.dhl.com/content/dam/dhl/local/global/dhl-ecommerce/documents/pdf/g0-ec-trends-report-2026.pdf",
     subtopic: "modelSelection",
     hubLinkReady: false
