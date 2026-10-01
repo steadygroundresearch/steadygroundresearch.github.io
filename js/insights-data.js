@@ -471,7 +471,7 @@ const INSIGHTS = [
     hubTeaser: "Online shopping behaviour provides important insights into how consumers are engaging with e-commerce and what they expect from businesses. These insights can help businesses and policymakers better understand changing consumer preferences, market trends and the evolving e-commerce landscape.",
     sourceUrl: "https://www.dhl.com/content/dam/dhl/local/global/dhl-ecommerce/documents/pdf/g0-ec-trends-report-2026.pdf",
     subtopic: "decisionAnalytics",
-    hubLinkReady: false,
+    learningHubOnly: false,
     //Add other fields below this line only if a learning hub article is set//
     
   }
