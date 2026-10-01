@@ -461,13 +461,8 @@ const INSIGHTS = [
 
   },
 
-  
-
-
-
-
-
-  {id: "consumer-segmentation",
+  {
+    id: "consumer-segmentation",
     date: "October 2026",
     dateSort: "2026-10-01",
     title: "Consumer Online Shopping Behaviour",
@@ -475,7 +470,8 @@ const INSIGHTS = [
     category: "dataDecisions",
     hubTeaser: "Online shopping behaviour provides important insights into how consumers are engaging with e-commerce and what they expect from businesses. These insights can help businesses and policymakers better understand changing consumer preferences, market trends and the evolving e-commerce landscape.",
     sourceUrl: "https://www.dhl.com/content/dam/dhl/local/global/dhl-ecommerce/documents/pdf/g0-ec-trends-report-2026.pdf",
-    subtopic: "modelSelection"
+    subtopic: "modelSelection",
+    hubLinkReady: false
     //Add other fields below this line only if a learning hub article is set//
     
   }
