@@ -472,7 +472,7 @@ const INSIGHTS = [
     sourceUrl: "https://www.dhl.com/content/dam/dhl/local/global/dhl-ecommerce/documents/pdf/g0-ec-trends-report-2026.pdf",
     subtopic: "decisionAnalytics",
     learningHubOnly: false,
-    hubLinkReady: false
+    hubLinkReady: false,
     //Add other fields below this line only if a learning hub article is set//
     
   }
