@@ -475,7 +475,6 @@ const INSIGHTS = [
 
   }
 
-
 ];
 
 // Category display labels — used by the insights.html filter pills
