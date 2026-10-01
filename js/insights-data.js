@@ -459,7 +459,31 @@ const INSIGHTS = [
     hubDate: "September 2026",
     hubDateSort: "2026-09-30"
 
+  },
+
+   {
+    id: "consumer-segmentation",
+    date: "October 2026",
+    dateSort: "2026-10-01",
+    title: "Consumer Online Shopping Behaviour",
+    summary: "<p>Online shopping behaviour provides valuable insights into changing consumer preferences and expectations.</p><p>The DHL 2026 E-Commerce Trends Report draws on the views of 29,000 online shoppers across 29 countries and 5,800 e-commerce businesses across 28 countries. By looking at both sides of the e-commerce market, the report highlights where shopper expectations and business practices align, and where gaps remain.</p>",
+    category: "decisionAnalytics",
+    hubTeaser: "Online shopping behaviour provides important insights into how consumers are engaging with e-commerce and what they expect from businesses. These insights can help businesses and policymakers better understand changing consumer preferences, market trends and the evolving e-commerce landscape.",
+    sourceUrl: "https://www.dhl.com/content/dam/dhl/local/global/dhl-ecommerce/documents/pdf/g0-ec-trends-report-2026.pdf",
+   //Add other fields below this line only if a learning hub article is set//
+    
+
   }
+
+
+
+
+
+
+
+
+
+
 
 ];
 
