@@ -1997,9 +1997,6 @@
   background: #08589e;
   border-radius: 12px 12px 0 0;
   padding: 16px 22px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
   position: relative;
   overflow: hidden;
 }
@@ -2009,21 +2006,36 @@
   opacity: 0.16;
   pointer-events: none;
 }
-.ed-banner-icon{
+.ed-banner-main{
   position: relative;
   z-index: 2;
+}
+.ed-banner-top{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ed-banner-icon{
   flex-shrink: 0;
   display: flex;
 }
 .ed-banner-label{
-  position: relative;
-  z-index: 2;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 1.02rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
+}
+/* Sits beneath the label, indented to roughly align under the label text
+   (past the icon) rather than flush with the icon itself. */
+.ed-banner-sub{
+  font-family: 'Inter', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.88);
+  margin: 5px 0 0;
+  padding-left: 28px;
 }
 .ed-panel{
   background: #f0f9e8;
@@ -2031,6 +2043,18 @@
   border-top: none;
   border-radius: 0 0 12px 12px;
   padding: 22px 24px 26px;
+}
+/* "THEME" kicker — sized up from the site's usual small-label convention
+   (most kickers sit around 0.7–0.8rem) so it stands out as its own label,
+   without approaching the size of the actual Theme title beneath it. */
+.ed-theme-kicker-standalone{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2b8cbe;
+  margin: 0 0 8px;
 }
 .ed-intro-lead{
   font-family: 'Fraunces', serif;
@@ -2254,10 +2278,6 @@
 .emerging-dev{
   margin-top: 36px;
 }
-.emerging-dev .ed-theme{
-  margin-top: 28px;
-}
-
 
 .ed-insight-stack{
   display: block;
