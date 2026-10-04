@@ -334,16 +334,6 @@
 
 /* EMERGING DEVELOPMENTS — appended below iframe in Learning Hub topic modals */
 
-.ed-eyebrow{
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #2b8cbe;
-  margin: 0 0 10px;
-}
-
-
 .ed-insight-date{
   font-size: 0.78rem;
   font-weight: 700;
@@ -1995,25 +1985,69 @@
   .tier-head{ flex-wrap:wrap; }
 }
 
-/* EMERGING DEVELOPMENTS — section headline (left accent, true heading — not
-   a boxed callout) + smaller instruction line beneath it. Sized generously
-   so the whole eyebrow → headline → hint → Theme block reads as one unit. */
+/* EMERGING DEVELOPMENTS — section marker. A solid banner (same diagonal-line
+   accent + blue fill as the Services/Homepage banners elsewhere on the site)
+   gives this recurring section a clear visual anchor across all four Learning
+   Hub topics, so a reader recognises it instantly on sight. The card attached
+   beneath it is filled with the page's own light-green background (not white)
+   so it doesn't read as a second competing box sitting on top of the Theme/
+   Focus Area content that follows — the banner is the only filled element in
+   the section. */
+.ed-banner{
+  background: #08589e;
+  border-radius: 12px 12px 0 0;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.ed-banner-accent{
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  pointer-events: none;
+}
+.ed-banner-icon{
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  display: flex;
+}
+.ed-banner-label{
+  position: relative;
+  z-index: 2;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.ed-panel{
+  background: #f0f9e8;
+  border: 1px solid #a8ddb5;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 22px 24px 26px;
+}
 .ed-intro-lead{
   font-family: 'Fraunces', serif;
   font-weight: 600;
-  font-size: 1.55rem;
+  font-size: 1.42rem;
   color: #08589e;
   border-left: 3px solid #2b8cbe;
   padding-left: 18px;
-  margin: 6px 0 8px;
+  margin: 0 0 8px;
   line-height: 1.3;
 }
 .ed-intro-hint{
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   font-style: italic;
   color: #6b7280;
   padding-left: 21px;
-  margin: 0 0 30px;
+  margin: 0;
 }
 
 /* Theme heading — a mono "Theme:" kicker inline with a serif title, sized
@@ -2218,9 +2252,10 @@
    and .ed-insight-stack wrapping plain h5/p inside .ed-subtopic — adding the rules
    those actual class names need, alongside (not replacing) the earlier additions. */
 .emerging-dev{
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 1px solid #a8ddb5;
+  margin-top: 36px;
+}
+.emerging-dev .ed-theme{
+  margin-top: 28px;
 }
 
 
