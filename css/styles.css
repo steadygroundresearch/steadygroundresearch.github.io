@@ -958,15 +958,12 @@
       background:rgba(8,88,158,0.25);
       align-self:stretch;
     }
-    .sector-number{
-      font-family:'Fraunces', serif;
-      font-size:2.8rem;
-      font-weight:700;
-      color:rgba(255,255,255,0.75);
-      line-height:1;
+    .sector-icon{
       display:block;
-      margin-bottom:4px;
+      color:rgba(255,255,255,0.75);
+      margin-bottom:10px;
     }
+    .sector-icon svg{ display:block; }
     .sector-col h3{
       color:#08589e;
       font-size:1.35rem;
@@ -2033,7 +2030,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.86rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.88);
+  color: #ffffff;
   margin: 5px 0 0;
   padding-left: 28px;
 }
@@ -2042,18 +2039,20 @@
   border: 1px solid #a8ddb5;
   border-top: none;
   border-radius: 0 0 12px 12px;
-  padding: 22px 24px 26px;
+  padding: 14px 24px 26px;
 }
 /* "THEME" kicker — sized up from the site's usual small-label convention
    (most kickers sit around 0.7–0.8rem) so it stands out as its own label,
-   without approaching the size of the actual Theme title beneath it. */
+   without approaching the size of the actual Theme title beneath it. Uses
+   the site's strongest brand blue rather than the lighter accent blue, for
+   clearer emphasis against the light-green card. */
 .ed-theme-kicker-standalone{
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.86rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #2b8cbe;
+  color: #08589e;
   margin: 0 0 8px;
 }
 .ed-intro-lead{
