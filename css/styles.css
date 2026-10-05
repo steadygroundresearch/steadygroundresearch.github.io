@@ -959,11 +959,15 @@
       align-self:stretch;
     }
     .sector-icon{
-      display:block;
-      color:rgba(255,255,255,0.75);
-      margin-bottom:10px;
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.55);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:12px;
     }
-    .sector-icon svg{ display:block; }
     .sector-col h3{
       color:#08589e;
       font-size:1.35rem;
