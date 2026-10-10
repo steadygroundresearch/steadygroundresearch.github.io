@@ -470,11 +470,34 @@ const INSIGHTS = [
     category: "dataDecisions",
     hubTeaser: "Online shopping behaviour provides valuable insights into how consumers are engaging with e-commerce and what they expect from businesses. These insights can help businesses and policymakers better understand changing consumer preferences, market trends and the evolving e-commerce landscape.",
     sourceUrl: "https://www.dhl.com/content/dam/dhl/local/global/dhl-ecommerce/documents/pdf/g0-ec-trends-report-2026.pdf",
-    subtopic: "modelSelection",
+    subtopic: "decisionAnalytics",
+    hubLinkReady: false
+    //Add other fields below this line only if a learning hub article is set//
+    
+  },
+
+   
+  {
+    id: "stablecoins",
+    date: "October 2026",
+    dateSort: "2026-10-11",
+    title: "Will Stablecoins Scale As a Payment Option?",
+    summary: "<p>Stablecoins have been promoted as an innovated payment option with the potential to transform how payments are made. Nevertheless, the growing attention surrounding this innovation has yet to translate into widespread business adoption.</p><p>In July 2025, the United States passed the GENIUS Act, establishing a federal regulatory framework for payment stablecoins intended to ease supply-side constraints. However, easing these constraints does not necessarily translate into greater demand.</p><p>A recent Cleveland Fed survey of 148 firms in its Fourth District found limited interest in adopting stablecoins for transactions. The firms cited several reasons for their reluctance, including limited demand from customers and suppliers, uncertainty about the benefits, satisfaction with existing payment methods, and a desire to see how the market develops.</p>",
+    category: "financialStability",
+    hubTeaser: "Widespread adoption of stablecoins may require more than clear regulatory rules and availability. It may also require a demonstrable benefit, confidence that the risks are manageable, and time for businesses to assess their value.",
+    sourceUrl: "https://www.clevelandfed.org/publications/economic-commentary/2026/ec-202622-will-us-firms-adopt-stablecoins",
+    subtopic: "digitalAssets",
     hubLinkReady: false
     //Add other fields below this line only if a learning hub article is set//
     
   }
+
+
+
+
+
+
+
 
 ];
 
