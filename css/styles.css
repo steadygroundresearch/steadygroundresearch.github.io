@@ -414,8 +414,8 @@
 
 /* PDF MODAL — iOS installed-app fix only. Never created unless
    window.navigator.standalone is true (see script.js). On every other
-   device/browser, .ed-full-article-pdf-link stays a plain 
-   target="_blank"> and opens exactly as it does today. */
+   device/browser, the PDF link stays a normal new-tab link and opens
+   exactly as it does today. */
 .pdf-modal{
   display:none; position:fixed; inset:0; background:rgba(0,0,0,.72); z-index:3000;
   justify-content:center; align-items:center; padding:20px;
@@ -602,6 +602,7 @@
     .insight-summary[data-clamped="true"]{
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
