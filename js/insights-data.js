@@ -470,7 +470,6 @@ const INSIGHTS = [
     category: "dataDecisions",
     hubTeaser: "Online shopping behaviour provides valuable insights into how consumers are engaging with e-commerce and what they expect from businesses. These insights can help businesses and policymakers better understand changing consumer preferences, market trends and the evolving e-commerce landscape.",
     sourceUrl: "https://www.dhl.com/content/dam/dhl/local/global/dhl-ecommerce/documents/pdf/g0-ec-trends-report-2026.pdf",
-    subtopic: "decisionAnalytics",
     hubLinkReady: false
     //Add other fields below this line only if a learning hub article is set//
     
@@ -486,7 +485,6 @@ const INSIGHTS = [
     category: "financialStability",
     hubTeaser: "Widespread adoption of stablecoins may require more than clear regulatory rules and availability. It may also require a demonstrable benefit, confidence that the risks are manageable, and time for businesses to assess their value.",
     sourceUrl: "https://www.clevelandfed.org/publications/economic-commentary/2026/ec-202622-will-us-firms-adopt-stablecoins",
-    subtopic: "digitalAssets",
     hubLinkReady: false
     //Add other fields below this line only if a learning hub article is set//
     
