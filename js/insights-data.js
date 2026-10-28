@@ -430,9 +430,8 @@ const INSIGHTS = [
     fullArticlePdf: "resources/insights/pdfs/pdfs-2026/cash-in-use.pdf",
     hubPreview: "For years, the rise of digital payments has fuelled predictions that cash would eventually disappear.</p><p>In many economies, this transition is already well advanced. Recent evidence suggests that cash is accounting for a declining share of everyday transactions, while the use of digital payment methods continues to expand.</p><p>But is declining transactional use of cash equivalent to the disappearance of cash? This article examines this question by looking at the role of cash across the euro area, the United States, Sweden, India and South Africa, economics that differ in their payment systems, levels of financial inclusion and patterns of cash use.</p>",
     // The Learning Hub article is finished later than the homepage Insight
-    // above (which was posted in August) — hubDate/hubDateSort give the
-    // Learning Hub box its own, later posting date without touching
-    // date/dateSort, which still correctly describe the August Insight.
+    // above — hubDate/hubDateSort give the
+    // Learning Hub box its own, later posting date without touching date/dateSort.
     hubDate: "September 2026",
     hubDateSort: "2026-09-03"
   },
@@ -453,9 +452,8 @@ const INSIGHTS = [
     fullArticlePdf: "resources/insights/pdfs/pdfs-2026/Hausman-test.pdf",
     hubPreview: "A range of quantitative approaches can be used to analyse panel data, with fixed-effects (FE) and random-effects (RE) models among the most common. Choosing between these models is important because they make different assumptions about the relationship between unobserved unit-specific characteristics and the explanatory variables or, in other words, the factors being used to explain an outcome. This means that, the choice of model has important implications for the validity and efficiency of the conclusions drawn from the analysis.</p><p>The Hausman test, introduced by Hausman (1978), is commonly used to inform the choice but, should the choice of a panel-data model depend primarily on the outcome of a statistical test?</p><p>This article explores that question by examining the Hausman test, including why it was developed, its purpose, strengths and limitations. It then considers the broader factors that should be considered when deciding on the right panel data model.</p>",
     // The Learning Hub article is finished later than the homepage Insight
-    // above (which was posted in August) — hubDate/hubDateSort give the
-    // Learning Hub box its own, later posting date without touching
-    // date/dateSort, which still correctly describe the August Insight.
+    // above — hubDate/hubDateSort give the
+    // Learning Hub box its own, later posting date without touching date/dateSort.
     hubDate: "September 2026",
     hubDateSort: "2026-09-30"
 
@@ -470,9 +468,18 @@ const INSIGHTS = [
     category: "dataDecisions",
     hubTeaser: "Online shopping behaviour provides valuable insights into how consumers are engaging with e-commerce and what they expect from businesses. These insights can help businesses and policymakers better understand changing consumer preferences, market trends and the evolving e-commerce landscape.",
     sourceUrl: "https://www.dhl.com/content/dam/dhl/local/global/dhl-ecommerce/documents/pdf/g0-ec-trends-report-2026.pdf",
-    hubLinkReady: false
+    hubLinkReady: true,
     //Add other fields below this line only if a learning hub article is set//
-    
+    subtopic: "decisionAnalytics",
+    learningHubOnly: false,
+    hubTitle: "Customer Segmentation: Is It a Necessary Business Decision?",
+    fullArticlePdf: "resources/insights/pdfs/pdfs-2026/CustomerSegmentation.pdf",
+    hubPreview: "Many businesses are encouraged to adopt customer segmentation. Its use has been documented across diverse sectors, including entertainment, retail, hospitality, and travel, and is widely advocated as an important business decision, both in academic research and by management consultancies. Nevertheless, popularity and the growing ease of segmenting customers do not settle a more basic question: Is customer segmentation a necessary business decision?</p><p>To address this question, this article examines the benefits of customer segmentation, how digitalisation has changed it, and its limitations. It then considers whether customer segmentation is a necessary business decision.</p>",
+    // The Learning Hub article is finished later than the homepage Insight
+    // above — hubDate/hubDateSort give the
+    // Learning Hub box its own, later posting date without touching date/dateSort.
+    hubDate: "October 2026",
+    hubDateSort: "2026-10-28"
   },
 
    
