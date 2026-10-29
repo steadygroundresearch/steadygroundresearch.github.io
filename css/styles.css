@@ -334,7 +334,11 @@
 
 /* EMERGING DEVELOPMENTS — appended below iframe in Learning Hub topic modals */
 
+/* Always sits on its own line directly above the article title, whatever the
+   title's length (flex-basis:100% forces the line break inside the flex
+   summary row). */
 .ed-insight-date{
+  flex: 0 0 100%;
   font-size: 0.78rem;
   font-weight: 700;
   color: #2b8cbe;
@@ -2357,7 +2361,7 @@
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 4px 10px;
 }
 .ed-insight-box summary::-webkit-details-marker{ display: none; }
 .ed-insight-box summary:hover{ opacity: 0.75; }
