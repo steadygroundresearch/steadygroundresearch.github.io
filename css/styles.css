@@ -2585,7 +2585,7 @@
 /* ============================================================
    HOMEPAGE UPDATE — paste at the very END of css/styles.css
    (1) services cards: equal height, "Explore" links aligned
-   (2) page background photo: top band only, fading into the green
+   (2) page background photo: top-right corner, fading into the green
    ============================================================ */
 
 /* (1) Card contents stack in a column so the link can sit at the bottom
@@ -2608,25 +2608,45 @@
   color: #08589e;
 }
 
-/* (2) Photo band behind the top of the page only. Absolutely positioned
-   against the page (body isn't positioned), full viewport width, 520px
-   tall, sitting behind all content (z-index:-1). The gradient layer fades
-   the photo into the page's #f0f9e8 green, so everything below the band
-   stays plain green. Adjust the three rgba(...) alphas to make the photo
-   stronger (lower numbers) or softer (higher numbers). */
+/* (2) Photo in the top-RIGHT corner only. Absolutely positioned against
+   the page (body isn't positioned), anchored to the top-right of the
+   viewport, behind all content (z-index:-1). A light green veil keeps text
+   readable; the mask fades the photo out toward its left and bottom edges
+   so it melts into the green instead of showing a hard box. Everything
+   else on the page stays plain #f0f9e8 green.
+   Tweak: width/height = size of the photo area; the 0.62 veil = how strong
+   the photo shows (lower = stronger photo); the 0% / 45% stops = how far
+   in from the left the photo fades. */
 body::before{
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 520px;
+  right: 0;
+  width: 62%;
+  max-width: 1000px;
+  height: 500px;
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(to bottom,
-      rgba(240,249,232,0.62) 0%,
-      rgba(240,249,232,0.82) 30%,
-      #f0f9e8 100%),
+    linear-gradient(rgba(240,249,232,0.62), rgba(240,249,232,0.62)),
     url("../images/page-bg.jpg") center 35% / cover no-repeat;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 45%),
+    linear-gradient(to bottom, #000 55%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 45%),
+    linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* On phones the layout stacks, so let the photo span the width, shorter. */
+@media (max-width: 768px){
+  body::before{
+    width: 100%;
+    max-width: none;
+    height: 320px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
+  }
 }
