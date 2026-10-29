@@ -2626,7 +2626,7 @@ body::before{
   height: 640px;
   z-index: -1;
   pointer-events: none;
-  background: url("../images/page-bg") right top / contain no-repeat;
+  background: url("../images/page-bg.jpg") right top / contain no-repeat;
   opacity: 0.38;
   -webkit-mask-image:
     linear-gradient(to right, transparent 0%, #000 30%),
