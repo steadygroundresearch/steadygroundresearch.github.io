@@ -2603,10 +2603,13 @@
 }
 .track-card .track-focus-label{
   margin: 0 0 8px;
-  font-size: 0.93rem;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
   font-weight: 700;
-  color: #08589e;
+  font-size: 1rem;
 }
+ .track-card.light .track-focus-label{ color: #374151; }
+ .track-card.dark  .track-focus-label{ color: #1f2937; }
 
 /* (2) Desk photo (laptop, notebook, papers) in the top-RIGHT corner. The
    room around the items has been removed from the image itself
