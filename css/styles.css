@@ -2582,3 +2582,51 @@
   text-decoration:none;
 }
 .insight-source:hover{ color:#08589e; text-decoration:underline; }
+/* ============================================================
+   HOMEPAGE UPDATE — paste at the very END of css/styles.css
+   (1) services cards: equal height, "Explore" links aligned
+   (2) page background photo: top band only, fading into the green
+   ============================================================ */
+
+/* (1) Card contents stack in a column so the link can sit at the bottom
+   of each card; the two cards are already equal height (track-grid
+   stretches them). margin-top:auto pushes the link down to the card's
+   bottom edge, so both "Explore..." links share one line. */
+.track-card{
+  display: flex;
+  flex-direction: column;
+}
+.track-card ul{ margin-bottom: 24px; }
+.track-card a.track-link{
+  margin-top: auto;
+  align-self: flex-start;
+}
+.track-card .track-focus-label{
+  margin: 0 0 8px;
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: #08589e;
+}
+
+/* (2) Photo band behind the top of the page only. Absolutely positioned
+   against the page (body isn't positioned), full viewport width, 520px
+   tall, sitting behind all content (z-index:-1). The gradient layer fades
+   the photo into the page's #f0f9e8 green, so everything below the band
+   stays plain green. Adjust the three rgba(...) alphas to make the photo
+   stronger (lower numbers) or softer (higher numbers). */
+body::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 520px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom,
+      rgba(240,249,232,0.62) 0%,
+      rgba(240,249,232,0.82) 30%,
+      #f0f9e8 100%),
+    url("../images/page-bg.jpg") center 35% / cover no-repeat;
+}
