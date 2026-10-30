@@ -2622,7 +2622,7 @@
 body::before{
   content: "";
   position: absolute;
-  top: 0;
+  top: 64px;
   right: 0;
   width: 52%;
   max-width: 820px;
@@ -2631,6 +2631,7 @@ body::before{
   pointer-events: none;
   background: url("../images/page-bg.jpeg") right top / contain no-repeat;
   opacity: 0.35;
+  mix-blend-mode: multiply;
   -webkit-mask-image:
     linear-gradient(to right, transparent 0%, #000 30%),
     linear-gradient(to bottom, #000 55%, transparent 100%);
@@ -2640,10 +2641,11 @@ body::before{
     linear-gradient(to bottom, #000 55%, transparent 100%);
   mask-composite: intersect;
 }
-
+ 
 /* On phones the layout stacks, so let the image span the width, shorter. */
 @media (max-width: 768px){
   body::before{
+    top: 64px;
     width: 100%;
     max-width: none;
     height: 340px;
@@ -2652,3 +2654,4 @@ body::before{
     mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
   }
 }
+ 
