@@ -2654,4 +2654,58 @@ body::before{
     mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
   }
 }
- 
+ /* ===== Eye-catching text: "Who We Work With" + Services cards =====
+   Paste ONCE at the very END of css/styles.css (after the label and
+   photo blocks). */
+
+/* Who We Work With — colour-coded columns (teal = businesses, blue =
+   financial institutions, matching the Services page banners).
+   Two equal columns with the same inner spacing, and stretched to equal
+   height so both accent borders are the same length. */
+.sector-grid{
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: stretch;
+}
+.sector-divider{ display: none; }
+.sector-col{
+  padding: 2px 16px 2px 22px;
+  border-left: 4px solid #3ac0b2;
+}
+.sector-col.sector-financial{ border-left-color: #1a97d5; }
+.sector-lead{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: #08589e;
+  margin: 0 0 10px;
+}
+.sector-industries strong{ color: #08589e; font-style: normal; font-weight: 700; }
+@media (max-width: 768px){
+  .sector-grid{ grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* Services cards — emphasised key phrase, arrow markers, thin dividers */
+.track-card p.track-desc strong{ color: #08589e; font-weight: 700; }
+.track-card ul{ list-style: none; padding-left: 0; }
+.track-card li{
+  position: relative;
+  padding: 9px 0 9px 26px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(8,88,158,0.18);
+}
+.track-card li:last-child{ border-bottom: none; }
+.track-card li::before{
+  content: "→";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  font-weight: 700;
+  color: #1a97d5;
+}
+.track-card.light li::before{ color: #3ac0b2; }
+.track-card li strong{ color: #08589e; font-weight: 700; }
+
+/* "We Focus on:" label — no longer bold (still italic, Fraunces) */
+.track-card .track-focus-label{ font-weight: 500; }
