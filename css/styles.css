@@ -2562,11 +2562,10 @@ body::before{
 }
 
 /* Services cards — intro text is regular weight in one dark grey on both
-   cards (the <strong> tags in the HTML are kept but styled like normal
-   text); the list below has arrow markers and thin dividers. */
+   cards; only "Our solutions include:" is bold (a <strong> tag in the
+   HTML). The list below has arrow markers and thin dividers. */
 .track-card.light p.track-desc,
 .track-card.dark p.track-desc{ color: #374151; }
-.track-card p.track-desc strong{ color: inherit; font-weight: 400; }
 .track-card ul{ list-style: none; padding-left: 0; }
 .track-card li{
   position: relative;
