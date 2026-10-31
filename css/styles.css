@@ -2663,8 +2663,14 @@ body::before{
    separator between the two columns (the per-column accent borders and the
    nudge on the financial column are gone). Columns stretch to equal height
    so the line runs the full height. */
+/* 0.9fr / 1.1fr = the left (Businesses) column is slightly narrower and
+   the right (Financial Institutions) column slightly wider, because the
+   financial description is longer. This moves the line a little LEFT and
+   lets both descriptions finish on about the same line. Tune the two
+   numbers: e.g. 0.85fr / 1.15fr for more room on the right, or 1fr / 1fr
+   to go back to equal halves. */
 .sector-grid{
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 0.9fr auto 1.1fr;
   gap: 48px;
   align-items: stretch;
 }
@@ -2707,7 +2713,11 @@ body::before{
 }
 
 /* Services cards — emphasised key phrase, arrow markers, thin dividers */
-.track-card p.track-desc strong{ color: #08589e; font-weight: 700; }
+/* Intro text: all regular weight, one dark grey on both cards (the
+   <strong> tags in the HTML are kept but styled like normal text). */
+.track-card.light p.track-desc,
+.track-card.dark p.track-desc{ color: #374151; }
+.track-card p.track-desc strong{ color: inherit; font-weight: 400; }
 .track-card ul{ list-style: none; padding-left: 0; }
 .track-card li{
   position: relative;
@@ -2735,3 +2745,5 @@ body::before{
   font-weight: 400;
   font-size: 0.93rem;
 }
+.track-card.light .track-focus-label,
+.track-card.dark .track-focus-label{ color: #374151; }
