@@ -2741,7 +2741,7 @@ body::before{
    text, regular weight; italic is the only difference. */
 .track-card .track-focus-label{
   font-family: inherit;
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   font-size: 0.93rem;
 }
