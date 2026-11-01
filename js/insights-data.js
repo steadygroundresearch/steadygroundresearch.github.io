@@ -142,12 +142,15 @@ const INSIGHTS = [
     category: "macroprudential",
     hubTeaser: " Explore how frontier AI is redefining cyber risk and what it could mean for the resilience of the financial system.",
     sourceUrl: "https://www.bis.org/publ/bisbull129.pdf",
+    hubLinkReady: false, // remove this line once the Learning Hub article is ready
     learningHubOnly: false,
     subtopic: "systemicInterconnectedness",
     // TO DO: hubPreview still reads as commentary on the BIS paper. Replace it
     // with a hook for an original piece, then add fullArticlePdf.
     hubPreview: "The increasing use of AI highlights why macroprudential policy focuses on safeguarding the stability of the financial system as a whole, rather than the safety of individual institutions. Even if individual firms manage AI responsibly, widespread reliance on similar models, shared infrastructure, or common technology providers can create vulnerabilities that extend across the financial system. Understanding these system-wide risks is essential as AI becomes more deeply embedded in financial services."
+    
   },
+
 
   {
     id: "CBDC-Note-2026-07",
