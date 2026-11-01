@@ -137,7 +137,7 @@ const INSIGHTS = [
     id: "mythos-ai-cyber-risk-2026-07",
     date: "July 2026",
     dateSort: "2026-07-10",
-    title: "Can AI become systemic cyber risk?",
+    title: "Can AI become a systemic cyber risk?",
     summary: "<p>The concern with AI in finance isn't just what happens if one firm's model fails, it's what happens when many institutions lean on the same handful of AI providers, models, or infrastructure at once. A BIS Bulletin looks at how that kind of shared reliance could turn an isolated AI problem into a system-wide one.</p><p>Even firms that manage their own AI responsibly can still be exposed if the wider market becomes dependent on the same small set of tools, since a single outage or flaw could then ripple across many institutions at the same time.</p>",
     category: "macroprudential",
     hubTeaser: " Explore how frontier AI is redefining cyber risk and what it could mean for the resilience of the financial system.",
