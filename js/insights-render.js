@@ -20,7 +20,7 @@ const CATEGORY_PREFIX = { financialStability: 'fs', macroprudential: 'mp', panel
 // doesn't match. Runs once at load, before anything is rendered.
 // ---------------------------------------------------------------
 const VALID_SUBTOPICS_BY_CATEGORY = {
-  financialStability: ['cbdc', 'digitalAssets'],
+  financialStability: ['cbdc', 'digitalAssets', 'cash'],
   macroprudential: ['nbfi', 'systemicInterconnectedness'],
   panelData: ['modelSelection', 'interpretingResults'],
   dataDecisions: ['performanceMeasurement', 'decisionAnalytics']
@@ -39,6 +39,9 @@ function validateInsightsData() {
       if (!item.hubTeaser) {
         console.warn(`[insights-data] "${item.id}" has a subtopic set but no hubTeaser — falling back to the generic teaser text.`);
       }
+    }
+    if (item.learningHubOnly && item.hubLinkReady === false) {
+      console.warn(`[insights-data] "${item.id}" has learningHubOnly:true and hubLinkReady:false, so it won't appear anywhere on the site.`);
     }
     if (item.learningHubOnly && !item.subtopic) {
       console.warn(`[insights-data] "${item.id}" has learningHubOnly:true but no subtopic — it won't appear anywhere on the site.`);
@@ -147,12 +150,12 @@ function hubSortedInsights(list) {
 // insightAccordionHTML (archive), so the two treatments can never drift
 // out of sync with each other.
 //
-// The rule: whether "Click for a broader perspective →" appears is driven
-// entirely by item.subtopic — set it, and the item is understood to have
-// a genuine connection to a Learning Hub focus area/key topic, worth
-// giving the reader as a second path. Leave it out, and the piece is
-// treated as Insight-only: nothing to draw a broader perspective from,
-// just the source.
+// The rules:
+//  - The teaser paragraph shows whenever item.hubTeaser is set, whether or
+//    not the Learning Hub article exists yet (and without needing subtopic).
+//  - "Click for a broader perspective →" needs BOTH item.subtopic AND a
+//    ready Learning Hub piece (hubLinkReady not set to false). Leave out
+//    subtopic and the piece is Insight-only: just the source link.
 //
 // The source link's own wording changes depending on whether the hub
 // link is present alongside it: "Prefer the primary source?" only makes
@@ -162,18 +165,21 @@ function hubSortedInsights(list) {
 // back to a plain "Read the full paper →" instead.
 // ---------------------------------------------------------------
 function insightHubTeaserHTML(item) {
+  if (item.hubTeaser) {
+    return `<p class="insight-hub-teaser-text">${item.hubTeaser}</p>`;
+  }
+  // Fallback kept from before: subtopic set but no hubTeaser written.
   return item.subtopic
-    ? `<p class="insight-hub-teaser-text">${item.hubTeaser || 'This piece also connects to a topic in the Learning Hub.'}</p>`
+    ? `<p class="insight-hub-teaser-text">This piece also connects to a topic in the Learning Hub.</p>`
     : '';
 }
 
 function insightLinksRowHTML(item) {
-  // hubLinkReady defaults to true — only an explicit "false" suppresses
-  // the "Click for a broader perspective" LINK specifically. The teaser
-  // paragraph above (insightHubTeaserHTML) is unaffected by this flag on
-  // purpose: it's homepage-only content that's fine to show as soon as
-  // subtopic is set, announcing a forthcoming Learning Hub connection —
-  // hubLinkReady only controls whether that connection is clickable yet.
+  // hubLinkReady defaults to true — only an explicit "false" means the
+  // Learning Hub article isn't ready. That suppresses the "Click for a
+  // broader perspective" LINK here, and also keeps the entry out of its
+  // Learning Hub stack (see renderEmergingDevInsights). The teaser
+  // paragraph is unaffected: it shows whenever hubTeaser is set.
   const hubLink = (item.subtopic && item.hubLinkReady !== false)
     ? `<a class="insight-related" href="learning.html#ed-insight-${CATEGORY_PREFIX[item.category]}-${item.subtopic}">Click for a broader perspective →</a>`
     : '';
@@ -370,11 +376,16 @@ function renderEmergingDevInsights() {
   const stacks = document.querySelectorAll('.ed-insight-stack[id^="ed-insight-"]');
   if (!stacks.length) return;
 
-  // Group insights by category+subtopic — entries with no subtopic are
-  // Insights-only and are intentionally excluded from the Learning Hub
+  // Group insights by category+subtopic. Two kinds of entry are
+  // intentionally left out of the Learning Hub:
+  //  - entries with no subtopic (Insight-only), and
+  //  - entries marked hubLinkReady:false, whose Learning Hub article hasn't
+  //    been written yet. Without this check they would appear here showing
+  //    the homepage summary as if it were the article's Preview.
   const grouped = {};
   INSIGHTS.forEach(item => {
     if (!item.subtopic) return;
+    if (item.hubLinkReady === false) return;
     const key = `${CATEGORY_PREFIX[item.category]}-${item.subtopic}`;
     (grouped[key] = grouped[key] || []).push(item);
   });

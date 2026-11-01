@@ -19,13 +19,14 @@
 
   1. Insight only (homepage + archive; never in the Learning Hub)
      Add:  sourceUrl
-     Do NOT add hubTeaser or subtopic.
+     Leave out subtopic.
      Example: "AI-adoption-risks-2026-07"
 
   2. Insight now, Learning Hub article planned but not written yet
      Add:  sourceUrl, hubTeaser, subtopic, hubLinkReady: false
-     The teaser shows on the homepage card, but the "Click for a broader
-     perspective" link stays hidden until the article is ready.
+     The homepage/archive card shows everything, including the teaser. The
+     "Click for a broader perspective" link stays hidden, and the entry is
+     kept out of the Learning Hub, until you delete hubLinkReady: false.
      Example: "stablecoins"
 
   3. Insight plus a finished Learning Hub article
@@ -59,8 +60,10 @@
   - category:  "financialStability" | "macroprudential" | "panelData"
                | "dataDecisions"
   - hubTeaser: one sentence naming the specific connection to the Learning
-               Hub topic, shown on the homepage/archive card. Set it whenever
-               subtopic is set (a generic line appears if it is missing).
+               Hub topic. Shown on the homepage/archive card whenever it is
+               set, even if the Learning Hub article doesn't exist yet. Write
+               one whenever subtopic is set (a generic line appears if it is
+               missing).
   - sourceUrl: link to the external paper, shown as "Read the full paper →"
                on the homepage/archive card only.
 
@@ -70,10 +73,12 @@
                for an Insight-only piece.
   - learningHubOnly: true hides the entry from the homepage and archive.
                Requires subtopic.
-  - hubLinkReady: false hides ONLY the "Click for a broader perspective" link
-               on the homepage/archive card (the teaser still shows). The
-               entry still appears in its Learning Hub stack with just the
-               Preview text. Delete the line once the article is ready.
+  - hubLinkReady: false means the Learning Hub article isn't ready yet. It
+               hides the "Click for a broader perspective" link on the
+               homepage/archive card AND keeps the entry out of its Learning
+               Hub stack, so no half-finished box appears there. The teaser
+               still shows on the card. Delete the line once the article is
+               ready and both appear.
   - hubTitle:  headline in the Learning Hub box. Falls back to title.
   - hubPreview: text under "Preview:" in the Learning Hub box. This is the
                hook for your own article, not a summary of the external
