@@ -151,7 +151,6 @@ const INSIGHTS = [
     
   },
 
-
   {
     id: "CBDC-Note-2026-07",
     date: "August 2026",
